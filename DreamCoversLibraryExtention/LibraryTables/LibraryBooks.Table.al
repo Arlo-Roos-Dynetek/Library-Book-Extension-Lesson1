@@ -180,8 +180,16 @@ table 50120 Library
     end;
 
     trigger OnModify()
+    //var
+       // LiBrary: Record Library
     begin
 
+    //    if Rec.Prequel <> xRec.Prequel then
+    //    begin
+    //     LiBrary.SetRange(BookID,Rec.PrequelID);
+    //     LiBrary.FindFirst();
+    //     LiBrary.Sequel := Rec.BookID;
+    //    end;
     end;
 
     trigger OnDelete()

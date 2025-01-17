@@ -2,9 +2,9 @@ page 50124 "Rent Book"
 {
     PageType = Card;
     ApplicationArea = All;
-    UsageCategory = Administration;
+    UsageCategory = Documents;
     SourceTable = Library;
-    
+
     layout
     {
         area(Content)
@@ -14,35 +14,44 @@ page 50124 "Rent Book"
                 field(Title; Rec.Title)
                 {
                     Editable = false;
-                    
+
                 }
                 field(Author; Rec.Author)
                 {
                     Editable = false;
                 }
-                field(Rented; Rec.Rented)
+                
+                field("Customer Name";Rec."Customer Name")
                 {
-                    Editable = true;
+
                 }
             }
         }
     }
-    
+
     actions
     {
         area(Processing)
         {
             action(ActionName)
             {
-                
+
                 trigger OnAction()
                 begin
-                    
+
                 end;
             }
         }
     }
-    
-    var
-        myInt: Integer;
+
+    // trigger OnOpenPage()
+    // var
+    // ThisPage: Page "Rent Book";
+    // begin
+    //     if rec.Rented then 
+    //     begin
+    //     // ThisPage.Close();
+    //      // Page.RunModal(Page::"List Of Books", Rec);
+    //     end;
+    // end;
 }

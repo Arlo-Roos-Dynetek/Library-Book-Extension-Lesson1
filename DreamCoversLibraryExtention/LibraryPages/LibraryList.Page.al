@@ -12,12 +12,12 @@ page 50120 "List Of Books"
         {
             repeater("List of Books")
             {
-                // field(BookID; Rec.BookID)
-                // {
-                //     Editable = true;
-                //   //  TableRelation = Library.BookID;
+                field(BookID; Rec.BookID)
+                {
+                    Visible = false;
+                    //  TableRelation = Library.BookID;
 
-                // }
+                }
 
                 field(Title; Rec.Title)
                 {
@@ -32,39 +32,8 @@ page 50120 "List Of Books"
                 {
                     Editable = true;
                 }
-                field(Series; Rec.Series)
-                {
-                    ApplicationArea = All;
-                }
+
                 field(Genre; Rec.Genre)
-                {
-                    ApplicationArea = All;
-                }
-                field(Publisher; Rec.Publisher)
-                {
-                    ApplicationArea = All;
-                }
-                field("Book Price"; Rec."Book Price")
-                {
-                    ApplicationArea = All;
-                }
-                field("Publication Date"; Rec."Publication Date")
-                {
-                    ApplicationArea = All;
-                }
-                field(Pages; Rec.Pages)
-                {
-                    ApplicationArea = All;
-                }
-                field(Prequel; Rec.Prequel)
-                {
-                    ApplicationArea = All;
-                }
-                field(Sequel; Rec.Sequel)
-                {
-                    ApplicationArea = All;
-                }
-                field("Customer Name"; Rec."Customer Name")
                 {
                     ApplicationArea = All;
                 }
@@ -82,13 +51,57 @@ page 50120 "List Of Books"
         {
             action("Most Rented")
             {
-
+                Image = AvailableToPromise;
                 trigger OnAction()
                 var
                     MostRented: Codeunit "Most Rented";
                 begin
                     MostRented.Run();
                     Page.RunModal(Page::"Rent Book", Rec);
+                end;
+            }
+            action("Rent Book")
+            {
+                Image = AddWatch;
+                trigger OnAction()
+                var
+                    rentCode: Codeunit "Rent Book";
+                begin
+                    if Rec.Rented = false then begin
+
+                        rentCode.ValdateRentInfo(Rec);
+                    end
+                    else
+                        Message('Sorry, this book is already rented :(');
+                end;
+            }
+            action("Add Book")
+            {
+                Image = AddContacts;
+                trigger OnAction()
+                begin
+                    Codeunit.Run(Codeunit::"Add books code");
+                end;
+            }
+            action("Filter: Published in past 2 years")
+            {
+                Image = Filter;
+                trigger OnAction()
+                var
+                    FilterCode: Codeunit "Filter With Dates";
+                begin
+                    FilterCode.FilterDates(Rec);
+                    CurrPage.Update();
+                end;
+            }
+            action("Add Sequel")
+            {
+                Image = Add;
+                trigger OnAction()
+                var
+                    AddSequel: Codeunit "SequelCode";
+                begin
+                    AddSequel.Navigate_AddSequel(Rec);
                 end;
             }
         }
