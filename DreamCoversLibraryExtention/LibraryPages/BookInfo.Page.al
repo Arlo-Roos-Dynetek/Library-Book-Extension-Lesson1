@@ -2,7 +2,7 @@ page 50121 "Book Info"
 {
     PageType = Card;
     ApplicationArea = All;
-    UsageCategory = Documents;
+    UsageCategory = None;
     SourceTable = Library;
 
     layout
@@ -11,7 +11,7 @@ page 50121 "Book Info"
         {
             group("Main Details")
             {
-                field(BookID; Rec.BookID)
+                field(BookID; Rec."Book ID")
                 {
                     ApplicationArea = All;
                 }
@@ -70,21 +70,5 @@ page 50121 "Book Info"
         }
     }
 
-    actions
-    {
-        area(Processing)
-        {
-            action(ActionName)
-            {
 
-                trigger OnAction()
-                begin
-
-                end;
-            }
-        }
-    }
-
-    var
-        myInt: Integer;
 }

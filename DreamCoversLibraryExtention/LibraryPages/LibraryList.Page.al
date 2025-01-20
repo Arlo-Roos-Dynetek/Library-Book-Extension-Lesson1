@@ -5,6 +5,7 @@ page 50120 "List Of Books"
     Caption = 'Library Page';
     SourceTable = Library;
     CardPageID = "Book Info";
+    UsageCategory = Lists;
 
     layout
     {
@@ -12,14 +13,14 @@ page 50120 "List Of Books"
         {
             repeater("List of Books")
             {
-                field(BookID; Rec.BookID)
+                field(BookID; Rec."Book ID")
                 {
                     Visible = false;
                     //  TableRelation = Library.BookID;
 
                 }
 
-                field(Title; Rec.Title)
+                field(Title; Rec.Title)//TODO sit application area by
                 {
                     Editable = true;
 
@@ -69,10 +70,10 @@ page 50120 "List Of Books"
                 begin
                     if Rec.Rented = false then begin
 
-                        rentCode.ValdateRentInfo(Rec);
+                        rentCode.ValidateRentInfo(Rec);
                     end
                     else
-                        Message('Sorry, this book is already rented :(');
+                        Message('Sorry, this book is already rented :(');//TODO Vervang met a lable
                 end;
             }
             action("Add Book")
@@ -104,9 +105,16 @@ page 50120 "List Of Books"
                     AddSequel.Navigate_AddSequel(Rec);
                 end;
             }
+             action(" Open Grouped Book Info Page")
+            {
+                Image = Add;
+                trigger OnAction()
+                
+                begin
+                   // Page.RunModal(Page::"Grouped Book Info", Rec);
+                end;
+            }
         }
     }
 
-    var
-        myInt: Integer;
 }

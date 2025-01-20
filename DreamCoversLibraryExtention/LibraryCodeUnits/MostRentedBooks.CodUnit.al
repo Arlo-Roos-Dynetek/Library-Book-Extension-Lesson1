@@ -6,7 +6,7 @@ codeunit 50121 "Most Rented"
         book: Record Library;
         counter, maxRented, medRented, minRented, AmountOfRecords : Integer;
     begin
-        counter := 0;
+        counter := 0;//TODO sit init in n procedure
         maxRented := 0;
         medRented := 0;
         minRented := 0;
@@ -40,6 +40,4 @@ codeunit 50121 "Most Rented"
         Message('Most rented books:' + '\•' + title1 + '\•' + title2 + '\•' + title3);
     end;
 
-    var
-        myInt: Integer;
 }

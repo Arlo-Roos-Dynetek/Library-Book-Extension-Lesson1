@@ -23,7 +23,15 @@ page 50124 "Rent Book"
                 
                 field("Customer Name";Rec."Customer Name")
                 {
-
+                    trigger OnAssistEdit()
+                    var
+                        Customer: Record Customer;
+                    begin
+                        if Page.RunModal(Page::"Customer List", Customer) = Action::LookupOK then begin
+                            Rec."Customer ID" := Customer."No.";
+                            Rec."Customer Name":= Customer.Name;
+                        end;
+                    end;
                 }
             }
         }

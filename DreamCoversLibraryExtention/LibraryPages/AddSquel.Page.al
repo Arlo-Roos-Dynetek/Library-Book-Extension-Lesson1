@@ -11,7 +11,7 @@ page 50128 Sequel
         {
             group("Main Details")
             {
-                field(BookID; Rec.BookID)
+                field(BookID; Rec."Book ID")
                 {
                     ApplicationArea = All;
                 }
@@ -70,21 +70,5 @@ page 50128 Sequel
         }
     }
 
-    actions
-    {
-        area(Processing)
-        {
-            action(ActionName)
-            {
 
-                trigger OnAction()
-                begin
-
-                end;
-            }
-        }
-    }
-
-    var
-        myInt: Integer;
 }

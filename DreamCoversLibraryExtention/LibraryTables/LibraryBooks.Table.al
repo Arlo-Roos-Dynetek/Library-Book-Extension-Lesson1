@@ -1,15 +1,16 @@
 table 50120 Library
 {
     DataClassification = CustomerContent;
-    TableType = Normal;
+    Access = Public;
+    // TableType = Normal;
 
     fields
     {
-        field(12; BookID; Integer)
+        field(12; "Book ID"; Integer)
         {
             Caption = 'Book ID';
             DataClassification = CustomerContent;
-            AutoIncrement  = true;
+            AutoIncrement = true;
 
         }
         field(1; Title; Text[400])
@@ -92,7 +93,17 @@ table 50120 Library
         field(13; "Customer Name"; Text[100])
         {
             Caption = 'Customer Name';
-            DataClassification = CustomerContent;
+            // DataClassification = CustomerContent;
+            FieldClass = FlowField;
+            CalcFormula = lookup(Customer.Name where("No." = field("Customer ID")));
+
+        }
+        field(15; "Customer ID"; Code[20])
+        {
+            Caption = 'Customer ID';
+            // DataClassification = CustomerContent;
+            //FieldClass =FlowField;
+            TableRelation = Customer."No.";
 
         }
         field(14; "Amount Rented"; Integer)
@@ -105,7 +116,7 @@ table 50120 Library
 
     keys
     {
-        key(PrimaryKey; BookID)
+        key(PrimaryKey; "Book ID")
         {
             Clustered = true;
         }
@@ -170,10 +181,6 @@ table 50120 Library
         // Add changes to field groups here
     }
 
-    var
-        myInt: Integer;
-        Genre: Text;
-
     trigger OnInsert()
     begin
 
@@ -181,15 +188,15 @@ table 50120 Library
 
     trigger OnModify()
     //var
-       // LiBrary: Record Library
+    // LiBrary: Record Library
     begin
 
-    //    if Rec.Prequel <> xRec.Prequel then
-    //    begin
-    //     LiBrary.SetRange(BookID,Rec.PrequelID);
-    //     LiBrary.FindFirst();
-    //     LiBrary.Sequel := Rec.BookID;
-    //    end;
+        //    if Rec.Prequel <> xRec.Prequel then
+        //    begin
+        //     LiBrary.SetRange(BookID,Rec.PrequelID);
+        //     LiBrary.FindFirst();
+        //     LiBrary.Sequel := Rec.BookID;
+        //    end;
     end;
 
     trigger OnDelete()
@@ -202,4 +209,6 @@ table 50120 Library
 
     end;
 
+    var
+        Customer: Record Customer;
 }

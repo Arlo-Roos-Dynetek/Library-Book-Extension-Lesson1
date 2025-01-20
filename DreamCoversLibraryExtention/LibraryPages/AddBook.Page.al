@@ -4,8 +4,8 @@ page 50125 "Add Books"
     ApplicationArea = All;
     Caption = 'Add Book';
     SourceTable = Library;
-    UsageCategory = Documents;
-     CardPageID = "Book Info";
+    UsageCategory = Tasks;
+    CardPageID = "Book Info";
 
     layout
     {
@@ -18,15 +18,17 @@ page 50125 "Add Books"
                 field(Title; Rec.Title)
                 {
                     Editable = true;
-
+                    ApplicationArea = All;
                 }
                 field(Author; Rec.Author)
                 {
                     Editable = true;
+                    ApplicationArea = All;
                 }
                 field(Rented; Rec.Rented)
                 {
                     Editable = true;
+                    ApplicationArea = All;
                 }
                 field(Series; Rec.Series)
                 {
@@ -94,6 +96,4 @@ page 50125 "Add Books"
     } 
    }
 
-    var
-        myInt: Integer;
 }
