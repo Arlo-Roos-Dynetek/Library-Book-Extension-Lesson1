@@ -1,0 +1,39 @@
+{
+  "id": "256dd794-cf18-4421-93ac-65ab0e340cc5",
+  "name": "DreamCoversLibraryExtention2",
+  "publisher": "Default Publisher",
+  "version": "1.0.0.0",
+  "brief": "",
+  "description": "",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "dependencies": [
+
+    { "id": "1595c857-a93c-4300-8b37-1503d0f40b12", 
+    "publisher": "Default Publisher",
+     "name": "DreamCoversLibraryExtention", 
+     "version": "1.0.0.0"
+   }
+  ],
+  "screenshots": [],
+  "platform": "1.0.0.0",
+  "application": "25.0.0.0",
+  "idRanges": [
+    {
+      "from": 50200,
+      "to": 50249
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": true,
+    "includeSourceInSymbolFile": true
+  },
+  "runtime": "14.0",
+  "features": [
+    "NoImplicitWith"
+  ]
+}
