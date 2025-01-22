@@ -1,5 +1,9 @@
+/// <summary>
+/// Codeunit Add books code (ID 50125).
+/// </summary>
 codeunit 50125 "Add books code"
 {
+    // this code is used to add a book to the library table.
     trigger OnRun()
     begin
         Navigate_add_book();

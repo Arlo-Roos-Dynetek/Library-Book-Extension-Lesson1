@@ -1,5 +1,9 @@
 page 50121 "Book Info"
 {
+
+    // this page is used to display the fields that the user will allow the user to spectate the data of that given book.
+    // this page is also used to call the relevant procedures.
+
     PageType = Card;
     ApplicationArea = All;
     UsageCategory = None;

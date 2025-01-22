@@ -1,5 +1,12 @@
+/// <summary>
+/// Page Add Books (ID 50125).
+/// </summary>
 page 50125 "Add Books"
 {
+    // this page is used to display the fields that the user will use to enter the data of the book they want to add.
+    // this page is also used to call the relevant procedures.
+    
+
     PageType = Card;
     ApplicationArea = All;
     Caption = 'Add Book';

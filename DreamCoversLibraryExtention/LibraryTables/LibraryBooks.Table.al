@@ -1,8 +1,12 @@
+/// <summary>
+/// Table Library (ID 50120).
+/// </summary>
 table 50120 Library
 {
+    // this is the code that creates the table that allows the user to store records.
     DataClassification = CustomerContent;
     Access = Public;
-    // TableType = Normal;
+
 
     fields
     {

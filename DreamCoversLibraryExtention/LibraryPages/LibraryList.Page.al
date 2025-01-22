@@ -1,5 +1,11 @@
+/// <summary>
+/// Page List Of Books (ID 50120).
+/// </summary>
 page 50120 "List Of Books"
 {
+    // this page is used to display the list of books that are present in the library.
+    // this page is also used to call the relevant procedures.
+
     PageType = List;
     ApplicationArea = All;
     Caption = 'Library Page';
@@ -54,10 +60,7 @@ page 50120 "List Of Books"
             {
                 Image = AvailableToPromise;
                 trigger OnAction()
-                var
-                    MostRented: Codeunit "Most Rented";
                 begin
-                    MostRented.Run();
                     Page.RunModal(Page::"Rent Book", Rec);
                 end;
             }
@@ -67,13 +70,15 @@ page 50120 "List Of Books"
                 trigger OnAction()
                 var
                     rentCode: Codeunit "Rent Book";
+                    RentErrorMessage: Text;
                 begin
+                    RentErrorMessage:= 'Sorry, this book is already rented :(';
                     if Rec.Rented = false then begin
 
                         rentCode.ValidateRentInfo(Rec);
                     end
                     else
-                        Message('Sorry, this book is already rented :(');//TODO Vervang met a lable
+                        Message(RentErrorMessage);//TODO Vervang met a label
                 end;
             }
             action("Add Book")

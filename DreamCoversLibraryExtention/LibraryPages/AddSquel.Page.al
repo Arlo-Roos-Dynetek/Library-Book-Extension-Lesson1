@@ -1,5 +1,8 @@
 page 50128 Sequel
 {
+    // this page is used to display the fields that the user will use to enter the data of the book they want to add.
+    // this page is also used to call the relevant procedures.
+    
     PageType = Card;
     ApplicationArea = All;
     UsageCategory = Documents;

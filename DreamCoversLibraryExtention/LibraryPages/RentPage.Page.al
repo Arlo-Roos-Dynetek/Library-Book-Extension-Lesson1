@@ -1,5 +1,10 @@
+/// <summary>
+/// Page Rent Book (ID 50124).
+/// </summary>
 page 50124 "Rent Book"
 {
+    // this page will pop up a window that allows the user to rent a curtain book.
+
     PageType = Card;
     ApplicationArea = All;
     UsageCategory = Documents;
