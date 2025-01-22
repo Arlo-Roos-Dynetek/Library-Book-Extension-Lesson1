@@ -21,83 +21,81 @@ table 50120 Library
         {
             Caption = 'Title';
             DataClassification = CustomerContent;
-
+            InitValue = 'None';
         }
 
         field(2; Author; Text[200])
         {
             Caption = 'Author';
             DataClassification = CustomerContent;
-
+            InitValue = 'None';
         }
 
         field(3; Rented; Boolean)
         {
             Caption = 'Rented';
             DataClassification = CustomerContent;
-
+            InitValue = false;
         }
 
         field(4; Series; Text[100])
         {
             Caption = 'Series';
             DataClassification = CustomerContent;
-
+            InitValue = 'None';
         }
 
         field(5; Genre; Text[50])
         {
             Caption = 'Genre';
             DataClassification = CustomerContent;
-
+            InitValue = 'None';
         }
 
         field(6; Publisher; Text[150])
         {
             Caption = 'Publisher';
             DataClassification = CustomerContent;
-
+            InitValue = 'None';
         }
 
         field(7; "Book Price"; Decimal)
         {
             Caption = 'Book Price';
             DataClassification = AccountData;
-
+            InitValue = 0;
         }
 
         field(8; "Publication Date"; Date)
         {
             Caption = 'Publication Date';
             DataClassification = CustomerContent;
-
         }
 
         field(9; Pages; Integer)
         {
             Caption = 'Pages';
             DataClassification = CustomerContent;
-
+            InitValue = 0;
         }
 
         field(10; Prequel; Text[100])
         {
             Caption = 'Prequel';
             DataClassification = CustomerContent;
-
+            InitValue = 'None';
         }
 
         field(11; Sequel; Text[100])
         {
             Caption = 'Sequel';
             DataClassification = CustomerContent;
-
+            InitValue = 'None';
         }
 
         field(13; "Customer Name"; Text[100])
         {
             Caption = 'Customer Name';
-            // DataClassification = CustomerContent;
             FieldClass = FlowField;
             CalcFormula = lookup(Customer.Name where("No." = field("Customer ID")));
 
@@ -114,7 +112,7 @@ table 50120 Library
         {
             Caption = 'Amount Rented';
             DataClassification = CustomerContent;
-
+            InitValue = 0;
         }
     }
 
@@ -194,7 +192,7 @@ table 50120 Library
     //var
     // LiBrary: Record Library
     begin
-
+        CurrDate := Today;
         //    if Rec.Prequel <> xRec.Prequel then
         //    begin
         //     LiBrary.SetRange(BookID,Rec.PrequelID);
@@ -215,4 +213,5 @@ table 50120 Library
 
     var
         Customer: Record Customer;
+        CurrDate: Date;
 }

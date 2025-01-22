@@ -72,7 +72,7 @@ page 50120 "List Of Books"
                     rentCode: Codeunit "Rent Book";
                     RentErrorMessage: Text;
                 begin
-                    RentErrorMessage:= 'Sorry, this book is already rented :(';
+                    RentErrorMessage := 'Sorry, this book is already rented :(';
                     if Rec.Rented = false then begin
 
                         rentCode.ValidateRentInfo(Rec);
@@ -110,15 +110,7 @@ page 50120 "List Of Books"
                     AddSequel.Navigate_AddSequel(Rec);
                 end;
             }
-             action(" Open Grouped Book Info Page")
-            {
-                Image = Add;
-                trigger OnAction()
-                
-                begin
-                   // Page.RunModal(Page::"Grouped Book Info", Rec);
-                end;
-            }
+
         }
     }
 
