@@ -5,20 +5,23 @@ enum 50201 "DropDown Enum"
 {
     // this is the enum that was created for the drop-down page.
     Extensible = true;
-
-    value(0; Title)
+    value(0; "")
+    {
+        Caption = '';
+    }
+    value(1; Title)
     {
         Caption = 'Title';
     }
-    value(1; Author)
+    value(2; Author)
     {
         Caption = 'Author';
     }
-    value(2; Publisher)
+    value(3; Publisher)
     {
         Caption = 'Publisher';
     }
-    value(3; Genre)
+    value(4; Genre)
     {
         Caption = 'Genre';
     }

@@ -68,7 +68,7 @@ page 50201 "Grouped Book Info"
                         CurrPage.Update();
                     end;
                 }
-                field("Topic for text filter"; "DropDown Enum")
+                field("Topic for text filter"; "Search by text Enum")
                 {
                     ToolTip = 'This drop down list provides you with the options to choose from';
                     ApplicationArea = all;
@@ -79,13 +79,29 @@ page 50201 "Grouped Book Info"
                     ApplicationArea = all;
                     trigger OnValidate()
                     begin
-                        "Filter Procedures".FilterByText(TextSearch, "DropDown Enum", Rec);
+                        "Filter Procedures".FilterByText(TextSearch, "Search by text Enum", Rec);
+                        CurrPage.Update();
                     end;
+                }
+                field(GenreFilter; "Genre List")
+                {
+                    Caption = 'Filter according to genre';
+
+                    ApplicationArea = all;
+                    trigger OnValidate()
+                    var
+                        GenreText: Text;
+                    begin
+                        "Filter Procedures".FilterByGenre("Genre List", Rec);
+                        CurrPage.Update();
+                    end;
+
                 }
             }
 
             repeater("Grouped Info")
             {
+                Editable = false;
                 field("Book ID"; Rec."Book ID")
                 {
                     ApplicationArea = All;
@@ -155,12 +171,23 @@ page 50201 "Grouped Book Info"
     {
         area(Processing)
         {
-            action("Go to Library List")
+            action("Clear All Filters")
             {
-
+                Image = ClearFilter;
                 trigger OnAction()
+                var
+                    "Clear Filters": Codeunit "Clear Filters";
                 begin
-                    Page.RunModal(50120);
+                    "Clear Filters".ClearFilter(Rec);
+                    System.Clear(Date1);
+                    System.Clear(Date2);
+                    System.Clear(PriceMax);
+                    System.Clear(PriceMin);
+                    System.Clear(TextSearch);
+                    System.Clear(AmountRented);
+                    System.Clear("Genre List");
+                    System.Clear("Search by text Enum");
+                    CurrPage.Update();
                 end;
             }
         }
@@ -172,5 +199,8 @@ page 50201 "Grouped Book Info"
         AmountRented: Integer;
         TextSearch, Topic : Text[40];
         "Filter Procedures": Codeunit "Filter Procedures";
-        "DropDown Enum": Enum "DropDown Enum";
+        "Search by text Enum": Enum "DropDown Enum";
+        "Genre List": Enum "Genre List";
+
+
 }

@@ -100,11 +100,13 @@ codeunit 50200 "Filter Procedures"
     /// <param name="Library">VAR Record Library.</param>
     procedure FilterByText(WordSearch: Text; TopicToSearchBy: Enum "DropDown Enum"; var Library: Record Library)
     var
-        WordSearchError: Text;
+        WordSearchError, GenreName, FilterWord, GenreErrorMessage : Text;
+        "Genre List": Enum "Genre List";
+        GenreCollection: List of [Text];
+        MoreTThanOne: Boolean;
     begin
         WordSearchError := 'Please make sure that both the Topic field and the Search By Text field has been filled in.';
-        if WordSearch <> '' then
-         begin
+        if WordSearch <> '' then begin
             case TopicToSearchBy of
                 TopicToSearchBy::Title:
                     Library.SetFilter(Library.Title, '%1', '@*' + WordSearch + '*');
@@ -116,7 +118,28 @@ codeunit 50200 "Filter Procedures"
                     Library.SetFilter(Library.Publisher, '%1', '@*' + WordSearch + '*');
 
                 TopicToSearchBy::Genre:
-                    Library.SetFilter(Library.Genre, '%1', '@*' + WordSearch + '*');
+                    begin
+                        GenreErrorMessage := 'Genre not Found.';
+                        FilterWord := '';
+                        MoreTThanOne := false;
+                        GenreCollection := "Genre List".Names;
+                        foreach GenreName in GenreCollection do begin
+                            if GenreName.ToLower().Contains(WordSearch.ToLower()) then begin
+                                if MoreTThanOne = true then begin
+                                    FilterWord := FilterWord + '|' + GenreName;
+                                end
+                                else begin
+                                    MoreTThanOne := true;
+                                    FilterWord := GenreName;
+                                end;
+                            end;
+                        end;
+                        if FilterWord <> '' then
+                            Library.SetFilter(Genre, FilterWord)
+                        else
+                            Message(GenreErrorMessage);
+                    end;
+
                 else
                     Message('No records Found matching your searching details :(');
             end;
@@ -126,4 +149,14 @@ codeunit 50200 "Filter Procedures"
 
 
     end;
+
+    procedure FilterByGenre("Genre List": Enum "Genre List"; var Library: Record Library)
+    var
+
+    begin
+        Library.SetFilter(Genre, Format("Genre List"));
+    end;
+
+    var
+        "Genre List": Enum "Genre List";
 }
