@@ -21,42 +21,43 @@ table 50120 Library
         {
             Caption = 'Title';
             DataClassification = CustomerContent;
-            InitValue = 'None';
+
         }
 
         field(2; Author; Text[200])
         {
             Caption = 'Author';
             DataClassification = CustomerContent;
-            InitValue = 'None';
+
         }
 
         field(3; Rented; Boolean)
         {
             Caption = 'Rented';
             DataClassification = CustomerContent;
-            InitValue = false;
+
+
         }
 
         field(4; Series; Text[100])
         {
             Caption = 'Series';
             DataClassification = CustomerContent;
-            InitValue = 'None';
+
         }
 
-        field(5; Genre; Text[50])
+        field(5; Genre; Enum "Genre List")
         {
             Caption = 'Genre';
             DataClassification = CustomerContent;
-            InitValue = 'None';
+
         }
 
         field(6; Publisher; Text[150])
         {
             Caption = 'Publisher';
             DataClassification = CustomerContent;
-            InitValue = 'None';
+
         }
 
         field(7; "Book Price"; Decimal)
@@ -83,14 +84,14 @@ table 50120 Library
         {
             Caption = 'Prequel';
             DataClassification = CustomerContent;
-            InitValue = 'None';
+
         }
 
         field(11; Sequel; Text[100])
         {
             Caption = 'Sequel';
             DataClassification = CustomerContent;
-            InitValue = 'None';
+
         }
 
         field(13; "Customer Name"; Text[100])
@@ -189,16 +190,13 @@ table 50120 Library
     end;
 
     trigger OnModify()
-    //var
-    // LiBrary: Record Library
+    var
+    "Return Book": Codeunit "Return Book";
     begin
-        CurrDate := Today;
-        //    if Rec.Prequel <> xRec.Prequel then
-        //    begin
-        //     LiBrary.SetRange(BookID,Rec.PrequelID);
-        //     LiBrary.FindFirst();
-        //     LiBrary.Sequel := Rec.BookID;
-        //    end;
+        if "Customer Name" = '' then begin
+            Rented := false;
+        end;
+        
     end;
 
     trigger OnDelete()
@@ -213,5 +211,7 @@ table 50120 Library
 
     var
         Customer: Record Customer;
-        CurrDate: Date;
+
+        "Genre List": Enum "Genre List";
+        
 }

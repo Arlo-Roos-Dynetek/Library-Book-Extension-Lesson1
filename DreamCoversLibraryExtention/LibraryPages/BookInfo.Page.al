@@ -8,17 +8,14 @@ page 50121 "Book Info"
     ApplicationArea = All;
     UsageCategory = None;
     SourceTable = Library;
-
+    //Editable = false;
     layout
     {
         area(Content)
         {
-            group("Main Details")
+            group("General")
             {
-                field(BookID; Rec."Book ID")
-                {
-                    ApplicationArea = All;
-                }
+                
                 field(Title; Rec.Title)
                 {
                     ApplicationArea = All;
@@ -39,17 +36,18 @@ page 50121 "Book Info"
                 {
                     ApplicationArea = All;
                 }
+                field("Book Price"; Rec."Book Price")
+                {
+                    ApplicationArea = All;
+                }
             }
-            group("Extra Details")
+            group("Details")
             {
                 field(Publisher; Rec.Publisher)
                 {
                     ApplicationArea = All;
                 }
-                field("Book Price"; Rec."Book Price")
-                {
-                    ApplicationArea = All;
-                }
+
                 field("Publication Date"; Rec."Publication Date")
                 {
                     ApplicationArea = All;
@@ -73,6 +71,7 @@ page 50121 "Book Info"
             }
         }
     }
-
+var
+ "Genre List": Enum "Genre List";
 
 }

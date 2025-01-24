@@ -41,9 +41,14 @@ page 50125 "Add Books"
                 {
                     ApplicationArea = All;
                 }
-                field(Genre; Rec.Genre)
+                field(Genre;Rec.Genre)
                 {
-                    ApplicationArea = All;
+                     ApplicationArea = All;
+                    // trigger OnValidate()
+                    // begin
+                    //    "Genre List".AsInteger(); 
+                    // end;
+                   
                 }
                 field(Publisher; Rec.Publisher)
                 {
@@ -96,11 +101,13 @@ page 50125 "Add Books"
                 var
                     Save: Codeunit  "Save Books";
                 begin
+                    
                     Save.save(Rec);
                 end;
 
       } 
     } 
    }
-
+    var
+     "Genre List": Enum "Genre List";
 }

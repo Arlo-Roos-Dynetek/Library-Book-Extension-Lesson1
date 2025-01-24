@@ -18,10 +18,10 @@ codeunit 50121 "Most Rented"
         Library.FindFirst();
         Title := 'Most rented books:';
         for count := 1 to 3 do begin
-            Title := Title + '\•' + Library.Title;
+            Title := Title + '\• ' + Library.Title + ' : ' + Format(Library."Amount Rented");
             Library.Next();
         end;
-        Message(Title);
+        Message('Most rented books:' + Title);
     end;
 
 

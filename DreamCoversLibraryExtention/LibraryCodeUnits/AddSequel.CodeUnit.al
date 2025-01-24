@@ -14,7 +14,7 @@ codeunit 50128 SequelCode
     procedure Navigate_AddSequel(savedRec: Record Library)
     var
         tempRec: Record Library temporary;
-        SaveSequel: Codeunit "Save Sequel";
+        SaveSequel: Codeunit "Save Books";
     begin
         tempRec.Init();
         tempRec.Validate(Author, savedRec.Author);
@@ -27,7 +27,7 @@ codeunit 50128 SequelCode
         if Page.RunModal(Page::"Sequel", tempRec) = Action::LookupOK then begin
             savedRec.Validate(Sequel, tempRec.Title);
             savedRec.Modify(true);
-            SaveSequel.SaveSequel(TempRec);
+            SaveSequel.save(TempRec);
         end;
 
     end;

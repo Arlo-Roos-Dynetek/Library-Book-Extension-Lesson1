@@ -12,7 +12,7 @@ page 50120 "List Of Books"
     SourceTable = Library;
     CardPageID = "Book Info";
     UsageCategory = Lists;
-
+    ModifyAllowed =false;
     layout
     {
         area(Content)
@@ -26,17 +26,20 @@ page 50120 "List Of Books"
 
                 }
 
-                field(Title; Rec.Title)//TODO sit application area by
+                field(Title; Rec.Title)
                 {
+                    ApplicationArea = All;
                     Editable = true;
 
                 }
                 field(Author; Rec.Author)
                 {
+                    ApplicationArea = All;
                     Editable = true;
                 }
                 field(Rented; Rec.Rented)
                 {
+                    ApplicationArea = All;
                     Editable = true;
                 }
 
@@ -45,6 +48,10 @@ page 50120 "List Of Books"
                     ApplicationArea = All;
                 }
                 field("Amount Rented"; Rec."Amount Rented")
+                {
+                    ApplicationArea = All;
+                }
+                field("Book Price"; Rec."Book Price")
                 {
                     ApplicationArea = All;
                 }
@@ -60,8 +67,10 @@ page 50120 "List Of Books"
             {
                 Image = AvailableToPromise;
                 trigger OnAction()
+                var
+                    "Most Rented": Codeunit "Most Rented";
                 begin
-                    Page.RunModal(Page::"Rent Book", Rec);
+                    "Most Rented".Run();
                 end;
             }
             action("Rent Book")
@@ -78,7 +87,7 @@ page 50120 "List Of Books"
                         rentCode.ValidateRentInfo(Rec);
                     end
                     else
-                        Message(RentErrorMessage);//TODO Vervang met a label
+                        Message(RentErrorMessage);
                 end;
             }
             action("Add Book")
@@ -110,8 +119,19 @@ page 50120 "List Of Books"
                     AddSequel.Navigate_AddSequel(Rec);
                 end;
             }
+            action("Return Book")
+            {
+                Image = Absence;
+                trigger OnAction()
+                var
+                    "Return Book": Codeunit "Return Book";
+                begin
+                    "Return Book".ReturnBook(Rec);
+                end;
+            }
 
         }
     }
-
+    var
+        "Genre List": Enum "Genre List";
 }

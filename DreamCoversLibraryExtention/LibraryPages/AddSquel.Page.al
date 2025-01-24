@@ -14,10 +14,7 @@ page 50128 Sequel
         {
             group("Main Details")
             {
-                field(BookID; Rec."Book ID")
-                {
-                    ApplicationArea = All;
-                }
+
                 field(Title; Rec.Title)
                 {
                     ApplicationArea = All;

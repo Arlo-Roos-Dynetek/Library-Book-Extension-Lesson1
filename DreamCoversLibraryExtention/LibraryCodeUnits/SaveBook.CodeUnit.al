@@ -3,18 +3,17 @@
 /// </summary>
 codeunit 50126 "Save Books"
 {
-// this procedure only saves the new record to the library.
- /// <summary>
- /// save.
- /// </summary>
- /// <param name="Book">Temporary Record Library.</param>
- procedure save(Book: Record Library temporary)
+    // this procedure only saves the new record to the library.
+    /// <summary>
+    /// save.
+    /// </summary>
+    /// <param name="Book">Temporary Record Library.</param>
+    procedure save(Book: Record Library temporary)
     var
-    Lib: Record Library;
+        Lib: Record Library;
     begin
-      Lib.Init();
-      Lib:= Book;
-      Lib.Insert(true); 
+        Lib.Init();
+        Lib := Book;
+        Lib.Insert(true);
     end;
-
 }
