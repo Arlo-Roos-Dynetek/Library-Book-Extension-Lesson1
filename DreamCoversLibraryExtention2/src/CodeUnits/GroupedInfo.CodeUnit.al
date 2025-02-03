@@ -10,6 +10,7 @@ codeunit 50200 "Filter Procedures"
     /// <param name="DateStart">Date.</param>
     /// <param name="DateFinished">Date.</param>
     /// <param name="Library">VAR Record Library.</param>
+    /// This procedure filters between a range of dates.
     procedure FilterBetweenTwoDates(DateStart: Date; DateFinished: Date; var Library: Record Library)
     var
         DateErrorMessage: Text;
@@ -27,6 +28,7 @@ codeunit 50200 "Filter Procedures"
     /// </summary>
     /// <param name="DateStart">Date.</param>
     /// <param name="Library">VAR Record Library.</param>
+    /// This procedure filters using only one date.
     procedure FilterWithOneDate(DateStart: Date; var Library: Record Library)
     var
         DateErrorMessage: Text;
@@ -45,11 +47,12 @@ codeunit 50200 "Filter Procedures"
     /// <param name="PriceMin">Decimal.</param>
     /// <param name="PriceMax">Decimal.</param>
     /// <param name="Library">VAR Record Library.</param>
+    /// This value filters between a range of price values.
     procedure FilterPriceRange(PriceMin: Decimal; PriceMax: Decimal; var Library: Record Library)
     var
         PriceErrorMessage: Text;
     begin
-        PriceErrorMessage := 'Please make sure that you have filled in both the Price Max and Price Min fields.';
+        PriceErrorMessage := 'Please make sure that you have filled in both the Price Max and Price Min fields./ Also make sure that the smallest value is in the "minimum" field and the biggest number is in the "maximum" field.';
         if (PriceMin >= 0) and (PriceMax > PriceMin) then begin
             Library.SetFilter(Library."Book Price", '%1..%2', PriceMin, PriceMax);
         end
@@ -62,6 +65,7 @@ codeunit 50200 "Filter Procedures"
     /// </summary>
     /// <param name="PriceMin">Decimal.</param>
     /// <param name="Library">VAR Record Library.</param>
+    /// This procedure Filters based ona single price value.
     procedure FilterSinglePrice(PriceMin: Decimal; var Library: Record Library)
     var
         PriceErrorMessage: Text;
@@ -79,6 +83,7 @@ codeunit 50200 "Filter Procedures"
     /// </summary>
     /// <param name="AmountRented">Integer.</param>
     /// <param name="Library">VAR Record Library.</param>
+    /// This procedure filters according to the amount of times the book has been rented
     procedure FilterByAmountOfTimesRented(AmountRented: Integer; var Library: Record Library)
     var
         RentedErrorMessage: Text;
@@ -98,6 +103,8 @@ codeunit 50200 "Filter Procedures"
     /// <param name="WordSearch">Text.</param>
     /// <param name="TopicToSearchBy">Enum "DropDown Enum".</param>
     /// <param name="Library">VAR Record Library.</param>
+    /// This procedure is used to determine which topic has been chosen and than it also uses the input received from the used to set a filter
+    /// based on what the user has inputted.
     procedure FilterByText(WordSearch: Text; TopicToSearchBy: Enum "DropDown Enum"; var Library: Record Library)
     var
         WordSearchError, GenreName, FilterWord, GenreErrorMessage : Text;
@@ -150,6 +157,12 @@ codeunit 50200 "Filter Procedures"
 
     end;
 
+    /// <summary>
+    /// FilterByGenre.
+    /// </summary>
+    /// <param name="Genre List">Enum "Genre List".</param>
+    /// <param name="Library">VAR Record Library.</param>
+    /// This procedure is used to filter the table by "Genre".
     procedure FilterByGenre("Genre List": Enum "Genre List"; var Library: Record Library)
     var
 

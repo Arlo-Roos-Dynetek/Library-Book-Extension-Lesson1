@@ -21,6 +21,7 @@ page 50201 "Grouped Book Info"
                     ApplicationArea = all;
                     trigger OnValidate()
                     begin
+                        System.Clear(Date2);
                         "Filter Procedures".FilterWithOneDate(Date1, Rec);
                         CurrPage.Update();
                     end;
@@ -44,6 +45,7 @@ page 50201 "Grouped Book Info"
                     ToolTip = 'This field can be used used to search price based on a single value or it can be used with Price Max Filed to search for a range.';
                     trigger OnValidate()
                     begin
+                        PriceMax := 0;
                         "Filter Procedures".FilterSinglePrice(PriceMin, Rec);
                         CurrPage.Update();
                     end;
@@ -64,18 +66,21 @@ page 50201 "Grouped Book Info"
                     ApplicationArea = all;
                     trigger OnValidate()
                     begin
-                        "Filter Procedures".FilterByAmountOfTimesRented(AmountRented, Rec);
+                        Rec.SetFilter("Amount Rented", AmountRented);
+                        // "Filter Procedures".FilterByAmountOfTimesRented(AmountRented, Rec);
                         CurrPage.Update();
                     end;
                 }
                 field("Topic for text filter"; "Search by text Enum")
                 {
+                    Caption = 'Search by: ';
                     ToolTip = 'This drop down list provides you with the options to choose from';
                     ApplicationArea = all;
                 }
                 field("Search by Text"; TextSearch)
                 {
                     ToolTip = 'This field allows you to type what you want to search.';
+                    Caption = 'Search: ';
                     ApplicationArea = all;
                     trigger OnValidate()
                     begin
@@ -126,6 +131,16 @@ page 50201 "Grouped Book Info"
                 field("Amount Rented"; Rec."Amount Rented")
                 {
                     ApplicationArea = All;
+                }
+                field("Date Rented"; Rec."Date Rented")
+                {
+                    ApplicationArea = All;
+
+                }
+                field("Date Returned"; Rec."Date Returned")
+                {
+                    ApplicationArea = All;
+
                 }
                 field("Book Price"; Rec."Book Price")
                 {
@@ -196,7 +211,7 @@ page 50201 "Grouped Book Info"
     var
         Date1, Date2 : Date;
         PriceMin, PriceMax : Decimal;
-        AmountRented: Integer;
+        AmountRented: Text;
         TextSearch, Topic : Text[40];
         "Filter Procedures": Codeunit "Filter Procedures";
         "Search by text Enum": Enum "DropDown Enum";
