@@ -39,6 +39,16 @@ pageextension 50304 "List Page extention " extends "List Of Books"
                     "Rent Functionality".ShowAllOverdueBooks(Rec);
                 end;
             }
+            action("Change Fine Amount")
+            {
+                Image = Change;
+                trigger OnAction()
+                var
+                    "Library Page Setup": Page "Library Page Setup";
+                begin
+                    "Library Page Setup".Run();
+                end;
+            }
         }
 
 

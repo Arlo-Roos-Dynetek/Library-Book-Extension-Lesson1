@@ -14,18 +14,18 @@ pageextension 50302 "Customer Card Extension" extends "Customer Card"
             {
                 Caption = 'Current Status';
                 ToolTip = 'This field displays the status regarding outstanding books.';
-                Editable = false;
+               // Editable = false;
             }
             field("Highest Status"; Rec."Highest Status")
             {
                 Caption = 'Highest Status';
                 ToolTip = 'This field displays the highest status that has been reached.';
-                Editable = false;
+               //Editable = false;
             }
             field("Probation Period"; Rec."Probation Period")
             {
-                Caption = 'Weeks Overdue';
-                ToolTip = 'This is the current Weeks overdue for the book.';
+                Caption = 'Probation Period';
+                ToolTip = 'This date represents when you will be able to rent books again.';
             }
         }
 

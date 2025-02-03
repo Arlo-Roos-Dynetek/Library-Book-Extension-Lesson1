@@ -99,8 +99,8 @@ codeunit 50303 "Rent Functionality"
         ConfirmationMessage: Text;
         errorMessage: Label 'The book you are trying to return has already been returned';
         Customer: Record Customer;
-
-
+        "Library table Setup": Record "Library table Setup";
+        "Library Page Setup": Page "Library Page Setup";
         WarningMessageHigh: Label 'Please note that you have been fined for returning a book that is overdue for 1 month or more and have there for been fined. The fine can be ';
         WarningMessageExtreme: Label 'Please note that you have been fined for returning a book that is overdue for 2 months or more and have there for been fined and baned for 6 months. The fine can be ';
     begin
@@ -109,6 +109,7 @@ codeunit 50303 "Rent Functionality"
 
 
         if Library.Rented = true then begin
+            "Library table Setup".FindFirst();
             case Customer.Status of
                 "Status Levels"::Blank:
                     begin
@@ -148,7 +149,7 @@ codeunit 50303 "Rent Functionality"
                         Library.Validate(Status, Library.Status::Blank);
                         Customer.Validate(Status, Customer.Status::Blank);
                         Customer.Validate("Allow Rent", true);
-                        Customer.Fines := Customer.Fines + 100;
+                        Customer.Fines := Customer.Fines + "Library table Setup".Fines;
                         Library.Validate("Date Rented", 0D);
 
                         Message(WarningMessageHigh);
@@ -159,7 +160,7 @@ codeunit 50303 "Rent Functionality"
                         ChangedToReturned(Library);
                         Library.Validate(Status, Library.Status::Blank);
                         Customer.Validate("Allow Rent", false);
-                        Customer.Fines := Customer.Fines + 100;
+                        Customer.Fines := Customer.Fines + "Library table Setup".Fines;
                         Customer.Validate("Probation Period", CalcDate('+6M', Today));
                         // Customer.Validate(Status, Customer.Status::Blank);
                         Library.Validate("Date Rented", 0D);
