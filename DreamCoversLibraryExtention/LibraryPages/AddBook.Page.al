@@ -12,7 +12,7 @@ page 50125 "Add Books"
     Caption = 'Add Book';
     SourceTable = Library;
     UsageCategory = Tasks;
-    CardPageID = "Book Info";
+    // CardPageID = "Book Info";
 
     layout
     {
@@ -105,9 +105,12 @@ page 50125 "Add Books"
                     Save.save(Rec);
                 end;
 
+
             }
         }
     }
+   
+
     var
     //"Genre List": Enum "Genre List";
 }

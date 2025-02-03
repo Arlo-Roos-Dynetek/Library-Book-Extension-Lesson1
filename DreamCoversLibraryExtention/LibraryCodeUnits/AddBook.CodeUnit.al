@@ -15,9 +15,13 @@ codeunit 50125 "Add books code"
         SaveUnit: Codeunit "Library Functionality";
     begin
         TempRec.Init();
-        TempRec.Insert(true);
+        TempRec.Insert(false);
 
-        if Page.RunModal(Page::"Add Books", TempRec) = Action::LookupOK then
+
+        if Page.RunModal(Page::"Add Books", TempRec) = Action::LookupOK then begin
+
             SaveUnit.save(TempRec);
+        end;
+
     end;
 }

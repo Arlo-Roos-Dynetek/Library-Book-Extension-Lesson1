@@ -10,11 +10,11 @@ table 50120 Library
 
     fields
     {
-        field(12; "Book ID"; Integer)
+        field(12; "Book ID"; Code[20])
         {
             Caption = 'Book ID';
             DataClassification = CustomerContent;
-            AutoIncrement = true;
+            //AutoIncrement = true;
             ToolTip = 'This is the ID of the Book.';
         }
         field(1; Title; Text[400])
@@ -204,8 +204,12 @@ table 50120 Library
     }
 
     trigger OnInsert()
+    var
+        "No. Series": Codeunit "No. Series";
+        BookID: Code[20];
     begin
-
+        BookID := "No. Series".GetNextNo('BID', WorkDate());
+        rec.Validate("Book ID", BookID);
     end;
 
     trigger OnModify()
