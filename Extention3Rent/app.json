@@ -1,0 +1,38 @@
+{
+  "id": "9ec16f81-63c2-4a7a-b294-84b700bc64dd",
+  "name": "Extention3Rent",
+  "publisher": "Default Publisher",
+  "version": "1.0.0.0",
+  "brief": "",
+  "description": "",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "dependencies": [
+    { "id": "1595c857-a93c-4300-8b37-1503d0f40b12", 
+    "publisher": "Default Publisher",
+     "name": "DreamCoversLibraryExtention", 
+     "version": "1.0.0.0"
+   }
+  ],
+  "screenshots": [],
+  "platform": "1.0.0.0",
+  "application": "25.0.0.0",
+  "idRanges": [
+    {
+      "from": 50300,
+      "to": 50349
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": true,
+    "includeSourceInSymbolFile": true
+  },
+  "runtime": "14.0",
+  "features": [
+    "NoImplicitWith"
+  ]
+}
