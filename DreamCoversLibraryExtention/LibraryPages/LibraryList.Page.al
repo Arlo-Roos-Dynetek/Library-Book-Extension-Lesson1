@@ -12,7 +12,7 @@ page 50120 "List Of Books"
     SourceTable = Library;
     CardPageID = "Book Info";
     UsageCategory = Lists;
-    ModifyAllowed =false;
+    ModifyAllowed = false;
     layout
     {
         area(Content)
@@ -29,20 +29,34 @@ page 50120 "List Of Books"
                 field(Title; Rec.Title)
                 {
                     ApplicationArea = All;
-                    Editable = true;
+
 
                 }
                 field(Author; Rec.Author)
                 {
                     ApplicationArea = All;
-                    Editable = true;
+
                 }
                 field(Rented; Rec.Rented)
                 {
                     ApplicationArea = All;
-                    Editable = true;
-                }
 
+                }
+                field("Date Rented";Rec."Date Rented")
+                {
+                    ApplicationArea = All;
+
+                }
+                // field("Date Returned";Rec."Date Returned")
+                // {
+                //     ApplicationArea = All;
+
+                // }
+                field("Customer Name"; Rec."Customer Name")
+                {
+                    ApplicationArea = All;
+
+                }
                 field(Genre; Rec.Genre)
                 {
                     ApplicationArea = All;
@@ -65,6 +79,7 @@ page 50120 "List Of Books"
         {
             action("Most Rented")
             {
+                ToolTip = 'This action will display a pop up message that will show you what the top 3 most rented books are.';
                 Image = AvailableToPromise;
                 trigger OnAction()
                 var
@@ -73,37 +88,23 @@ page 50120 "List Of Books"
                     "Most Rented".Run();
                 end;
             }
-            action("Rent Book")
-            {
-                Image = AddWatch;
-                trigger OnAction()
-                var
-                    rentCode: Codeunit "Rent Book";
-                    RentErrorMessage: Text;
-                begin
-                    RentErrorMessage := 'Sorry, this book is already rented :(';
-                    if Rec.Rented = false then begin
 
-                        rentCode.ValidateRentInfo(Rec);
-                    end
-                    else
-                        Message(RentErrorMessage);
-                end;
-            }
             action("Add Book")
             {
+                ToolTip = 'This action will take you to a page where you can add a new book';
                 Image = AddContacts;
                 trigger OnAction()
                 begin
                     Codeunit.Run(Codeunit::"Add books code");
                 end;
             }
-            action("Filter: Published in past 2 years")
+            action("Published in past 2 years")
             {
+                ToolTip = 'This action will filter through all the books and display all the books that have been published in the last 2 years.';
                 Image = Filter;
                 trigger OnAction()
                 var
-                    FilterCode: Codeunit "Filter With Dates";
+                    FilterCode: Codeunit "Library Functionality";
                 begin
                     FilterCode.FilterDates(Rec);
                     CurrPage.Update();
@@ -111,27 +112,19 @@ page 50120 "List Of Books"
             }
             action("Add Sequel")
             {
+                ToolTip = 'This action will take you to a page where you can add a new sequel';
                 Image = Add;
                 trigger OnAction()
                 var
-                    AddSequel: Codeunit "SequelCode";
+                    AddSequel: Codeunit "Library Functionality";
                 begin
                     AddSequel.Navigate_AddSequel(Rec);
                 end;
             }
-            action("Return Book")
-            {
-                Image = Absence;
-                trigger OnAction()
-                var
-                    "Return Book": Codeunit "Return Book";
-                begin
-                    "Return Book".ReturnBook(Rec);
-                end;
-            }
+            
 
         }
     }
     var
-        "Genre List": Enum "Genre List";
+    //"Genre List": Enum "Genre List";
 }

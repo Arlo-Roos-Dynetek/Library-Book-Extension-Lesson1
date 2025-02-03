@@ -15,27 +15,27 @@ table 50120 Library
             Caption = 'Book ID';
             DataClassification = CustomerContent;
             AutoIncrement = true;
-
+            ToolTip = 'This is the ID of the Book.';
         }
         field(1; Title; Text[400])
         {
             Caption = 'Title';
             DataClassification = CustomerContent;
-
+            ToolTip = 'This is the Title of the Book.';
         }
 
         field(2; Author; Text[200])
         {
             Caption = 'Author';
             DataClassification = CustomerContent;
-
+            ToolTip = 'This is the Author of the Book.';
         }
 
         field(3; Rented; Boolean)
         {
             Caption = 'Rented';
             DataClassification = CustomerContent;
-
+            ToolTip = 'This is to indicate if the Book has been rented.';
 
         }
 
@@ -43,6 +43,7 @@ table 50120 Library
         {
             Caption = 'Series';
             DataClassification = CustomerContent;
+            ToolTip = 'This is the Series of the Book.';
 
         }
 
@@ -50,14 +51,14 @@ table 50120 Library
         {
             Caption = 'Genre';
             DataClassification = CustomerContent;
-
+            ToolTip = 'This is the Genre of the Book.';
         }
 
         field(6; Publisher; Text[150])
         {
             Caption = 'Publisher';
             DataClassification = CustomerContent;
-
+            ToolTip = 'This is the Publisher of the Book.';
         }
 
         field(7; "Book Price"; Decimal)
@@ -65,12 +66,14 @@ table 50120 Library
             Caption = 'Book Price';
             DataClassification = AccountData;
             InitValue = 0;
+            ToolTip = 'This is the Price of the Book.';
         }
 
         field(8; "Publication Date"; Date)
         {
             Caption = 'Publication Date';
             DataClassification = CustomerContent;
+            ToolTip = 'This is the Publication Date of the Book.';
         }
 
         field(9; Pages; Integer)
@@ -78,12 +81,14 @@ table 50120 Library
             Caption = 'Pages';
             DataClassification = CustomerContent;
             InitValue = 0;
+            ToolTip = 'This is the amount pages in the Book.';
         }
 
         field(10; Prequel; Text[100])
         {
             Caption = 'Prequel';
             DataClassification = CustomerContent;
+            ToolTip = 'This is the Prequel of the Book.';
 
         }
 
@@ -91,6 +96,7 @@ table 50120 Library
         {
             Caption = 'Sequel';
             DataClassification = CustomerContent;
+            ToolTip = 'This is the Sequel of the Book.';
 
         }
 
@@ -99,21 +105,34 @@ table 50120 Library
             Caption = 'Customer Name';
             FieldClass = FlowField;
             CalcFormula = lookup(Customer.Name where("No." = field("Customer ID")));
+            ToolTip = 'This is the Name of the Customer that rented the Book.';
+
 
         }
         field(15; "Customer ID"; Code[20])
         {
             Caption = 'Customer ID';
-            // DataClassification = CustomerContent;
-            //FieldClass =FlowField;
             TableRelation = Customer."No.";
-
+            ToolTip = 'This is the ID of the customer that rented the Book.';
         }
         field(14; "Amount Rented"; Integer)
         {
             Caption = 'Amount Rented';
             DataClassification = CustomerContent;
             InitValue = 0;
+            ToolTip = 'This is the amount to times the book has been rented.';
+        }
+        field(16; "Date Rented"; Date)
+        {
+            Caption = 'Date Rented';
+            DataClassification = CustomerContent;
+            ToolTip = 'This is the Date the book has been rented.';
+        }
+        field(17; "Date Returned"; Date)
+        {
+            Caption = 'Date Returned';
+            DataClassification = CustomerContent;
+            ToolTip = 'This is the Date the book has been returned.';
         }
     }
 
@@ -191,12 +210,12 @@ table 50120 Library
 
     trigger OnModify()
     var
-    "Return Book": Codeunit "Return Book";
+        "Return Book": Codeunit "Library Functionality";
     begin
-        if "Customer Name" = '' then begin
+        /*if "Customer Name" = '' then begin
             Rented := false;
-        end;
-        
+        end;*/
+
     end;
 
     trigger OnDelete()
@@ -213,5 +232,5 @@ table 50120 Library
         Customer: Record Customer;
 
         "Genre List": Enum "Genre List";
-        
+
 }

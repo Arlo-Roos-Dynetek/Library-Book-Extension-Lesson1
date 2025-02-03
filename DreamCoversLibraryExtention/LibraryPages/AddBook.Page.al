@@ -5,7 +5,7 @@ page 50125 "Add Books"
 {
     // this page is used to display the fields that the user will use to enter the data of the book they want to add.
     // this page is also used to call the relevant procedures.
-    
+
 
     PageType = Card;
     ApplicationArea = All;
@@ -20,7 +20,7 @@ page 50125 "Add Books"
         {
             group("List of Books")
             {
-                
+
 
                 field(Title; Rec.Title)
                 {
@@ -41,14 +41,14 @@ page 50125 "Add Books"
                 {
                     ApplicationArea = All;
                 }
-                field(Genre;Rec.Genre)
+                field(Genre; Rec.Genre)
                 {
-                     ApplicationArea = All;
+                    ApplicationArea = All;
                     // trigger OnValidate()
                     // begin
                     //    "Genre List".AsInteger(); 
                     // end;
-                   
+
                 }
                 field(Publisher; Rec.Publisher)
                 {
@@ -83,31 +83,31 @@ page 50125 "Add Books"
                     ApplicationArea = All;
                 }
             }
-            
+
         }
-        
+
     }
 
-   actions 
-   {
-     area(processing)
-    { 
-      action(Save) 
-      { 
-        Caption = 'Save'; 
-        ApplicationArea = All; 
-        Image = Action;
-         trigger OnAction()
+    actions
+    {
+        area(processing)
+        {
+            action(Save)
+            {
+                Caption = 'Save';
+                ApplicationArea = All;
+                Image = Action;
+                trigger OnAction()
                 var
-                    Save: Codeunit  "Save Books";
+                    Save: Codeunit "Library Functionality";
                 begin
-                    
+
                     Save.save(Rec);
                 end;
 
-      } 
-    } 
-   }
+            }
+        }
+    }
     var
-     "Genre List": Enum "Genre List";
+    //"Genre List": Enum "Genre List";
 }

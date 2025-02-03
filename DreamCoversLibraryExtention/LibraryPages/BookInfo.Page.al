@@ -8,14 +8,14 @@ page 50121 "Book Info"
     ApplicationArea = All;
     UsageCategory = None;
     SourceTable = Library;
-    //Editable = false;
+
     layout
     {
         area(Content)
         {
             group("General")
             {
-                
+
                 field(Title; Rec.Title)
                 {
                     ApplicationArea = All;
@@ -68,10 +68,14 @@ page 50121 "Book Info"
                 {
                     ApplicationArea = All;
                 }
+                field("Date Rented"; Rec."Date Rented")
+                {
+                    ApplicationArea = All;
+                }
             }
         }
     }
-var
- "Genre List": Enum "Genre List";
+    var
+    //"Genre List": Enum "Genre List";
 
 }

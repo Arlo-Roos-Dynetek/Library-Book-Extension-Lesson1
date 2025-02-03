@@ -1,5 +1,6 @@
 enum 50102 "Genre List"
 {
+    // THis Enum contains all the options for the 
     Extensible = true;
     value(0; "")
     {
