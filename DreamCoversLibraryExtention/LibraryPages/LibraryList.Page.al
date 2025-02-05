@@ -42,7 +42,7 @@ page 50120 "List Of Books"
                     ApplicationArea = All;
 
                 }
-                field("Date Rented";Rec."Date Rented")
+                field("Date Rented"; Rec."Date Rented")
                 {
                     ApplicationArea = All;
 
@@ -55,6 +55,7 @@ page 50120 "List Of Books"
                 field("Customer Name"; Rec."Customer Name")
                 {
                     ApplicationArea = All;
+                    DrillDownPageId = "Customer Card";
 
                 }
                 field(Genre; Rec.Genre)
@@ -121,7 +122,7 @@ page 50120 "List Of Books"
                     AddSequel.Navigate_AddSequel(Rec);
                 end;
             }
-            
+
 
         }
     }
