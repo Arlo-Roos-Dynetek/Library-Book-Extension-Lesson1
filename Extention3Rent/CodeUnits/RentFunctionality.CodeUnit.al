@@ -19,38 +19,38 @@ codeunit 50303 "Rent Functionality"
         WarningMessageBaned: Label 'This customer has been baned, please check the "Library List Page" to see when the client will be allowed to rent a book again';
         Customer: Record Customer;
         DateFormula: DateFormula;
+        ExceededMildCounter: Label 'You have exceeded your renting limit of 3 books with your Mild Status';
     begin
 
-        // if Page.RunModal(Page::"Rent Book", Library) = Action::LookupOK then
-        //     if (Library."Customer Name" <> '')  then begin
-        //         //MyLib.Rented := true;
-        //         //MyLib."Amount Rented" := MyLib."Amount Rented" +1;
-        //         Library.Validate(Rented, true);
-        //         Library.Validate("Amount Rented", +1);
-        //         Library.Validate("Date Rented", Today);
-        //         Library.Modify(true);
-        //     end
-        //     else
-        //         Message(ErrorMessage);
 
         if Page.RunModal(Page::"Rent Book", Library) = Action::LookupOK then
             if (Library."Customer Name" = '') then begin
                 exit;
-                Message(ErrorMessage);
+                // Message(ErrorMessage);
+
             end
             else begin
+
                 Customer.Get(Library."Customer ID");
+
                 case Customer.Status of
                     Customer.Status::Blank:
                         begin
 
-                            if CalcDate('-6M', Today) > Customer."Probation Period" then
+                            if CalcDate('<-6M>', Today) > Customer."Probation Period" then
                                 RentBook(Library, Customer);
                         end;
 
                     Customer.Status::Mild:
                         begin
-                            RentBook(Library, Customer);
+                            /// Customer.FindFirst();
+                            if Customer."Mild Counter" < 3 then
+                                RentBook(Library, Customer)
+                            else
+                                Message(ExceededMildCounter);
+
+
+
 
                             Message(WarningMessageMild);
                         end;
@@ -99,93 +99,93 @@ codeunit 50303 "Rent Functionality"
         ConfirmationMessage: Text;
         errorMessage: Label 'The book you are trying to return has already been returned';
         Customer: Record Customer;
-        "Library table Setup": Record "Library table Setup";
-        "Library Page Setup": Page "Library Page Setup";
+        LibraryTableSetup: Record "Library table Setup";
+        LibraryPageSetup: Page "Library Page Setup";
         WarningMessageHigh: Label 'Please note that you have been fined for returning a book that is overdue for 1 month or more and have there for been fined. The fine can be ';
-        WarningMessageExtreme: Label 'Please note that you have been fined for returning a book that is overdue for 2 months or more and have there for been fined and baned for 6 months. The fine can be ';
+        WarningMessageExtreme: Label 'Please note that you have been fined for returning a book that is overdue for 2 months or more and have there for been fined and baned for 6 months. The fine can be found on the Customers card page.';
+
     begin
+
+        if Library.Rented = false then begin
+            Message(errorMessage);
+            exit;
+        end;
+
         ConfirmationMessage := Library.Title + ' has been returned';
         Customer.Get(Library."Customer ID");
 
 
-        if Library.Rented = true then begin
-            "Library table Setup".FindFirst();
-            case Customer.Status of
-                "Status Levels"::Blank:
-                    begin
-                        ChangedToReturned(Library);
-                        Customer.Validate(Status, Customer.Status::Blank);
-                        Library.Validate("Date Rented", 0D);
+        // LibraryTableSetup.FindFirst();
+        LibraryTableSetup.Get();
+
+        case Customer.Status of
+            "Status Levels"::Blank:
+                begin
+                    ChangedToReturned(Library);
+                    Library.Validate(Status, Library.Status::Blank);
+                    Library.Modify(true); // yes this is necessary!!!!!!!!!!!!
+                    AssignNewStatusLevel(Library, Customer);
+                    Library.Validate("Date Rented", 0D);
+                    Library."Customer Name" := '';
 
 
-                        Message(ConfirmationMessage);
-                    end;
+                    Message(ConfirmationMessage);
+                end;
 
-                "Status Levels"::Mild:
-                    begin
-                        ChangedToReturned(Library);
-                        Library.Validate(Status, Library.Status::Blank);
-                        Customer.Validate(Status, Customer.Status::Blank);
-                        Customer.Validate("Allow Rent", true);
-                        Library.Validate("Date Rented", 0D);
+            "Status Levels"::Mild:
+                begin
+                    //Customer.FindFirst();
+                    Library.Validate(Status, Library.Status::Blank);
+                    ReturnAssignment(Library, Customer);
+                    Customer.Validate("Mild Counter", 0);
+                    Library.Modify(true); // yes this is necessary!!!!!!!!!!!!
+                    AssignNewStatusLevel(Library, Customer);
+                    Library."Customer Name" := '';
+                    Message(ConfirmationMessage);
+                end;
+            "Status Levels"::Medium:
+                begin
+                    Library.Validate(Status, Library.Status::Blank);
+                    ReturnAssignment(Library, Customer);
+                    Library.Modify(true); // yes this is necessary!!!!!!!!!!!!
+                    AssignNewStatusLevel(Library, Customer);
+                    Library."Customer Name" := '';
+
+                    Message(ConfirmationMessage);
+                end;
+            "Status Levels"::High:
+                begin
+                    Library.Validate(Status, Library.Status::Blank);
+                    ReturnAssignment(Library, Customer);
+                    Customer.Fines := Customer.Fines + LibraryTableSetup.Fines;
+                    Library.Modify(true); // yes this is necessary!!!!!!!!!!!!
+                    AssignNewStatusLevel(Library, Customer);
+                    Library."Customer Name" := '';
+                    Message(WarningMessageHigh);
+                    Message(ConfirmationMessage);
+                end;
+            "Status Levels"::Extreme:
+                begin
+                    ChangedToReturned(Library);
+                    Library.Validate(Status, Library.Status::Blank);
+                    Customer.Validate("Allow Rent", false);
+                    Customer.Fines := Customer.Fines + LibraryTableSetup.Fines;
+                    Customer.Validate("Probation Period", CalcDate('+6M', Today));
+                    Library.Modify(true); // yes this is necessary!!!!!!!!!!!!
+                    AssignNewStatusLevel(Library, Customer);
+                    Library."Customer Name" := '';
+                    Library.Validate("Date Rented", 0D);
+                    Message(WarningMessageExtreme + '\\\' + ConfirmationMessage);
+
+                end;
+
+            else
+                Message(errorMessage);
+        end;
+        Library.Modify(true);
+        Customer.Modify(true);
 
 
-                        Message(ConfirmationMessage);
-                    end;
-                "Status Levels"::Medium:
-                    begin
-                        ChangedToReturned(Library);
-                        Library.Validate(Status, Library.Status::Blank);
-                        Customer.Validate(Status, Customer.Status::Blank);
-                        Customer.Validate("Allow Rent", true);
-                        Library.Validate("Date Rented", 0D);
-
-
-                        Message(ConfirmationMessage);
-                    end;
-                "Status Levels"::High:
-                    begin
-                        ChangedToReturned(Library);
-                        Library.Validate(Status, Library.Status::Blank);
-                        Customer.Validate(Status, Customer.Status::Blank);
-                        Customer.Validate("Allow Rent", true);
-                        Customer.Fines := Customer.Fines + "Library table Setup".Fines;
-                        Library.Validate("Date Rented", 0D);
-
-                        Message(WarningMessageHigh);
-                        Message(ConfirmationMessage);
-                    end;
-                "Status Levels"::Extreme:
-                    begin
-                        ChangedToReturned(Library);
-                        Library.Validate(Status, Library.Status::Blank);
-                        Customer.Validate("Allow Rent", false);
-                        Customer.Fines := Customer.Fines + "Library table Setup".Fines;
-                        Customer.Validate("Probation Period", CalcDate('+6M', Today));
-                        // Customer.Validate(Status, Customer.Status::Blank);
-                        Library.Validate("Date Rented", 0D);
-                        Message(WarningMessageExtreme);
-                        Message(ConfirmationMessage);
-                    end;
-
-                else
-                    Message(errorMessage);
-            end;
-            Library.Modify(true);
-            Customer.Modify(true);
-        end
-        else
-            Message(errorMessage);
-        // if Library.Rented = true then begin
-        //     Library."Customer Name" := '';
-        //     Library.Validate("Customer ID", ' ');
-        //     Library.Validate(Rented, false);
-        //     Library.Validate("Date Returned", Today);
-        //     Library.Modify(true);
-        //     Message(ConfirmationMessage);
-        // end
-        // else
-        //     Message(errorMessage);
     end;
 
 
@@ -194,7 +194,7 @@ codeunit 50303 "Rent Functionality"
     begin
         CalculateTimeOverdue(Rec);
         DetermineStatus(Rec);
-        //  AssignCustomerLevel(/*Rec*/);
+
     end;
 
     [EventSubscriber(ObjectType::Table, Database::Library, 'OnBeforeModifyEvent', '', false, false)]
@@ -202,7 +202,7 @@ codeunit 50303 "Rent Functionality"
     begin
         CalculateTimeOverdue(Rec);
         DetermineStatus(Rec);
-        // AssignCustomerLevel(/*Rec*/);
+
     end;
 
     [EventSubscriber(ObjectType::Page, Page::"List Of Books", 'OnOpenPageEvent', '', false, false)]
@@ -214,7 +214,7 @@ codeunit 50303 "Rent Functionality"
                 DetermineStatus(Rec);
                 Rec.Modify(true);
             until Rec.Next() = 0;
-        AssignCustomerLevel(/*Rec*/);
+        AssignCustomerLevel();
 
     end;
 
@@ -227,7 +227,8 @@ codeunit 50303 "Rent Functionality"
         if Library.FindSet() then
             repeat
                 Customer.Get(Library."Customer ID");
-                Customer.Validate(Status, Library.Status);
+                if Library.Status.AsInteger() > Customer.Status.AsInteger() then
+                    Customer.Validate(Status, Library.Status);
 
                 if Customer."Status".AsInteger() > Customer."Highest Status".AsInteger() then
                     Customer.Validate("Highest Status", Customer.Status);
@@ -261,8 +262,11 @@ codeunit 50303 "Rent Functionality"
 
     local procedure CalculateTimeOverdue(var Library: Record Library)
     begin
-        if Library."Date Rented" = 0D then
+        if Library."Date Rented" = 0D then begin
+            library.Validate("Weeks Overdue", 0);
             exit;
+        end;
+
 
         library.Validate("Weeks Overdue", Round((Today - Library."Date Rented") / 7, 1, '='));
     end;
@@ -270,44 +274,62 @@ codeunit 50303 "Rent Functionality"
     local procedure RentBook(var Library: Record Library; var Customer: Record Customer)
     var
         NotAbleToRent: Label 'Sorry, you are not able to rent this book.';
-    // Customer: Record Customer;
+
     begin
-        // Customer.Get(Library."Customer ID");
-        if (Customer.Status.AsInteger() = 40) or (Customer.Status.AsInteger() = 30) or (Customer.Status.AsInteger() = 20) then begin
+
+
+        if (Customer.Status = Customer.Status::Extreme) or (Customer.Status = Customer.Status::High) or (Customer.Status = Customer.Status::Medium) then begin
             Message(NotAbleToRent);
             exit;
-        end
-        else
-            if (CalcDate('-6M', Today) > Customer."Probation Period") or (Customer."Allow Rent" <> true) then begin
-                Customer.Validate("Allow Rent", true);
-                Library.Validate(Rented, true);
-                Library.Validate("Amount Rented", +1);
-                Library.Validate("Date Rented", Today);
-                Library.Modify(true);
-                Customer.Modify(true);
-            end;
-        // if Library."Allow Rent" <> true then begin
-        //     Message(NotAbleToRent);
-        //     exit;
-        // end
+        end;
 
-        // else begin
-        //     Library.Validate(Rented, true);
-        //     Library.Validate("Amount Rented", +1);
-        //     Library.Validate("Date Rented", Today);
-        //     Library.Modify(true);
-        // end;
 
+        if (Today < Customer."Probation Period") or (not Customer."Allow Rent") then
+            exit;
+
+        //NOTE
+        // Customer.Validate("Allow Rent", true); TODO maak reg
+        Library.Validate(Rented, true);
+        Library."Amount Rented" := Library."Amount Rented" + 1;
+        Library.Validate("Date Rented", Today);
+        Customer."Mild Counter" := Customer."Mild Counter" + 1;
+        Library.Modify(true);
+        Customer.Modify(true);
     end;
+
 
     local procedure ChangedToReturned(var Library: Record Library)
     begin
-        Library."Customer Name" := '';
+        //Library."Customer Name" := '';
         Library.Validate("Customer ID", ' ');
         Library.Validate(Rented, false);
         Library.Validate("Date Returned", Today);
 
 
+    end;
+
+    local procedure ReturnAssignment(var Library: Record Library; var Customer: Record Customer)
+    begin
+        ChangedToReturned(Library);
+        Customer.Validate("Allow Rent", true);
+        Library.Validate("Date Rented", 0D);
+    end;
+
+    local procedure AssignNewStatusLevel(var Library: Record Library; var Customer: Record Customer)//TODO fix
+    var
+        Library2: Record Library;
+    begin
+        Library2.SetFilter(Rented, 'true');
+        library2.SetFilter("Customer Name", Library."Customer Name");
+
+        Customer.Validate(Status, Enum::"Status Levels"::Blank);
+
+        if Library2.FindSet() then
+            repeat
+                Message('%1', Library2.Status);
+                if Library2.Status.AsInteger() > Customer.Status.AsInteger() then
+                    Customer.Validate(Status, Library2.Status);
+            until Library2.Next() = 0;
     end;
 
 
@@ -318,122 +340,6 @@ codeunit 50303 "Rent Functionality"
     begin
         Library.SetFilter("Weeks Overdue", '>0');
     end;
-    // procedure DetermineStatus()
-    // var
-    //     Library: Record Library;
-    //     TimeBetweenDates: Integer;
-    // begin
-    //     repeat begin
-    //         Library.SetCurrentKey("Book ID");
-    //         Library.SetFilter(Rented, 'true');
-    //         library.FindFirst();
-    //         TimeBetweenDates := today - Library."Date Rented";
 
-    //         case TimeBetweenDates of
-    //             0 .. 6:
-    //                 begin
-    //                     Library.Status := '';
-    //                 end;
-    //             7 .. 13:
-    //                 begin
-    //                     Library.Status := 'Mild';
-    //                 end;
-    //             14 .. 27:
-    //                 begin
-    //                     Library.Status := 'Medium';
-    //                 end;
-    //             28 .. 55:
-    //                 begin
-    //                     Library.Status := 'High';
-    //                 end;
-    //             56:
-    //                 begin
-    //                     Library.Status := 'Extreme';
-    //                 end;
-
-    //             else
-    //                 Library.Status := 'Extreme';
-
-    //         end;
-    //         Library.Modify(true)
-    //     end until Library.Next() = 0;
-    // end;
-    // procedure CalculateStatus()
-    // var
-    //     LibraryRec: Record Library;
-    //     Customer: Record Customer;
-    //     TimeBetweenRentedAndReturned: Integer;
-    //     "Status Levels2": Enum "Status Levels";
-    //     myInteger: Integer;
-    // begin
-
-    //     //LibraryRec.LoadFields("Date Rented", Status, "Customer ID", Rented);
-    //     // Message(Format(Today - LibraryRec."Date Rented"));
-
-    //     LibraryRec.SetFilter("Rented", 'true');
-    //     LibraryRec.SetFilter("Date Rented", '<>%1', 0D);
-    //     if LibraryRec.FindSet() then
-    //         repeat begin
-    //             if Customer.get(LibraryRec."Customer ID") then begin
-    //                 TimeBetweenRentedAndReturned := (Today - LibraryRec."Date Rented");
-    //                 case TimeBetweenRentedAndReturned of
-    //                     0 .. 6:
-    //                         begin
-
-    //                             Customer.Status := ' ';
-    //                             LibraryRec.Status := '';
-
-    //                         end;
-
-    //                     7 .. 13:
-    //                         begin
-
-    //                             Customer.Status := 'Mild';
-    //                             LibraryRec.Status := 'Mild';
-
-    //                         end;
-
-
-    //                     14 .. 27:
-    //                         begin
-
-    //                             Customer.Status := 'Medium';
-    //                             LibraryRec.Status := 'Medium';
-
-    //                         end;
-
-
-    //                     28 .. 55:
-    //                         begin
-
-
-    //                             Customer.Status := 'High';
-    //                             LibraryRec.Status := 'High';
-
-
-    //                         end;
-
-    //                     56:
-    //                         begin
-
-    //                             Customer.Status := 'Extreme';
-
-    //                         end;
-
-
-    //                     else begin
-
-    //                         Customer.Status := 'Extreme';
-
-    //                     end;
-
-    //                 end;
-    //                 Customer.Modify(true);
-    //                 LibraryRec.Modify(true);
-    //             end;
-    //             myInteger := LibraryRec.Next();
-    //             Message(Customer.Name)
-    //         end until myInteger = 0;
-    // end;
 
 }

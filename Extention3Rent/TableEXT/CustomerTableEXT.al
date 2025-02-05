@@ -26,6 +26,12 @@ tableextension 50303 "Customer Table EXT" extends Customer
             Caption = 'Probation Period';
             ToolTip = 'This shows the Date when the Customer is allowed to start renting books again';
         }
+        field(405; "Mild Counter"; Integer)
+        {
+            Caption = 'Mild Counter';
+            ToolTip = 'THis is used to keep track of the amount of books the customer is allowed to rent with the "Mild" Status';
+            InitValue = 0;
+        }
     }
 
     keys

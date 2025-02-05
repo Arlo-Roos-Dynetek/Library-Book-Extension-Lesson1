@@ -61,14 +61,4 @@ page 50324 "Rent Book"
         }
     }
 
-    // trigger OnOpenPage()
-    // var
-    // ThisPage: Page "Rent Book";
-    // begin
-    //     if rec.Rented then 
-    //     begin
-    //     // ThisPage.Close();
-    //      // Page.RunModal(Page::"List Of Books", Rec);
-    //     end;
-    //       end;
 }

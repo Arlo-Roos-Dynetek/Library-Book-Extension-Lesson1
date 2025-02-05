@@ -22,6 +22,7 @@ pageextension 50304 "List Page extention " extends "List Of Books"
                 ToolTip = 'This is the current Weeks overdue for the book.';
             }
 
+
         }
     }
 
