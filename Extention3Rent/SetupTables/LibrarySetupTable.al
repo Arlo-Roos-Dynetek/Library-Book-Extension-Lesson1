@@ -8,10 +8,15 @@ table 50301 "Library table Setup"
 
         }
 
-        field(10; Fines; Decimal)
+        field(10; HighFines; Decimal)
         {
-            Caption = 'Fines';
-            ToolTip = 'This field shows the outstanding fine for having an Book that is overdue.';
+            Caption = ' High Status Fines';
+            ToolTip = 'This field shows the what the fine for having an Book that is overdue on High Status level.';
+        }
+        field(20; ExtremeFines; Decimal)
+        {
+            Caption = 'Extreme Status Fines';
+            ToolTip = 'This field shows the what the fine for having an Book that is overdue on Extreme Status level.';
         }
 
     }

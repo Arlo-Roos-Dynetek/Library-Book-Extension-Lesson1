@@ -15,11 +15,24 @@ page 50301 "Library Page Setup"
         {
             group("Changeble fields")
             {
-                field(Fines; Rec.Fines)
+                field(Fines; Rec.HighFines)
                 {
+                    Caption = 'High Fine Amount';
+                    ToolTip = 'This field allows you to change the the fine amount for "High Status" books that are overdue.';
                     trigger OnValidate()
                     var
-                      
+
+                    begin
+                        Rec.Modify(true);
+                    end;
+                }
+                field(ExtremeFines; Rec.ExtremeFines)
+                {
+                    Caption = 'Extreme Fine Amount';
+                    ToolTip = 'This field allows you to change the the fine amount for "Extreme Status" books that are overdue.';
+                    trigger OnValidate()
+                    var
+
                     begin
                         Rec.Modify(true);
                     end;

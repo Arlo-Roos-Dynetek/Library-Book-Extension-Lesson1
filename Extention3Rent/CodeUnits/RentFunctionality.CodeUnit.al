@@ -18,8 +18,9 @@ codeunit 50303 "Rent Functionality"
         WarningMessageNoMoreRenting: Label 'This customer is not allowed to rent a new book!';
         WarningMessageBaned: Label 'This customer has been baned, please check the "Library List Page" to see when the client will be allowed to rent a book again';
         Customer: Record Customer;
-        DateFormula: DateFormula;
+        DateProbationEnd: Date;
         ExceededMildCounter: Label 'You have exceeded your renting limit of 3 books with your Mild Status';
+
     begin
 
 
@@ -72,8 +73,9 @@ codeunit 50303 "Rent Functionality"
                         end;
                     Customer.Status::Extreme:
                         begin
-                            Message(WarningMessageNoMoreRenting);
-                            Message(WarningMessageExtreme);
+                            Message(WarningMessageNoMoreRenting + '///' + WarningMessageExtreme);
+                            DateProbationEnd := CalcDate('-t', Customer."Probation Period");
+                            Message('This the time remaining: ' + Format(DateProbationEnd));
                             Library."Customer ID" := '';
                             Customer.Validate("Allow Rent", false);
 
@@ -157,7 +159,7 @@ codeunit 50303 "Rent Functionality"
                 begin
                     Library.Validate(Status, Library.Status::Blank);
                     ReturnAssignment(Library, Customer);
-                    Customer.Fines := Customer.Fines + LibraryTableSetup.Fines;
+                    Customer.Fines := Customer.Fines + LibraryTableSetup.HighFines;
                     Library.Modify(true); // yes this is necessary!!!!!!!!!!!!
                     AssignNewStatusLevel(Library, Customer);
                     Library."Customer Name" := '';
@@ -169,7 +171,7 @@ codeunit 50303 "Rent Functionality"
                     ChangedToReturned(Library);
                     Library.Validate(Status, Library.Status::Blank);
                     Customer.Validate("Allow Rent", false);
-                    Customer.Fines := Customer.Fines + LibraryTableSetup.Fines;
+                    Customer.Fines := Customer.Fines + LibraryTableSetup.ExtremeFines;
                     Customer.Validate("Probation Period", CalcDate('+6M', Today));
                     Library.Modify(true); // yes this is necessary!!!!!!!!!!!!
                     AssignNewStatusLevel(Library, Customer);
@@ -287,8 +289,6 @@ codeunit 50303 "Rent Functionality"
         if (Today < Customer."Probation Period") or (not Customer."Allow Rent") then
             exit;
 
-        //NOTE
-        // Customer.Validate("Allow Rent", true); TODO maak reg
         Library.Validate(Rented, true);
         Library."Amount Rented" := Library."Amount Rented" + 1;
         Library.Validate("Date Rented", Today);
@@ -300,7 +300,6 @@ codeunit 50303 "Rent Functionality"
 
     local procedure ChangedToReturned(var Library: Record Library)
     begin
-        //Library."Customer Name" := '';
         Library.Validate("Customer ID", ' ');
         Library.Validate(Rented, false);
         Library.Validate("Date Returned", Today);
@@ -315,7 +314,7 @@ codeunit 50303 "Rent Functionality"
         Library.Validate("Date Rented", 0D);
     end;
 
-    local procedure AssignNewStatusLevel(var Library: Record Library; var Customer: Record Customer)//TODO fix
+    local procedure AssignNewStatusLevel(var Library: Record Library; var Customer: Record Customer)
     var
         Library2: Record Library;
     begin
