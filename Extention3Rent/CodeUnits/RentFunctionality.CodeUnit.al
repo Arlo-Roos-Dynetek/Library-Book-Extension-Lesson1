@@ -18,7 +18,7 @@ codeunit 50303 "Rent Functionality"
         WarningMessageNoMoreRenting: Label 'This customer is not allowed to rent a new book!';
         WarningMessageBaned: Label 'This customer has been baned, please check the "Library List Page" to see when the client will be allowed to rent a book again';
         Customer: Record Customer;
-        DateProbationEnd: Date;
+        DateProbationEnd: Integer;
         ExceededMildCounter: Label 'You have exceeded your renting limit of 3 books with your Mild Status';
 
     begin
@@ -74,8 +74,8 @@ codeunit 50303 "Rent Functionality"
                     Customer.Status::Extreme:
                         begin
                             Message(WarningMessageNoMoreRenting + '///' + WarningMessageExtreme);
-                            DateProbationEnd := CalcDate('-t', Customer."Probation Period");
-                            Message('This the time remaining: ' + Format(DateProbationEnd));
+                            DateProbationEnd := Today - Customer."Probation Period";
+                            Message('This is the amount of days remaining : ' + Format(DateProbationEnd));
                             Library."Customer ID" := '';
                             Customer.Validate("Allow Rent", false);
 
