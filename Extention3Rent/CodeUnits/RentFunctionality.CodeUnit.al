@@ -75,7 +75,7 @@ codeunit 50303 "Rent Functionality"
                         begin
                             Message(WarningMessageNoMoreRenting + '///' + WarningMessageExtreme);
                             DateProbationEnd := Today - Customer."Probation Period";
-                            Message('This is the amount of days remaining : ' + Format(DateProbationEnd));
+                            Message('This is the amount of days remaining on your probation period: ' + Format(DateProbationEnd));
                             Library."Customer ID" := '';
                             Customer.Validate("Allow Rent", false);
 
