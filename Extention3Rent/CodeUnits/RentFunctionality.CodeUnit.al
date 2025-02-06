@@ -136,7 +136,7 @@ codeunit 50303 "Rent Functionality"
 
             "Status Levels"::Mild:
                 begin
-                    //Customer.FindFirst();
+
                     Library.Validate(Status, Library.Status::Blank);
                     ReturnAssignment(Library, Customer);
                     Customer.Validate("Mild Counter", 0);
@@ -196,7 +196,7 @@ codeunit 50303 "Rent Functionality"
     begin
         CalculateTimeOverdue(Rec);
         DetermineStatus(Rec);
-
+        Rec.Modify(true);
     end;
 
     [EventSubscriber(ObjectType::Table, Database::Library, 'OnBeforeModifyEvent', '', false, false)]
@@ -204,21 +204,21 @@ codeunit 50303 "Rent Functionality"
     begin
         CalculateTimeOverdue(Rec);
         DetermineStatus(Rec);
-
+        Rec.Modify(true);
     end;
 
-    [EventSubscriber(ObjectType::Page, Page::"List Of Books", 'OnOpenPageEvent', '', false, false)]
-    local procedure OnOpenPageBookList(var Rec: Record Library)
-    begin
-        if Rec.FindSet() then
-            repeat
-                CalculateTimeOverdue(Rec);
-                DetermineStatus(Rec);
-                Rec.Modify(true);
-            until Rec.Next() = 0;
-        AssignCustomerLevel();
+    // [EventSubscriber(ObjectType::Page, Page::"List Of Books", 'OnOpenPageEvent', '', false, false)]
+    // local procedure OnOpenPageBookList(var Rec: Record Library)
+    // begin
+    //     if Rec.FindSet() then
+    //         repeat
+    //             CalculateTimeOverdue(Rec);
+    //             DetermineStatus(Rec);
+    //             Rec.Modify(true);
+    //         until Rec.Next() = 0;
+    //     AssignCustomerLevel();
 
-    end;
+    // end;
 
     procedure AssignCustomerLevel()
     var
@@ -241,7 +241,7 @@ codeunit 50303 "Rent Functionality"
 
 
 
-    local procedure DetermineStatus(var Library: Record Library)
+    procedure DetermineStatus(var Library: Record Library)
     var
         Customer: Record Customer;
     begin
@@ -262,7 +262,7 @@ codeunit 50303 "Rent Functionality"
 
 
 
-    local procedure CalculateTimeOverdue(var Library: Record Library)
+    procedure CalculateTimeOverdue(var Library: Record Library)
     begin
         if Library."Date Rented" = 0D then begin
             library.Validate("Weeks Overdue", 0);
