@@ -17,9 +17,14 @@ tableextension 50305 LibraryEXT extends Library
             Caption = 'Weeks Overdue';
             ToolTip = 'This shows the amount of weeks the book is overdue';
         }
-        
+        field(70; "Amount Rented month"; Integer)
+        {
+            // Caption = 'Action';
+            ToolTip = 'This field shows if the book was rented or returned.';
 
-        
+        }
+
+
 
     }
 

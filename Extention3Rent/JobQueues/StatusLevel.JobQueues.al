@@ -3,16 +3,16 @@ codeunit 50310 "Status Level Job Queue"
     TableNo = "Job Queue Entry";
     trigger OnRun()
     var
-    Library: Record Library;
+        Library: Record Library;
     begin
         case rec."Parameter String" of
             'Update Once everyday':
                 UpdateStatusEveryDay(Library)
-           
-                
-        else
-        if GuiAllowed then
-          Message('Something went wrong');  
+
+
+            else
+                if GuiAllowed then
+                    Message('Something went wrong');
         end;
     end;
 

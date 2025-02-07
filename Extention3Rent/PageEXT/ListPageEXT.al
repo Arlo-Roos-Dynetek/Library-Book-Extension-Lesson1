@@ -50,6 +50,16 @@ pageextension 50304 "List Page extention " extends "List Of Books"
                     "Library Page Setup".Run();
                 end;
             }
+            action("View Rent log")
+            {
+                Image = ImportLog;
+                trigger OnAction()
+                var
+                    "BookRentingLog": Page "Book Renting Log";
+                begin
+                   BookRentingLog.Run();
+                end;
+            }
         }
 
 
