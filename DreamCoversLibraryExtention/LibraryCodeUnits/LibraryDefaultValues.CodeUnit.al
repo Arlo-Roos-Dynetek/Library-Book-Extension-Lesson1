@@ -11,13 +11,13 @@ codeunit 50120 LibraryDefaultValues
     BookRec: Record Library;
     begin
         BookRec.Init();
-        BookRec.BookID := BookID;
-        BookRec."Title" := Title;
-        BookRec."Author" := Author;
-        BookRec."Rented" := Rented;
-        BookRec."Series" := Series;
-        BookRec."Genre" := Genre;
-        BookRec."Publisher" := Publisher;
+        // BookRec.BookID := BookID;
+        // BookRec."Title" := Title;
+        // BookRec."Author" := Author;
+        // BookRec."Rented" := Rented;
+        // BookRec."Series" := Series;
+        // BookRec."Genre" := Genre;
+        // BookRec."Publisher" := Publisher;
         BookRec."Book Price" := BookPrice;
         BookRec."Publication Date" := PublicationDate;
         BookRec."Pages" := Pages;
