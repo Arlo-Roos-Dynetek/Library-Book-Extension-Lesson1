@@ -19,8 +19,14 @@ tableextension 50305 LibraryEXT extends Library
         }
         field(70; "Amount Rented month"; Integer)
         {
-            // Caption = 'Action';
+            Caption = 'Amount rented monthly';
             ToolTip = 'This field shows if the book was rented or returned.';
+
+        }
+        field(80; "Monthly Rank"; Integer)
+        {
+            Caption = 'Monthly Rank';
+            ToolTip = 'This field shows the monthly rank of the book.';
 
         }
 

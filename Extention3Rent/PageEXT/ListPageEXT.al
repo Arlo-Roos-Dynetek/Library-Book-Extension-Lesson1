@@ -21,6 +21,12 @@ pageextension 50304 "List Page extention " extends "List Of Books"
                 Caption = 'Weeks Overdue';
                 ToolTip = 'This is the current Weeks overdue for the book.';
             }
+            field("Monthly Rank";Rec."Monthly Rank")
+            {
+                Caption = 'Monthly Rank';
+                ToolTip = '';
+            }
+           
 
 
         }
