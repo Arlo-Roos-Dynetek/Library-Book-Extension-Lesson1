@@ -1,5 +1,6 @@
 tableextension 50305 LibraryEXT extends Library
 {
+    
     fields
     {
         field(40; Status; Enum "Status Levels")
