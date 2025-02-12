@@ -111,9 +111,9 @@ codeunit 50303 "Rent Functionality"
 
 
         if (Library."Date Returned" <> 0D) and (Library."Date Rented" <> 0D) then
-            BookLogTable.Validate("Rent Duration", Library."Date Returned" - Library."Date Rented")
-        else
-            BookLogTable.Validate("Rent Duration", 0);
+            BookLogTable.Validate("Rent Duration", Library."Date Returned" - Library."Date Rented");
+        // else
+        //     BookLogTable.Validate("Rent Duration", 0);
 
         BookLogTable.Validate("Book Title", Library.Title);
         BookLogTable.Validate("Customer Name", Library."Customer Name");
