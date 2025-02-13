@@ -1,3 +1,6 @@
+/// <summary>
+/// PageExtension Rent page Extetion (ID 50301) extends Record List Of Books.
+/// </summary>
 pageextension 50301 "Rent page Extetion" extends "List Of Books"
 {
     actions

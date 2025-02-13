@@ -1,3 +1,6 @@
+/// <summary>
+/// Page Library Page Setup (ID 50301).
+/// </summary>
 page 50301 "Library Page Setup"
 {
 

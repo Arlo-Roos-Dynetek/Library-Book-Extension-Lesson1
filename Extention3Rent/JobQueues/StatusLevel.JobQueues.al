@@ -1,3 +1,6 @@
+/// <summary>
+/// Codeunit Status Level Job Queue (ID 50310).
+/// </summary>
 codeunit 50310 "Status Level Job Queue"
 {
     TableNo = "Job Queue Entry";

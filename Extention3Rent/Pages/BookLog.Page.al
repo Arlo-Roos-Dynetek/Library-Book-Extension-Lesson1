@@ -1,3 +1,6 @@
+/// <summary>
+/// Page Book Renting Log (ID 50311).
+/// </summary>
 page 50311 "Book Renting Log"
 {
     PageType = List;

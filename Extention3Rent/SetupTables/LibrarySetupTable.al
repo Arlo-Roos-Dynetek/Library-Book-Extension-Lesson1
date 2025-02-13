@@ -1,3 +1,6 @@
+/// <summary>
+/// Table Library table Setup (ID 50301).
+/// </summary>
 table 50301 "Library table Setup"
 {
 
@@ -32,6 +35,9 @@ table 50301 "Library table Setup"
     var
         RecordHasBeenRead: Boolean;
 
+    /// <summary>
+    /// GetRecordOnce.
+    /// </summary>
     procedure GetRecordOnce()
     begin
         if RecordHasBeenRead then
@@ -40,6 +46,9 @@ table 50301 "Library table Setup"
         RecordHasBeenRead := true;
     end;
 
+    /// <summary>
+    /// InsertIfNotExists.
+    /// </summary>
     procedure InsertIfNotExists()
     begin
         Reset();

@@ -1,3 +1,6 @@
+/// <summary>
+/// Table Book Log Table (ID 50310).
+/// </summary>
 table 50310 "Book Log Table"
 {
 

@@ -1,3 +1,6 @@
+/// <summary>
+/// PageExtension List Page extention  (ID 50304) extends Record List Of Books.
+/// </summary>
 pageextension 50304 "List Page extention " extends "List Of Books"
 {
     layout

@@ -1,3 +1,6 @@
+/// <summary>
+/// Codeunit Rent Functionality (ID 50303).
+/// </summary>
 codeunit 50303 "Rent Functionality"
 {
     //this validates the rent field so that an already rented field is not rented out again.
@@ -253,6 +256,9 @@ codeunit 50303 "Rent Functionality"
 
     // end;
 
+    /// <summary>
+    /// AssignCustomerLevel.
+    /// </summary>
     procedure AssignCustomerLevel()
     var
         Library: Record Library;
@@ -274,6 +280,10 @@ codeunit 50303 "Rent Functionality"
 
 
 
+    /// <summary>
+    /// DetermineStatus.
+    /// </summary>
+    /// <param name="Library">VAR Record Library.</param>
     procedure DetermineStatus(var Library: Record Library)
     var
         Customer: Record Customer;
@@ -295,6 +305,10 @@ codeunit 50303 "Rent Functionality"
 
 
 
+    /// <summary>
+    /// CalculateTimeOverdue.
+    /// </summary>
+    /// <param name="Library">VAR Record Library.</param>
     procedure CalculateTimeOverdue(var Library: Record Library)
     begin
         if Library."Date Rented" = 0D then begin
@@ -371,6 +385,10 @@ codeunit 50303 "Rent Functionality"
 
 
 
+    /// <summary>
+    /// ShowAllOverdueBooks.
+    /// </summary>
+    /// <param name="Library">VAR Record Library.</param>
     procedure ShowAllOverdueBooks(var Library: Record Library)
     begin
         Library.SetFilter("Weeks Overdue", '>0');
