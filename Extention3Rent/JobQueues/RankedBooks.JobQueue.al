@@ -1,3 +1,6 @@
+// this code unit contains the logic that has been written to order the books based on amount of times book that have been rented 
+// it also filters according to books that were rented in the last month.
+
 codeunit 50312 "Rank books"
 {
     TableNo = "Job Queue Entry";
@@ -39,7 +42,6 @@ codeunit 50312 "Rank books"
                 Library.Validate("Monthly Rank", RankCounter);
                 library.Modify();
                 RankCounter += 1;
-
             until Library.Next() = 0;
     end;
 }

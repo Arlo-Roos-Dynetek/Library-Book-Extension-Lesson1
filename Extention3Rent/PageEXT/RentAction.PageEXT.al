@@ -14,9 +14,7 @@ pageextension 50301 "Rent page Extetion" extends "List Of Books"
                 trigger OnAction()
                 var
                     rentCode: Codeunit "Rent Functionality";
-
                     RentErrorMessageLbl: Label 'Sorry, this book is already rented :(';
-
                 begin
 
                     if Rec.Rented = false then

@@ -1,6 +1,7 @@
 /// <summary>
 /// Codeunit Status Level Job Queue (ID 50310).
 /// </summary>
+/// This job queue updates the status of the books once a day.
 codeunit 50310 "Status Level Job Queue"
 {
     TableNo = "Job Queue Entry";
@@ -24,6 +25,7 @@ codeunit 50310 "Status Level Job Queue"
         RentFunctionality: Codeunit "Rent Functionality";
     begin
         if Rec.FindSet() then
+        //Error('you broke your own code');
             repeat
                 RentFunctionality.CalculateTimeOverdue(Rec);
                 RentFunctionality.DetermineStatus(Rec);

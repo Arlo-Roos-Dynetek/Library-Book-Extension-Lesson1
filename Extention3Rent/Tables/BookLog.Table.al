@@ -4,7 +4,6 @@
 table 50310 "Book Log Table"
 {
 
-
     fields
     {
         field(2; LogID; Code[20])
@@ -40,16 +39,12 @@ table 50310 "Book Log Table"
         }
         field(60; Action; Text[10])
         {
-            // Caption = 'Action';
             ToolTip = 'This field shows if the book was rented or returned.';
-
         }
         
         field(70; "Amount Rented month";Integer)
         {
-            // Caption = 'Action';
             ToolTip = 'This field shows if the book was rented or returned.';
-
         }
 
     }
@@ -62,14 +57,6 @@ table 50310 "Book Log Table"
         }
     }
 
-
-    fieldgroups
-    {
-        // Add changes to field groups here
-    }
-
-    var
-        myInt: Integer;
 
     trigger OnInsert()
     var

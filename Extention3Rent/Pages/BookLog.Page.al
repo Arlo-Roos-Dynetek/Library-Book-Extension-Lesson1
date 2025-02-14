@@ -6,7 +6,7 @@ page 50311 "Book Renting Log"
     PageType = List;
     ApplicationArea = All;
     SourceTable = "Book Log Table";
-
+    Editable = false;
     layout
     {
         area(Content)
@@ -15,11 +15,9 @@ page 50311 "Book Renting Log"
             {
                 field("Book Title"; Rec."Book Title")
                 {
-
                 }
                 field("Customer Name"; Rec."Customer Name")
                 {
-
                 }
                 field(Action; Rec.Action)
                 {
@@ -31,11 +29,9 @@ page 50311 "Book Renting Log"
                 }
                 field("Date Rented"; Rec."Date Rented")
                 {
-
                 }
                 field("Date Returned"; Rec."Date Returned")
                 {
-
                 }
 
             }
@@ -57,6 +53,4 @@ page 50311 "Book Renting Log"
         }
     }
 
-    var
-        myInt: Integer;
 }

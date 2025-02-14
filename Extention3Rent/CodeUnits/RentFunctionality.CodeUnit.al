@@ -6,6 +6,7 @@ codeunit 50303 "Rent Functionality"
     //this validates the rent field so that an already rented field is not rented out again.
     // if the user tries to rent a book that is already rented out it will display a error message telling the user that it is not possible to rent that book.
     // if the book is not rented , the books status will be changed to rented.
+    // This code unit now also saves rented and returned data to a log page.
 
     /// <summary>
     /// ValidateRentInfo.
@@ -30,7 +31,7 @@ codeunit 50303 "Rent Functionality"
         if Page.RunModal(Page::"Rent Book", Library) = Action::LookupOK then
             if (Library."Customer Name" = '') then begin
                 exit;
-                // Message(ErrorMessage);
+
 
             end
             else begin
@@ -47,14 +48,11 @@ codeunit 50303 "Rent Functionality"
 
                     Customer.Status::Mild:
                         begin
-                            /// Customer.FindFirst();
+
                             if Customer."Mild Counter" < 3 then
                                 RentBook(Library, Customer)
                             else
                                 Message(ExceededMildCounter);
-
-
-
 
                             Message(WarningMessageMild);
                         end;
@@ -90,9 +88,6 @@ codeunit 50303 "Rent Functionality"
                 Library.Modify(true);
 
             end;
-
-
-
     end;
 
     local procedure LogBookInfo(var Library: Record Library)
@@ -148,8 +143,6 @@ codeunit 50303 "Rent Functionality"
         ConfirmationMessage := Library.Title + ' has been returned';
         Customer.Get(Library."Customer ID");
 
-
-
         LibraryTableSetup.Get();
 
         case Customer.Status of
@@ -162,7 +155,6 @@ codeunit 50303 "Rent Functionality"
                     AssignNewStatusLevel(Library, Customer);
                     Library.Validate("Date Rented", 0D);
                     Library."Customer Name" := '';
-
 
                     Message(ConfirmationMessage);
                 end;
@@ -221,7 +213,7 @@ codeunit 50303 "Rent Functionality"
         end;
         Library.Modify(true);
         Customer.Modify(true);
-        // LogBookInfo(Library);
+
 
 
     end;
@@ -232,7 +224,7 @@ codeunit 50303 "Rent Functionality"
     begin
         CalculateTimeOverdue(Rec);
         DetermineStatus(Rec);
-        // Rec.Modify(true);
+
     end;
 
     [EventSubscriber(ObjectType::Table, Database::Library, 'OnBeforeModifyEvent', '', false, false)]
@@ -240,7 +232,7 @@ codeunit 50303 "Rent Functionality"
     begin
         CalculateTimeOverdue(Rec);
         DetermineStatus(Rec);
-        // Rec.Modify(true);
+
     end;
 
     // [EventSubscriber(ObjectType::Page, Page::"List Of Books", 'OnOpenPageEvent', '', false, false)]
@@ -277,9 +269,6 @@ codeunit 50303 "Rent Functionality"
             until Library.Next() = 0;
 
     end;
-
-
-
     /// <summary>
     /// DetermineStatus.
     /// </summary>
@@ -302,9 +291,6 @@ codeunit 50303 "Rent Functionality"
                 Library.Validate(Status, Library.Status::Extreme);
         end;
     end;
-
-
-
     /// <summary>
     /// CalculateTimeOverdue.
     /// </summary>
@@ -316,7 +302,6 @@ codeunit 50303 "Rent Functionality"
             exit;
         end;
 
-
         library.Validate("Weeks Overdue", Round((Today - Library."Date Rented") / 7, 1, '='));
     end;
 
@@ -325,7 +310,6 @@ codeunit 50303 "Rent Functionality"
         NotAbleToRent: Label 'Sorry, you are not able to rent this book.';
 
     begin
-
 
         if (Customer.Status = Customer.Status::Extreme) or (Customer.Status = Customer.Status::High) or (Customer.Status = Customer.Status::Medium) then begin
             Message(NotAbleToRent);
@@ -348,13 +332,13 @@ codeunit 50303 "Rent Functionality"
 
 
     local procedure ChangedToReturned(var Library: Record Library)
+    var
+        BookLogTable: Record "Book Log Table";
     begin
         Library.Validate(Rented, false);
         LogBookInfo(Library);
         Library.Validate("Customer ID", ' ');
         Library.Validate("Date Returned", Today);
-
-
     end;
 
     local procedure ReturnAssignment(var Library: Record Library; var Customer: Record Customer)
@@ -370,7 +354,6 @@ codeunit 50303 "Rent Functionality"
     begin
         Library2.SetFilter(Rented, 'true');
         library2.SetFilter("Customer Name", Library."Customer Name");
-
         Customer.Validate(Status, Enum::"Status Levels"::Blank);
 
         if Library2.FindSet() then
@@ -378,12 +361,7 @@ codeunit 50303 "Rent Functionality"
                 if Library2.Status.AsInteger() > Customer.Status.AsInteger() then
                     Customer.Validate(Status, Library2.Status);
             until Library2.Next() = 0;
-
     end;
-
-
-
-
 
     /// <summary>
     /// ShowAllOverdueBooks.
@@ -393,6 +371,4 @@ codeunit 50303 "Rent Functionality"
     begin
         Library.SetFilter("Weeks Overdue", '>0');
     end;
-
-
 }
