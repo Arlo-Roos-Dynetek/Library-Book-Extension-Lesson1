@@ -7,12 +7,17 @@ page 50311 "Book Renting Log"
     ApplicationArea = All;
     SourceTable = "Book Log Table";
     Editable = false;
+    SourceTableView = order(descending);
     layout
     {
         area(Content)
         {
             repeater("Renting & Returning Log")
             {
+                field(LogID; Rec.LogID)
+                {
+
+                }
                 field("Book Title"; Rec."Book Title")
                 {
                 }
@@ -42,15 +47,31 @@ page 50311 "Book Renting Log"
     {
         area(Processing)
         {
-            action(ActionName)
+            action("Filter according to book")
             {
-
+                Image = Filter;
                 trigger OnAction()
+                var
+                    BookLogTable: Record "Book Log Table";
                 begin
+                    Rec.SetFilter("Book Title", rec."Book Title");
 
+                    CurrPage.Update();
+                end;
+            }
+            action("Clear Filter")
+            {
+                Image = ClearFilter;
+                trigger OnAction()
+                var
+
+                begin
+                    Rec.Reset();
+                    CurrPage.Update();
                 end;
             }
         }
     }
+
 
 }

@@ -24,12 +24,12 @@ pageextension 50304 "List Page extention " extends "List Of Books"
                 Caption = 'Weeks Overdue';
                 ToolTip = 'This is the current Weeks overdue for the book.';
             }
-            field("Monthly Rank";Rec."Monthly Rank")
+            field("Monthly Rank"; Rec."Monthly Rank")
             {
                 Caption = 'Monthly Rank';
                 ToolTip = '';
             }
-           
+
 
 
         }
@@ -65,8 +65,21 @@ pageextension 50304 "List Page extention " extends "List Of Books"
                 trigger OnAction()
                 var
                     "BookRentingLog": Page "Book Renting Log";
+                  //  RentFunctionality: Codeunit "Rent Functionality";
                 begin
-                   BookRentingLog.Run();
+                    BookRentingLog.Run();
+                //    RentFunctionality.ShowLogPage(Rec);
+                end;
+            }
+            action("Update Book Rank")
+            {
+                Image = Absence;
+                trigger OnAction()
+                var
+                    "RankBooks": Codeunit "Rank books";
+                begin
+                    RankBooks.ForceRun();
+                    CurrPage.Update();
                 end;
             }
         }

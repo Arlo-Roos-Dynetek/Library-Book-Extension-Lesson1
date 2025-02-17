@@ -8,6 +8,7 @@ codeunit 50303 "Rent Functionality"
     // if the book is not rented , the books status will be changed to rented.
     // This code unit now also saves rented and returned data to a log page.
 
+
     /// <summary>
     /// ValidateRentInfo.
     /// </summary>

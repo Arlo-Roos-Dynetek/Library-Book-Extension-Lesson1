@@ -10,6 +10,18 @@ codeunit 50312 "Rank books"
         AssignRanking();
     end;
 
+    /// <summary>
+    /// ForceRun.
+    /// </summary>
+    procedure ForceRun()
+    var
+        VerificationMessage: Label 'The Book Rank have been updated';
+    begin
+        AmountRented();
+        AssignRanking();
+        Message(VerificationMessage);
+    end;
+
     local procedure AmountRented()
     var
         Library: Record Library;
