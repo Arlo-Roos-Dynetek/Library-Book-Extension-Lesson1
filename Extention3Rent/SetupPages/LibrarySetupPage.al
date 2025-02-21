@@ -10,6 +10,7 @@ page 50301 "Library Page Setup"
     InsertAllowed = false;
     DeleteAllowed = false;
     UsageCategory = Administration;
+    ApplicationArea = All;
 
 
     layout

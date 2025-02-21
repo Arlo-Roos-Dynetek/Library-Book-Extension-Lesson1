@@ -3,6 +3,7 @@
 /// </summary>
 pageextension 50304 "List Page extention " extends "List Of Books"
 {
+
     layout
     {
         addbefore(Genre)
@@ -11,6 +12,7 @@ pageextension 50304 "List Page extention " extends "List Of Books"
             {
                 Caption = 'Current Status';
                 ToolTip = 'This is the current status for the book.';
+                ApplicationArea = All;
                 trigger OnValidate()
                 var
                     myInt: Integer;
@@ -23,11 +25,13 @@ pageextension 50304 "List Page extention " extends "List Of Books"
             {
                 Caption = 'Weeks Overdue';
                 ToolTip = 'This is the current Weeks overdue for the book.';
+                ApplicationArea = All;
             }
             field("Monthly Rank"; Rec."Monthly Rank")
             {
                 Caption = 'Monthly Rank';
                 ToolTip = '';
+                ApplicationArea = All;
             }
 
 
@@ -37,11 +41,14 @@ pageextension 50304 "List Page extention " extends "List Of Books"
 
     actions
     {
-        addafter("Add Book")
+        addlast(Navigation)
         {
+
             action("Overdue Books")
             {
+                // Caption = 'haha';
                 Image = Filter;
+                ApplicationArea = all;
                 trigger OnAction()
                 var
                     "Rent Functionality": Codeunit "Rent Functionality";
@@ -52,6 +59,7 @@ pageextension 50304 "List Page extention " extends "List Of Books"
             action("Change Fine Amount")
             {
                 Image = Change;
+                ApplicationArea = All;
                 trigger OnAction()
                 var
                     "Library Page Setup": Page "Library Page Setup";
@@ -62,18 +70,20 @@ pageextension 50304 "List Page extention " extends "List Of Books"
             action("View Rent log")
             {
                 Image = ImportLog;
+                ApplicationArea = All;
                 trigger OnAction()
                 var
                     "BookRentingLog": Page "Book Renting Log";
-                  //  RentFunctionality: Codeunit "Rent Functionality";
+                //  RentFunctionality: Codeunit "Rent Functionality";
                 begin
                     BookRentingLog.Run();
-                //    RentFunctionality.ShowLogPage(Rec);
+                    //    RentFunctionality.ShowLogPage(Rec);
                 end;
             }
             action("Update Book Rank")
             {
                 Image = Absence;
+                ApplicationArea = All;
                 trigger OnAction()
                 var
                     "RankBooks": Codeunit "Rank books";

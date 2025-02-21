@@ -11,6 +11,7 @@ pageextension 50301 "Rent page Extetion" extends "List Of Books"
             {
                 ToolTip = 'This action will take you to a page where you can rent a book';
                 Image = AddWatch;
+                ApplicationArea = All;
                 trigger OnAction()
                 var
                     rentCode: Codeunit "Rent Functionality";
@@ -27,6 +28,7 @@ pageextension 50301 "Rent page Extetion" extends "List Of Books"
             {
                 ToolTip = 'This action will allow you to return the book that you have selected.';
                 Image = Absence;
+                ApplicationArea = All;
                 trigger OnAction()
                 var
                     "Return Book": Codeunit "Rent Functionality";
