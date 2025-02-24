@@ -33,16 +33,6 @@ report 50301 CronusReport
     {
         dataitem("Purchase Header"; "Purchase Header")
         {
-
-            dataitem("Salesperson/Purchaser"; "Salesperson/Purchaser")
-            {
-                DataItemLink = "Code" = field("Purchaser Code");
-                column(PurchaserName; Name)
-                {
-
-                }
-
-            }
             column("Order_No"; "No.")
             {
 
@@ -140,27 +130,7 @@ report 50301 CronusReport
             column(AmtRcdNotInvoicedLCY_DataItemName; "Amt. Rcd. Not Invoiced (LCY)")
             {
             }
-            column(AppliestoDocNo_DataItemName; "Applies-to Doc. No.")
-            {
-            }
-            column(AppliestoDocType_DataItemName; "Applies-to Doc. Type")
-            {
-            }
-            column(AppliestoID_DataItemName; "Applies-to ID")
-            {
-            }
-            column(Area_DataItemName; "Area")
-            {
-            }
-            column(AssignedUserID_DataItemName; "Assigned User ID")
-            {
-            }
-            column(BalAccountNo_DataItemName; "Bal. Account No.")
-            {
-            }
-            column(BalAccountType_DataItemName; "Bal. Account Type")
-            {
-            }
+
             column(BuyfromAddress_DataItemName; "Buy-from Address")
             {
             }
@@ -200,35 +170,9 @@ report 50301 CronusReport
             column(CampaignNo_DataItemName; "Campaign No.")
             {
             }
-            column(Comment_DataItemName; Comment)
+            column(DocumentDate_DataItemName; Format("Document Date", 0, 4))
             {
-            }
-            column(CompletelyReceived_DataItemName; "Completely Received")
-            {
-            }
-            column(CompressPrepayment_DataItemName; "Compress Prepayment")
-            {
-            }
-            column(Correction_DataItemName; Correction)
-            {
-            }
-            column(CreditorNo_DataItemName; "Creditor No.")
-            {
-            }
-            column(CurrencyCode_DataItemName; "Currency Code")
-            {
-            }
-            column(CurrencyFactor_DataItemName; "Currency Factor")
-            {
-            }
-            column(DimensionSetID_DataItemName; "Dimension Set ID")
-            {
-            }
-            column(DocNoOccurrence_DataItemName; "Doc. No. Occurrence")
-            {
-            }
-            column(DocumentDate_DataItemName; "Document Date")
-            {
+
             }
             column(DocumentType_DataItemName; "Document Type")
             {
@@ -236,97 +180,11 @@ report 50301 CronusReport
             column(DueDate_DataItemName; "Due Date")
             {
             }
-            column(EntryPoint_DataItemName; "Entry Point")
-            {
-            }
-            column(ExpectedReceiptDate_DataItemName; "Expected Receipt Date")
-            {
-            }
-            column(FormatRegion_DataItemName; "Format Region")
-            {
-            }
-            column(GenBusPostingGroup_DataItemName; "Gen. Bus. Posting Group")
-            {
-            }
-            column(ICDirection_DataItemName; "IC Direction")
-            {
-            }
-            column(ICReferenceDocumentNo_DataItemName; "IC Reference Document No.")
-            {
-            }
-            column(ICStatus_DataItemName; "IC Status")
-            {
-            }
-            column(InboundWhseHandlingTime_DataItemName; "Inbound Whse. Handling Time")
-            {
-            }
-            column(IncomingDocumentEntryNo_DataItemName; "Incoming Document Entry No.")
-            {
-            }
-            column(Invoice_DataItemName; Invoice)
-            {
-            }
-            column(InvoiceDiscCode_DataItemName; "Invoice Disc. Code")
-            {
-            }
-            column(InvoiceDiscountAmount_DataItemName; "Invoice Discount Amount")
-            {
-            }
-            column(InvoiceDiscountCalculation_DataItemName; "Invoice Discount Calculation")
-            {
-            }
-            column(InvoiceDiscountValue_DataItemName; "Invoice Discount Value")
-            {
-            }
-            column(InvoiceReceivedDate_DataItemName; "Invoice Received Date")
-            {
-            }
-            column(JobQueueEntryID_DataItemName; "Job Queue Entry ID")
-            {
-            }
-            column(JobQueueStatus_DataItemName; "Job Queue Status")
-            {
-            }
-            column(JournalTemplName_DataItemName; "Journal Templ. Name")
-            {
-            }
-            column(LanguageCode_DataItemName; "Language Code")
-            {
-            }
-            column(LastPostingNo_DataItemName; "Last Posting No.")
-            {
-            }
-            column(LastPrepaymentNo_DataItemName; "Last Prepayment No.")
-            {
-            }
-            column(LastPrepmtCrMemoNo_DataItemName; "Last Prepmt. Cr. Memo No.")
-            {
-            }
-            column(LastReceivingNo_DataItemName; "Last Receiving No.")
-            {
-            }
-            column(LastReturnShipmentNo_DataItemName; "Last Return Shipment No.")
-            {
-            }
-            column(LeadTimeCalculation_DataItemName; "Lead Time Calculation")
-            {
-            }
+
             column(LocationCode_DataItemName; "Location Code")
             {
             }
             column(No_DataItemName; "No.")
-            {
-            }
-            column(NoofArchivedVersions_DataItemName; "No. of Archived Versions")
-            {
-            }
-            column(NoPrinted_DataItemName; "No. Printed")
-            {
-            }
-            column(NoSeries_DataItemName; "No. Series")
-            {
-            }
-            column(OnHold_DataItemName; "On Hold")
             {
             }
             column(OrderAddressCode_DataItemName; "Order Address Code")
@@ -389,12 +247,7 @@ report 50301 CronusReport
             column(PaymentTermsCode_DataItemName; "Payment Terms Code")
             {
             }
-            dataitem("Payment Terms Code"; "Payment Terms")
-            {
-                DataItemLink = "Code" = field("Payment Terms Code");
-                column("Payment_Description"; Description)
-                { }
-            }
+
             column(PendingApprovals_DataItemName; "Pending Approvals")
             {
             }
@@ -542,12 +395,7 @@ report 50301 CronusReport
             column(ShipmentMethodCode_DataItemName; "Shipment Method Code")
             {
             }
-            dataitem("Shipment Method"; "Shipment Method")
-            {
-                DataItemLink = "Code" = field("Shipment Method Code");
-                column(Shipment_Method_Description; Description)
-                { }
-            }
+
             column(ShortcutDimension1Code_DataItemName; "Shortcut Dimension 1 Code")
             {
             }
@@ -637,6 +485,27 @@ report 50301 CronusReport
             {
 
             }
+            dataitem("Salesperson/Purchaser"; "Salesperson/Purchaser")
+            {
+                DataItemLink = "Code" = field("Purchaser Code");
+                column(PurchaserName; Name)
+                {
+
+                }
+
+            }
+            dataitem("Shipment Method"; "Shipment Method")
+            {
+                DataItemLink = "Code" = field("Shipment Method Code");
+                column(Shipment_Method_Description; Description)
+                { }
+            }
+            dataitem("Payment Terms Code"; "Payment Terms")
+            {
+                DataItemLink = "Code" = field("Payment Terms Code");
+                column("Payment_Description"; Description)
+                { }
+            }
             dataitem("Purchase Line"; "Purchase Line")
             {
                 DataItemLink = "Document No." = field("No.");
@@ -704,14 +573,7 @@ report 50301 CronusReport
             }
             dataitem("Company Information"; "Company Information")
             {
-                dataitem("Country/Region"; "Country/Region")
-                {
-                    DataItemLink = "Code" = field("Country/Region Code");
-                    column(CompCountryName; Name)
-                    {
 
-                    }
-                }
                 column(ShiptoAddress_Lbl; ShiptoAddress_Lbl)
                 {
 
@@ -839,9 +701,6 @@ report 50301 CronusReport
                 column(GLN_CompanyInformation; GLN)
                 {
                 }
-                // column(HomePage_CompanyInformation; "Home Page")
-                // {
-                // }
                 column(IBAN_CompanyInformation; IBAN)
                 {
                 }
@@ -949,6 +808,14 @@ report 50301 CronusReport
                 }
                 column(VATRegistrationNo_CompanyInformation; "VAT Registration No.")
                 {
+                }
+                dataitem("Country/Region"; "Country/Region")
+                {
+                    DataItemLink = "Code" = field("Country/Region Code");
+                    column(CompCountryName; Name)
+                    {
+
+                    }
                 }
 
             }
@@ -1070,7 +937,7 @@ report 50301 CronusReport
     var
 
     begin
-        FormatAddr.GetCompanyAddr(PurchaseHeader."Responsibility Center", ResponsibilityCenter, CompanyInfo, CompanyAddr);
+        FormatAddr.GetCompanyAddr(PurchaseHeader."Responsibility Center", ResponsibilityCenter, "Company Information", CompanyAddr);
         FormatAddr.PurchHeaderBuyFrom(BuyFromAddr, PurchaseHeader);
         FormatAddr.PurchHeaderShipTo(ShipToAddr, PurchaseHeader);
     end;
