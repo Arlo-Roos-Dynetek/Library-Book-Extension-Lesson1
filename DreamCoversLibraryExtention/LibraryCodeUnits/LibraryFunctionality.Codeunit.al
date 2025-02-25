@@ -68,6 +68,7 @@ codeunit 50140 "Library Functionality"
     begin
         Lib.Init();
         Lib := Book;
+        Lib."Date Added" := Today;
         Lib.Insert(true);
     end;
 }

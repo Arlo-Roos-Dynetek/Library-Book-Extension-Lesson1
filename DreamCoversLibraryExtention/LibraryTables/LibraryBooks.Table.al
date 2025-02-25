@@ -134,6 +134,12 @@ table 50120 Library
             DataClassification = CustomerContent;
             ToolTip = 'This is the Date the book has been returned.';
         }
+        field(18; "Date Added"; Date)
+        {
+            Caption = 'Date Added';
+            DataClassification = CustomerContent;
+            ToolTip = 'This is the Date the book was added to the Library.';
+        }
     }
 
     keys

@@ -82,6 +82,7 @@ page 50125 "Add Books"
                 {
                     ApplicationArea = All;
                 }
+                
             }
 
         }

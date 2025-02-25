@@ -16,7 +16,8 @@ codeunit 50310 "Status Level Job Queue"
 
             else
                 if GuiAllowed then
-                    Message('Something went wrong');
+                Error('you broke your own code');
+                    // Message('Something went wrong');
         end;
     end;
 

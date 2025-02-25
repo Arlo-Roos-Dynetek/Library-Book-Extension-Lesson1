@@ -92,6 +92,17 @@ pageextension 50304 "List Page extention " extends "List Of Books"
                     CurrPage.Update();
                 end;
             }
+            action("Go to Dashboard")
+            {
+                Image = Change;
+                ApplicationArea = All;
+                trigger OnAction()
+                var
+                  "DashboardPage": Page "Dashboard Page" ;
+                begin
+                    DashboardPage.Run();
+                end;
+            }
         }
 
 

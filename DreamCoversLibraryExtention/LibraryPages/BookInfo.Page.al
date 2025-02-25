@@ -72,6 +72,10 @@ page 50121 "Book Info"
                 {
                     ApplicationArea = All;
                 }
+                field("Date Added"; Rec."Date Added")
+                {
+                    ApplicationArea = All;
+                }
             }
         }
     }
