@@ -1,0 +1,1962 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:am="http://schemas.microsoft.com/sqlserver/reporting/authoringmetadata">
+  <am:AuthoringMetadata>
+    <am:CreatedBy>
+      <am:Name>MSRB</am:Name>
+      <am:Version>15.0.20283.0</am:Version>
+    </am:CreatedBy>
+    <am:UpdatedBy>
+      <am:Name>MSRB</am:Name>
+      <am:Version>15.0.20283.0</am:Version>
+    </am:UpdatedBy>
+    <am:LastModifiedTimestamp>2025-02-26T12:17:08.3397223Z</am:LastModifiedTimestamp>
+  </am:AuthoringMetadata>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>dfbbc91a-8083-49eb-b2e3-cc604bdb3933</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Textbox Name="BuyFromAddr1">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!BuyFromAddr1.Value, "DataSet_Result")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>BuyFromAddr1</rd:DefaultName>
+            <Top>0.93556in</Top>
+            <Left>0.63833in</Left>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="BuyFromAddr2">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!BuyFromAddr2.Value, "DataSet_Result")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>BuyFromAddr2</rd:DefaultName>
+            <Top>1.21333in</Top>
+            <Left>0.63833in</Left>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="BuyFromAddr3">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!BuyFromAddr3.Value, "DataSet_Result")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>BuyFromAddr3</rd:DefaultName>
+            <Top>1.47722in</Top>
+            <Left>0.63833in</Left>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <ZIndex>2</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="BuyFromAddr4">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!BuyFromAddr4.Value, "DataSet_Result")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>BuyFromAddr4</rd:DefaultName>
+            <Top>1.74111in</Top>
+            <Left>0.63833in</Left>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <ZIndex>3</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="BuyFromAddr5">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!BuyFromAddr5.Value, "DataSet_Result")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>BuyFromAddr5</rd:DefaultName>
+            <Top>2.005in</Top>
+            <Left>0.63833in</Left>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <ZIndex>4</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="BuyFromAddr11">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!BuyFromAddr1.Value, "DataSet_Result")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>BuyFromAddr11</rd:DefaultName>
+            <Top>0.94944in</Top>
+            <Left>3.27167in</Left>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <ZIndex>5</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="BuyFromAddr21">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!BuyFromAddr2.Value, "DataSet_Result")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>BuyFromAddr21</rd:DefaultName>
+            <Top>1.21333in</Top>
+            <Left>3.27167in</Left>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <ZIndex>6</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="BuyFromAddr41">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!BuyFromAddr4.Value, "DataSet_Result")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>BuyFromAddr41</rd:DefaultName>
+            <Top>1.47722in</Top>
+            <Left>3.27167in</Left>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <ZIndex>7</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="BuyFromAddr42">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!BuyFromAddr4.Value, "DataSet_Result")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>BuyFromAddr42</rd:DefaultName>
+            <Top>1.74111in</Top>
+            <Left>3.27167in</Left>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <ZIndex>8</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="BuyFromAddr51">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!BuyFromAddr5.Value, "DataSet_Result")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>BuyFromAddr51</rd:DefaultName>
+            <Top>2.005in</Top>
+            <Left>3.27167in</Left>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <ZIndex>9</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="ShiptoAddress_Lbl">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!ShiptoAddress_Lbl.Value, "DataSet_Result")</Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                      <Color>CornflowerBlue</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>ShiptoAddress_Lbl</rd:DefaultName>
+            <Top>0.56333in</Top>
+            <Left>3.27167in</Left>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <ZIndex>10</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Name_CompanyInformation">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!Name_CompanyInformation.Value, "DataSet_Result")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Name_CompanyInformation</rd:DefaultName>
+            <Top>0.94944in</Top>
+            <Left>5.86333in</Left>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <ZIndex>11</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Address">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!Address.Value, "DataSet_Result")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Address</rd:DefaultName>
+            <Top>1.21333in</Top>
+            <Left>5.86333in</Left>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <ZIndex>12</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Address_2">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!Address_2.Value, "DataSet_Result")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Address_2</rd:DefaultName>
+            <Top>1.47722in</Top>
+            <Left>5.86333in</Left>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <ZIndex>13</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="City_CompanyInformation">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!City_CompanyInformation.Value, "DataSet_Result")</Value>
+                    <Style />
+                  </TextRun>
+                  <TextRun>
+                    <Value>,</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>City_CompanyInformation</rd:DefaultName>
+            <Top>1.74111in</Top>
+            <Left>5.86333in</Left>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <ZIndex>14</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="PostCode_CompanyInformation">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!PostCode_CompanyInformation.Value, "DataSet_Result")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>PostCode_CompanyInformation</rd:DefaultName>
+            <Top>2.005in</Top>
+            <Left>5.86333in</Left>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <ZIndex>15</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="CompCountryName">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!CompCountryName.Value, "DataSet_Result")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>CompCountryName</rd:DefaultName>
+            <Top>2.26889in</Top>
+            <Left>5.86333in</Left>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <ZIndex>16</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="PaymentTermsDesc_Lbl">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!PaymentTermsDesc_Lbl.Value, "DataSet_Result")</Value>
+                    <Style>
+                      <FontSize>6pt</FontSize>
+                      <Color>CornflowerBlue</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>PaymentTermsDesc_Lbl</rd:DefaultName>
+            <Top>3.17167in</Top>
+            <Left>0.68in</Left>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <ZIndex>17</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Buyer_Lbl">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!Buyer_Lbl.Value, "DataSet_Result")</Value>
+                    <Style>
+                      <FontSize>6pt</FontSize>
+                      <Color>CornflowerBlue</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Buyer_Lbl</rd:DefaultName>
+            <Top>3.17167in</Top>
+            <Left>2.58in</Left>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <ZIndex>18</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Receiveby_Lbl">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!Receiveby_Lbl.Value, "DataSet_Result")</Value>
+                    <Style>
+                      <FontSize>6pt</FontSize>
+                      <Color>CornflowerBlue</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Receiveby_Lbl</rd:DefaultName>
+            <Top>3.17167in</Top>
+            <Left>4.63in</Left>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <ZIndex>19</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="ShipmentMethodDesc_Lbl">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!ShipmentMethodDesc_Lbl.Value, "DataSet_Result")</Value>
+                    <Style>
+                      <FontSize>6pt</FontSize>
+                      <Color>CornflowerBlue</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>ShipmentMethodDesc_Lbl</rd:DefaultName>
+            <Top>3.17167in</Top>
+            <Left>6.62167in</Left>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <ZIndex>20</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="PricesInclVAT_PurchHeader_Lbl">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!PricesInclVAT_PurchHeader_Lbl.Value, "DataSet_Result")</Value>
+                    <Style>
+                      <FontSize>6pt</FontSize>
+                      <Color>CornflowerBlue</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>PricesInclVAT_PurchHeader_Lbl</rd:DefaultName>
+            <Top>4.03in</Top>
+            <Left>0.68in</Left>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <ZIndex>21</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="VAT_Registration_No_">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!VAT_Registration_No_.Value, "DataSet_Result")</Value>
+                    <Style>
+                      <FontSize>6pt</FontSize>
+                      <Color>CornflowerBlue</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>VAT_Registration_No_</rd:DefaultName>
+            <Top>4.03in</Top>
+            <Left>2.58in</Left>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <ZIndex>22</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="CompanyGiroNo_Lbl">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!CompanyGiroNo_Lbl.Value, "DataSet_Result")</Value>
+                    <Style>
+                      <FontSize>6pt</FontSize>
+                      <Color>CornflowerBlue</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>CompanyGiroNo_Lbl</rd:DefaultName>
+            <Top>4.03in</Top>
+            <Left>4.63in</Left>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <ZIndex>23</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="VendorInvoiceNo_Lbl">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!VendorInvoiceNo_Lbl.Value, "DataSet_Result")</Value>
+                    <Style>
+                      <FontSize>6pt</FontSize>
+                      <Color>CornflowerBlue</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>VendorInvoiceNo_Lbl</rd:DefaultName>
+            <Top>4.86334in</Top>
+            <Left>0.68in</Left>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <ZIndex>24</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="VendorOrderNo_Lbl">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!VendorOrderNo_Lbl.Value, "DataSet_Result")</Value>
+                    <Style>
+                      <FontSize>6pt</FontSize>
+                      <Color>CornflowerBlue</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>VendorOrderNo_Lbl</rd:DefaultName>
+            <Top>4.86334in</Top>
+            <Left>2.58in</Left>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <ZIndex>25</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Payment_Description">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!Payment_Description.Value, "DataSet_Result")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Payment_Description</rd:DefaultName>
+            <Top>3.42167in</Top>
+            <Left>0.68in</Left>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <ZIndex>26</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="PurchaserName">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!PurchaserName.Value, "DataSet_Result")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>PurchaserName</rd:DefaultName>
+            <Top>3.42167in</Top>
+            <Left>2.58in</Left>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <ZIndex>27</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Shipment_Method_Description">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!Shipment_Method_Description.Value, "DataSet_Result")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Shipment_Method_Description</rd:DefaultName>
+            <Top>3.42167in</Top>
+            <Left>6.62167in</Left>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <ZIndex>28</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="DueDate_DataItemName">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!DueDate_DataItemName.Value, "DataSet_Result")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>DueDate_DataItemName</rd:DefaultName>
+            <Top>3.42167in</Top>
+            <Left>4.63in</Left>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <ZIndex>29</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="PricesIncludingVAT_DataItemName">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!PricesIncludingVAT_DataItemName.Value, "DataSet_Result")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>PricesIncludingVAT_DataItemName</rd:DefaultName>
+            <Top>4.28in</Top>
+            <Left>0.68in</Left>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <ZIndex>30</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+        </ReportItems>
+        <Height>11.65833in</Height>
+        <Style />
+      </Body>
+      <Width>8.28333in</Width>
+      <Page>
+        <PageHeader>
+          <Height>2.00833in</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <ReportItems>
+            <Textbox Name="DocumentTitle_lbl">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=First(Fields!DocumentTitle_lbl.Value, "DataSet_Result")</Value>
+                      <Style>
+                        <FontSize>24pt</FontSize>
+                        <Color>CornflowerBlue</Color>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>DocumentTitle_lbl</rd:DefaultName>
+              <Top>0.20833in</Top>
+              <Left>0.91333in</Left>
+              <Height>0.55in</Height>
+              <Width>2.59722in</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Order_No">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=First(Fields!Order_No.Value, "DataSet_Result")</Value>
+                      <Style>
+                        <FontSize>24pt</FontSize>
+                        <Color>CornflowerBlue</Color>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Order_No</rd:DefaultName>
+              <Top>0.20833in</Top>
+              <Left>4.43in</Left>
+              <Height>0.45in</Height>
+              <Width>2.43333in</Width>
+              <ZIndex>1</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="DocumentDate_DataItemName">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=First(Fields!DocumentDate_DataItemName.Value, "DataSet_Result")</Value>
+                      <Style />
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>DocumentDate_DataItemName</rd:DefaultName>
+              <Top>1in</Top>
+              <Left>0.98833in</Left>
+              <Height>0.25in</Height>
+              <Width>1in</Width>
+              <ZIndex>2</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Page_Lbl">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=First(Fields!Page_Lbl.Value, "DataSet_Result")</Value>
+                      <Style />
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Page_Lbl</rd:DefaultName>
+              <Top>1.33333in</Top>
+              <Left>0.98833in</Left>
+              <Height>0.25in</Height>
+              <Width>0.50833in</Width>
+              <ZIndex>3</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+          </ReportItems>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageHeader>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <EmbeddedImages>
+    <EmbeddedImage Name="Companypic">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>iVBORw0KGgoAAAANSUhEUgAAAOsAAADABAMAAAAXT4kTAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAASUExURf7+/+30/ebv/ejw/enx/efw/RcoXjkAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAACBSURBVHja7dwBCQAgDADBiUnECItgBPt3scUGcl/gGnyMneWtGadezZzRoWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgs9jP29rBNa9+ekfEDKW1+GOiGpUIAAAAASUVORK5CYII=</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="Order_No">
+          <DataField>Order_No</DataField>
+        </Field>
+        <Field Name="ShipToAddr1">
+          <DataField>ShipToAddr1</DataField>
+        </Field>
+        <Field Name="ShipToAddr2">
+          <DataField>ShipToAddr2</DataField>
+        </Field>
+        <Field Name="ShipToAddr3">
+          <DataField>ShipToAddr3</DataField>
+        </Field>
+        <Field Name="ShipToAddr4">
+          <DataField>ShipToAddr4</DataField>
+        </Field>
+        <Field Name="ShipToAddr5">
+          <DataField>ShipToAddr5</DataField>
+        </Field>
+        <Field Name="ShipToAddr6">
+          <DataField>ShipToAddr6</DataField>
+        </Field>
+        <Field Name="ShipToAddr7">
+          <DataField>ShipToAddr7</DataField>
+        </Field>
+        <Field Name="ShipToAddr8">
+          <DataField>ShipToAddr8</DataField>
+        </Field>
+        <Field Name="BuyFromAddr1">
+          <DataField>BuyFromAddr1</DataField>
+        </Field>
+        <Field Name="BuyFromAddr2">
+          <DataField>BuyFromAddr2</DataField>
+        </Field>
+        <Field Name="BuyFromAddr3">
+          <DataField>BuyFromAddr3</DataField>
+        </Field>
+        <Field Name="BuyFromAddr4">
+          <DataField>BuyFromAddr4</DataField>
+        </Field>
+        <Field Name="BuyFromAddr5">
+          <DataField>BuyFromAddr5</DataField>
+        </Field>
+        <Field Name="BuyFromAddr6">
+          <DataField>BuyFromAddr6</DataField>
+        </Field>
+        <Field Name="BuyFromAddr7">
+          <DataField>BuyFromAddr7</DataField>
+        </Field>
+        <Field Name="BuyFromAddr8">
+          <DataField>BuyFromAddr8</DataField>
+        </Field>
+        <Field Name="CompanyAddress1">
+          <DataField>CompanyAddress1</DataField>
+        </Field>
+        <Field Name="CompanyAddress2">
+          <DataField>CompanyAddress2</DataField>
+        </Field>
+        <Field Name="CompanyAddress3">
+          <DataField>CompanyAddress3</DataField>
+        </Field>
+        <Field Name="CompanyAddress4">
+          <DataField>CompanyAddress4</DataField>
+        </Field>
+        <Field Name="CompanyAddress5">
+          <DataField>CompanyAddress5</DataField>
+        </Field>
+        <Field Name="CompanyAddress6">
+          <DataField>CompanyAddress6</DataField>
+        </Field>
+        <Field Name="CompanyAddress7">
+          <DataField>CompanyAddress7</DataField>
+        </Field>
+        <Field Name="CompanyAddress8">
+          <DataField>CompanyAddress8</DataField>
+        </Field>
+        <Field Name="DocumentTitle_lbl">
+          <DataField>DocumentTitle_lbl</DataField>
+        </Field>
+        <Field Name="Page_Lbl">
+          <DataField>Page_Lbl</DataField>
+        </Field>
+        <Field Name="VATRegistrationNo_Lbl">
+          <DataField>VATRegistrationNo_Lbl</DataField>
+        </Field>
+        <Field Name="ARcdNotInvExVATLCY_DataItemName">
+          <DataField>ARcdNotInvExVATLCY_DataItemName</DataField>
+        </Field>
+        <Field Name="ARcdNotInvExVATLCY_DataItemNameFormat">
+          <DataField>ARcdNotInvExVATLCY_DataItemNameFormat</DataField>
+        </Field>
+        <Field Name="Amount_DataItemName">
+          <DataField>Amount_DataItemName</DataField>
+        </Field>
+        <Field Name="Amount_DataItemNameFormat">
+          <DataField>Amount_DataItemNameFormat</DataField>
+        </Field>
+        <Field Name="AmountIncludingVAT_DataItemName">
+          <DataField>AmountIncludingVAT_DataItemName</DataField>
+        </Field>
+        <Field Name="AmountIncludingVAT_DataItemNameFormat">
+          <DataField>AmountIncludingVAT_DataItemNameFormat</DataField>
+        </Field>
+        <Field Name="AmtRcdNotInvoicedLCY_DataItemName">
+          <DataField>AmtRcdNotInvoicedLCY_DataItemName</DataField>
+        </Field>
+        <Field Name="AmtRcdNotInvoicedLCY_DataItemNameFormat">
+          <DataField>AmtRcdNotInvoicedLCY_DataItemNameFormat</DataField>
+        </Field>
+        <Field Name="BuyfromAddress_DataItemName">
+          <DataField>BuyfromAddress_DataItemName</DataField>
+        </Field>
+        <Field Name="BuyfromAddress2_DataItemName">
+          <DataField>BuyfromAddress2_DataItemName</DataField>
+        </Field>
+        <Field Name="BuyfromCity_DataItemName">
+          <DataField>BuyfromCity_DataItemName</DataField>
+        </Field>
+        <Field Name="BuyfromContact_DataItemName">
+          <DataField>BuyfromContact_DataItemName</DataField>
+        </Field>
+        <Field Name="BuyfromContactNo_DataItemName">
+          <DataField>BuyfromContactNo_DataItemName</DataField>
+        </Field>
+        <Field Name="BuyfromCountryRegionCode_DataItemName">
+          <DataField>BuyfromCountryRegionCode_DataItemName</DataField>
+        </Field>
+        <Field Name="BuyfromCounty_DataItemName">
+          <DataField>BuyfromCounty_DataItemName</DataField>
+        </Field>
+        <Field Name="BuyfromICPartnerCode_DataItemName">
+          <DataField>BuyfromICPartnerCode_DataItemName</DataField>
+        </Field>
+        <Field Name="BuyfromPostCode_DataItemName">
+          <DataField>BuyfromPostCode_DataItemName</DataField>
+        </Field>
+        <Field Name="BuyfromVendorName_DataItemName">
+          <DataField>BuyfromVendorName_DataItemName</DataField>
+        </Field>
+        <Field Name="BuyfromVendorName2_DataItemName">
+          <DataField>BuyfromVendorName2_DataItemName</DataField>
+        </Field>
+        <Field Name="BuyfromVendorNo_DataItemName">
+          <DataField>BuyfromVendorNo_DataItemName</DataField>
+        </Field>
+        <Field Name="CampaignNo_DataItemName">
+          <DataField>CampaignNo_DataItemName</DataField>
+        </Field>
+        <Field Name="DocumentDate_DataItemName">
+          <DataField>DocumentDate_DataItemName</DataField>
+        </Field>
+        <Field Name="DocumentType_DataItemName">
+          <DataField>DocumentType_DataItemName</DataField>
+        </Field>
+        <Field Name="DueDate_DataItemName">
+          <DataField>DueDate_DataItemName</DataField>
+        </Field>
+        <Field Name="LocationCode_DataItemName">
+          <DataField>LocationCode_DataItemName</DataField>
+        </Field>
+        <Field Name="No_DataItemName">
+          <DataField>No_DataItemName</DataField>
+        </Field>
+        <Field Name="OrderAddressCode_DataItemName">
+          <DataField>OrderAddressCode_DataItemName</DataField>
+        </Field>
+        <Field Name="OrderClass_DataItemName">
+          <DataField>OrderClass_DataItemName</DataField>
+        </Field>
+        <Field Name="OrderDate_DataItemName">
+          <DataField>OrderDate_DataItemName</DataField>
+        </Field>
+        <Field Name="PartiallyInvoiced_DataItemName">
+          <DataField>PartiallyInvoiced_DataItemName</DataField>
+        </Field>
+        <Field Name="PaytoAddress_DataItemName">
+          <DataField>PaytoAddress_DataItemName</DataField>
+        </Field>
+        <Field Name="PaytoAddress2_DataItemName">
+          <DataField>PaytoAddress2_DataItemName</DataField>
+        </Field>
+        <Field Name="PaytoCity_DataItemName">
+          <DataField>PaytoCity_DataItemName</DataField>
+        </Field>
+        <Field Name="PaytoContact_DataItemName">
+          <DataField>PaytoContact_DataItemName</DataField>
+        </Field>
+        <Field Name="PaytoContactNo_DataItemName">
+          <DataField>PaytoContactNo_DataItemName</DataField>
+        </Field>
+        <Field Name="PaytoCountryRegionCode_DataItemName">
+          <DataField>PaytoCountryRegionCode_DataItemName</DataField>
+        </Field>
+        <Field Name="PaytoCounty_DataItemName">
+          <DataField>PaytoCounty_DataItemName</DataField>
+        </Field>
+        <Field Name="PaytoICPartnerCode_DataItemName">
+          <DataField>PaytoICPartnerCode_DataItemName</DataField>
+        </Field>
+        <Field Name="PaytoName_DataItemName">
+          <DataField>PaytoName_DataItemName</DataField>
+        </Field>
+        <Field Name="PaytoName2_DataItemName">
+          <DataField>PaytoName2_DataItemName</DataField>
+        </Field>
+        <Field Name="PaytoPostCode_DataItemName">
+          <DataField>PaytoPostCode_DataItemName</DataField>
+        </Field>
+        <Field Name="PaytoVendorNo_DataItemName">
+          <DataField>PaytoVendorNo_DataItemName</DataField>
+        </Field>
+        <Field Name="PaymentDiscount_DataItemName">
+          <DataField>PaymentDiscount_DataItemName</DataField>
+        </Field>
+        <Field Name="PaymentDiscount_DataItemNameFormat">
+          <DataField>PaymentDiscount_DataItemNameFormat</DataField>
+        </Field>
+        <Field Name="PaymentMethodCode_DataItemName">
+          <DataField>PaymentMethodCode_DataItemName</DataField>
+        </Field>
+        <Field Name="PaymentReference_DataItemName">
+          <DataField>PaymentReference_DataItemName</DataField>
+        </Field>
+        <Field Name="PaymentTermsCode_DataItemName">
+          <DataField>PaymentTermsCode_DataItemName</DataField>
+        </Field>
+        <Field Name="PendingApprovals_DataItemName">
+          <DataField>PendingApprovals_DataItemName</DataField>
+        </Field>
+        <Field Name="PmtDiscountDate_DataItemName">
+          <DataField>PmtDiscountDate_DataItemName</DataField>
+        </Field>
+        <Field Name="PostingDate_DataItemName">
+          <DataField>PostingDate_DataItemName</DataField>
+        </Field>
+        <Field Name="PostingDescription_DataItemName">
+          <DataField>PostingDescription_DataItemName</DataField>
+        </Field>
+        <Field Name="PostingfromWhseRef_DataItemName">
+          <DataField>PostingfromWhseRef_DataItemName</DataField>
+        </Field>
+        <Field Name="PostingNo_DataItemName">
+          <DataField>PostingNo_DataItemName</DataField>
+        </Field>
+        <Field Name="PostingNoSeries_DataItemName">
+          <DataField>PostingNoSeries_DataItemName</DataField>
+        </Field>
+        <Field Name="Prepayment_DataItemName">
+          <DataField>Prepayment_DataItemName</DataField>
+        </Field>
+        <Field Name="Prepayment_DataItemNameFormat">
+          <DataField>Prepayment_DataItemNameFormat</DataField>
+        </Field>
+        <Field Name="PrepaymentDueDate_DataItemName">
+          <DataField>PrepaymentDueDate_DataItemName</DataField>
+        </Field>
+        <Field Name="PrepaymentNo_DataItemName">
+          <DataField>PrepaymentNo_DataItemName</DataField>
+        </Field>
+        <Field Name="PrepaymentNoSeries_DataItemName">
+          <DataField>PrepaymentNoSeries_DataItemName</DataField>
+        </Field>
+        <Field Name="PrepmtCrMemoNo_DataItemName">
+          <DataField>PrepmtCrMemoNo_DataItemName</DataField>
+        </Field>
+        <Field Name="PrepmtCrMemoNoSeries_DataItemName">
+          <DataField>PrepmtCrMemoNoSeries_DataItemName</DataField>
+        </Field>
+        <Field Name="PrepmtPaymentDiscount_DataItemName">
+          <DataField>PrepmtPaymentDiscount_DataItemName</DataField>
+        </Field>
+        <Field Name="PrepmtPaymentDiscount_DataItemNameFormat">
+          <DataField>PrepmtPaymentDiscount_DataItemNameFormat</DataField>
+        </Field>
+        <Field Name="PrepmtPaymentTermsCode_DataItemName">
+          <DataField>PrepmtPaymentTermsCode_DataItemName</DataField>
+        </Field>
+        <Field Name="PrepmtPmtDiscountDate_DataItemName">
+          <DataField>PrepmtPmtDiscountDate_DataItemName</DataField>
+        </Field>
+        <Field Name="PrepmtPostingDescription_DataItemName">
+          <DataField>PrepmtPostingDescription_DataItemName</DataField>
+        </Field>
+        <Field Name="PriceCalculationMethod_DataItemName">
+          <DataField>PriceCalculationMethod_DataItemName</DataField>
+        </Field>
+        <Field Name="PricesIncludingVAT_DataItemName">
+          <DataField>PricesIncludingVAT_DataItemName</DataField>
+        </Field>
+        <Field Name="PrintPostedDocuments_DataItemName">
+          <DataField>PrintPostedDocuments_DataItemName</DataField>
+        </Field>
+        <Field Name="PromisedReceiptDate_DataItemName">
+          <DataField>PromisedReceiptDate_DataItemName</DataField>
+        </Field>
+        <Field Name="PurchaserCode_DataItemName">
+          <DataField>PurchaserCode_DataItemName</DataField>
+        </Field>
+        <Field Name="QuoteNo_DataItemName">
+          <DataField>QuoteNo_DataItemName</DataField>
+        </Field>
+        <Field Name="ReasonCode_DataItemName">
+          <DataField>ReasonCode_DataItemName</DataField>
+        </Field>
+        <Field Name="RecalculateInvoiceDisc_DataItemName">
+          <DataField>RecalculateInvoiceDisc_DataItemName</DataField>
+        </Field>
+        <Field Name="Receive_DataItemName">
+          <DataField>Receive_DataItemName</DataField>
+        </Field>
+        <Field Name="ReceivedNotInvoiced_DataItemName">
+          <DataField>ReceivedNotInvoiced_DataItemName</DataField>
+        </Field>
+        <Field Name="ReceivingNo_DataItemName">
+          <DataField>ReceivingNo_DataItemName</DataField>
+        </Field>
+        <Field Name="ReceivingNoSeries_DataItemName">
+          <DataField>ReceivingNoSeries_DataItemName</DataField>
+        </Field>
+        <Field Name="RemittoCode_DataItemName">
+          <DataField>RemittoCode_DataItemName</DataField>
+        </Field>
+        <Field Name="RequestedReceiptDate_DataItemName">
+          <DataField>RequestedReceiptDate_DataItemName</DataField>
+        </Field>
+        <Field Name="ResponsibilityCenter_DataItemName">
+          <DataField>ResponsibilityCenter_DataItemName</DataField>
+        </Field>
+        <Field Name="ReturnShipmentNo_DataItemName">
+          <DataField>ReturnShipmentNo_DataItemName</DataField>
+        </Field>
+        <Field Name="ReturnShipmentNoSeries_DataItemName">
+          <DataField>ReturnShipmentNoSeries_DataItemName</DataField>
+        </Field>
+        <Field Name="SelltoCustomerNo_DataItemName">
+          <DataField>SelltoCustomerNo_DataItemName</DataField>
+        </Field>
+        <Field Name="SendICDocument_DataItemName">
+          <DataField>SendICDocument_DataItemName</DataField>
+        </Field>
+        <Field Name="Ship_DataItemName">
+          <DataField>Ship_DataItemName</DataField>
+        </Field>
+        <Field Name="ShiptoAddress_DataItemName">
+          <DataField>ShiptoAddress_DataItemName</DataField>
+        </Field>
+        <Field Name="ShiptoAddress2_DataItemName">
+          <DataField>ShiptoAddress2_DataItemName</DataField>
+        </Field>
+        <Field Name="ShiptoCity_DataItemName">
+          <DataField>ShiptoCity_DataItemName</DataField>
+        </Field>
+        <Field Name="ShiptoCode_DataItemName">
+          <DataField>ShiptoCode_DataItemName</DataField>
+        </Field>
+        <Field Name="ShiptoContact_DataItemName">
+          <DataField>ShiptoContact_DataItemName</DataField>
+        </Field>
+        <Field Name="ShiptoCountryRegionCode_DataItemName">
+          <DataField>ShiptoCountryRegionCode_DataItemName</DataField>
+        </Field>
+        <Field Name="ShiptoCounty_DataItemName">
+          <DataField>ShiptoCounty_DataItemName</DataField>
+        </Field>
+        <Field Name="ShiptoName_DataItemName">
+          <DataField>ShiptoName_DataItemName</DataField>
+        </Field>
+        <Field Name="ShiptoName2_DataItemName">
+          <DataField>ShiptoName2_DataItemName</DataField>
+        </Field>
+        <Field Name="ShiptoPhoneNo_DataItemName">
+          <DataField>ShiptoPhoneNo_DataItemName</DataField>
+        </Field>
+        <Field Name="ShiptoPostCode_DataItemName">
+          <DataField>ShiptoPostCode_DataItemName</DataField>
+        </Field>
+        <Field Name="ShipmentMethodCode_DataItemName">
+          <DataField>ShipmentMethodCode_DataItemName</DataField>
+        </Field>
+        <Field Name="ShortcutDimension1Code_DataItemName">
+          <DataField>ShortcutDimension1Code_DataItemName</DataField>
+        </Field>
+        <Field Name="ShortcutDimension2Code_DataItemName">
+          <DataField>ShortcutDimension2Code_DataItemName</DataField>
+        </Field>
+        <Field Name="Status_DataItemName">
+          <DataField>Status_DataItemName</DataField>
+        </Field>
+        <Field Name="SystemCreatedAt_DataItemName">
+          <DataField>SystemCreatedAt_DataItemName</DataField>
+        </Field>
+        <Field Name="SystemCreatedBy_DataItemName">
+          <DataField>SystemCreatedBy_DataItemName</DataField>
+        </Field>
+        <Field Name="SystemId_DataItemName">
+          <DataField>SystemId_DataItemName</DataField>
+        </Field>
+        <Field Name="SystemModifiedAt_DataItemName">
+          <DataField>SystemModifiedAt_DataItemName</DataField>
+        </Field>
+        <Field Name="SystemModifiedBy_DataItemName">
+          <DataField>SystemModifiedBy_DataItemName</DataField>
+        </Field>
+        <Field Name="TaxAreaCode_DataItemName">
+          <DataField>TaxAreaCode_DataItemName</DataField>
+        </Field>
+        <Field Name="TaxLiable_DataItemName">
+          <DataField>TaxLiable_DataItemName</DataField>
+        </Field>
+        <Field Name="TransactionSpecification_DataItemName">
+          <DataField>TransactionSpecification_DataItemName</DataField>
+        </Field>
+        <Field Name="TransactionType_DataItemName">
+          <DataField>TransactionType_DataItemName</DataField>
+        </Field>
+        <Field Name="TransportMethod_DataItemName">
+          <DataField>TransportMethod_DataItemName</DataField>
+        </Field>
+        <Field Name="VATBaseDiscount_DataItemName">
+          <DataField>VATBaseDiscount_DataItemName</DataField>
+        </Field>
+        <Field Name="VATBaseDiscount_DataItemNameFormat">
+          <DataField>VATBaseDiscount_DataItemNameFormat</DataField>
+        </Field>
+        <Field Name="VATBusPostingGroup_DataItemName">
+          <DataField>VATBusPostingGroup_DataItemName</DataField>
+        </Field>
+        <Field Name="VATCountryRegionCode_DataItemName">
+          <DataField>VATCountryRegionCode_DataItemName</DataField>
+        </Field>
+        <Field Name="VATRegistrationNo_DataItemName">
+          <DataField>VATRegistrationNo_DataItemName</DataField>
+        </Field>
+        <Field Name="VATReportingDate_DataItemName">
+          <DataField>VATReportingDate_DataItemName</DataField>
+        </Field>
+        <Field Name="VendorAuthorizationNo_DataItemName">
+          <DataField>VendorAuthorizationNo_DataItemName</DataField>
+        </Field>
+        <Field Name="VendorCrMemoNo_DataItemName">
+          <DataField>VendorCrMemoNo_DataItemName</DataField>
+        </Field>
+        <Field Name="VendorInvoiceNo_DataItemName">
+          <DataField>VendorInvoiceNo_DataItemName</DataField>
+        </Field>
+        <Field Name="VendorOrderNo_DataItemName">
+          <DataField>VendorOrderNo_DataItemName</DataField>
+        </Field>
+        <Field Name="VendorPostingGroup_DataItemName">
+          <DataField>VendorPostingGroup_DataItemName</DataField>
+        </Field>
+        <Field Name="VendorShipmentNo_DataItemName">
+          <DataField>VendorShipmentNo_DataItemName</DataField>
+        </Field>
+        <Field Name="YourReference_DataItemName">
+          <DataField>YourReference_DataItemName</DataField>
+        </Field>
+        <Field Name="TotalExcVAT">
+          <DataField>TotalExcVAT</DataField>
+        </Field>
+        <Field Name="TotalExcVATFormat">
+          <DataField>TotalExcVATFormat</DataField>
+        </Field>
+        <Field Name="TotalIncVAT">
+          <DataField>TotalIncVAT</DataField>
+        </Field>
+        <Field Name="TotalIncVATFormat">
+          <DataField>TotalIncVATFormat</DataField>
+        </Field>
+        <Field Name="VATAmount">
+          <DataField>VATAmount</DataField>
+        </Field>
+        <Field Name="VATAmountFormat">
+          <DataField>VATAmountFormat</DataField>
+        </Field>
+        <Field Name="PurchaserName">
+          <DataField>PurchaserName</DataField>
+        </Field>
+        <Field Name="Shipment_Method_Description">
+          <DataField>Shipment_Method_Description</DataField>
+        </Field>
+        <Field Name="Payment_Description">
+          <DataField>Payment_Description</DataField>
+        </Field>
+        <Field Name="No_Purchaseline">
+          <DataField>No_Purchaseline</DataField>
+        </Field>
+        <Field Name="No_PurchLine_Lbl">
+          <DataField>No_PurchLine_Lbl</DataField>
+        </Field>
+        <Field Name="Desc_PurchLine_Lbl">
+          <DataField>Desc_PurchLine_Lbl</DataField>
+        </Field>
+        <Field Name="Qty_PurchLine_Lbl">
+          <DataField>Qty_PurchLine_Lbl</DataField>
+        </Field>
+        <Field Name="UOM_PurchLine_Lbl">
+          <DataField>UOM_PurchLine_Lbl</DataField>
+        </Field>
+        <Field Name="DirectUniCost_Lbl">
+          <DataField>DirectUniCost_Lbl</DataField>
+        </Field>
+        <Field Name="VATAmtLineVAT_Lbl">
+          <DataField>VATAmtLineVAT_Lbl</DataField>
+        </Field>
+        <Field Name="ItemLineAmount_Lbl">
+          <DataField>ItemLineAmount_Lbl</DataField>
+        </Field>
+        <Field Name="Description">
+          <DataField>Description</DataField>
+        </Field>
+        <Field Name="Quantity">
+          <DataField>Quantity</DataField>
+        </Field>
+        <Field Name="QuantityFormat">
+          <DataField>QuantityFormat</DataField>
+        </Field>
+        <Field Name="Unit_of_Measure">
+          <DataField>Unit_of_Measure</DataField>
+        </Field>
+        <Field Name="Direct_Unit_Cost">
+          <DataField>Direct_Unit_Cost</DataField>
+        </Field>
+        <Field Name="Direct_Unit_CostFormat">
+          <DataField>Direct_Unit_CostFormat</DataField>
+        </Field>
+        <Field Name="VAT__">
+          <DataField>VAT__</DataField>
+        </Field>
+        <Field Name="VAT__Format">
+          <DataField>VAT__Format</DataField>
+        </Field>
+        <Field Name="VATAmount_Lbl">
+          <DataField>VATAmount_Lbl</DataField>
+        </Field>
+        <Field Name="TotalIncVAT_Lbl">
+          <DataField>TotalIncVAT_Lbl</DataField>
+        </Field>
+        <Field Name="TotalExcVAT_Lbl">
+          <DataField>TotalExcVAT_Lbl</DataField>
+        </Field>
+        <Field Name="Line_Amount">
+          <DataField>Line_Amount</DataField>
+        </Field>
+        <Field Name="Line_AmountFormat">
+          <DataField>Line_AmountFormat</DataField>
+        </Field>
+        <Field Name="ShiptoAddress_Lbl">
+          <DataField>ShiptoAddress_Lbl</DataField>
+        </Field>
+        <Field Name="PaymentTermsDesc_Lbl">
+          <DataField>PaymentTermsDesc_Lbl</DataField>
+        </Field>
+        <Field Name="Buyer_Lbl">
+          <DataField>Buyer_Lbl</DataField>
+        </Field>
+        <Field Name="Receiveby_Lbl">
+          <DataField>Receiveby_Lbl</DataField>
+        </Field>
+        <Field Name="ShipmentMethodDesc_Lbl">
+          <DataField>ShipmentMethodDesc_Lbl</DataField>
+        </Field>
+        <Field Name="PricesInclVAT_PurchHeader_Lbl">
+          <DataField>PricesInclVAT_PurchHeader_Lbl</DataField>
+        </Field>
+        <Field Name="CompanyVATRegistrationNo_Lbl">
+          <DataField>CompanyVATRegistrationNo_Lbl</DataField>
+        </Field>
+        <Field Name="VAT_Registration_No_">
+          <DataField>VAT_Registration_No_</DataField>
+        </Field>
+        <Field Name="CompanyGiroNo_Lbl">
+          <DataField>CompanyGiroNo_Lbl</DataField>
+        </Field>
+        <Field Name="VendorInvoiceNo_Lbl">
+          <DataField>VendorInvoiceNo_Lbl</DataField>
+        </Field>
+        <Field Name="VendorOrderNo_Lbl">
+          <DataField>VendorOrderNo_Lbl</DataField>
+        </Field>
+        <Field Name="Address">
+          <DataField>Address</DataField>
+        </Field>
+        <Field Name="Address_2">
+          <DataField>Address_2</DataField>
+        </Field>
+        <Field Name="Ship_to_Address">
+          <DataField>Ship_to_Address</DataField>
+        </Field>
+        <Field Name="AllowBlankPaymentInfo_CompanyInformation">
+          <DataField>AllowBlankPaymentInfo_CompanyInformation</DataField>
+        </Field>
+        <Field Name="AlternativeLanguageCode_CompanyInformation">
+          <DataField>AlternativeLanguageCode_CompanyInformation</DataField>
+        </Field>
+        <Field Name="BankAccountNo_CompanyInformation">
+          <DataField>BankAccountNo_CompanyInformation</DataField>
+        </Field>
+        <Field Name="BankBranchNo_CompanyInformation">
+          <DataField>BankBranchNo_CompanyInformation</DataField>
+        </Field>
+        <Field Name="BankName_CompanyInformation">
+          <DataField>BankName_CompanyInformation</DataField>
+        </Field>
+        <Field Name="BrandColorValue_CompanyInformation">
+          <DataField>BrandColorValue_CompanyInformation</DataField>
+        </Field>
+        <Field Name="CalConvergenceTimeFrame_CompanyInformation">
+          <DataField>CalConvergenceTimeFrame_CompanyInformation</DataField>
+        </Field>
+        <Field Name="CheckAvailPeriodCalc_CompanyInformation">
+          <DataField>CheckAvailPeriodCalc_CompanyInformation</DataField>
+        </Field>
+        <Field Name="CheckAvailTimeBucket_CompanyInformation">
+          <DataField>CheckAvailTimeBucket_CompanyInformation</DataField>
+        </Field>
+        <Field Name="City_CompanyInformation">
+          <DataField>City_CompanyInformation</DataField>
+        </Field>
+        <Field Name="ContactPerson_CompanyInformation">
+          <DataField>ContactPerson_CompanyInformation</DataField>
+        </Field>
+        <Field Name="CountryRegionCode_CompanyInformation">
+          <DataField>CountryRegionCode_CompanyInformation</DataField>
+        </Field>
+        <Field Name="County_CompanyInformation">
+          <DataField>County_CompanyInformation</DataField>
+        </Field>
+        <Field Name="CreatedDateTime_CompanyInformation">
+          <DataField>CreatedDateTime_CompanyInformation</DataField>
+        </Field>
+        <Field Name="CustomSystemIndicatorText_CompanyInformation">
+          <DataField>CustomSystemIndicatorText_CompanyInformation</DataField>
+        </Field>
+        <Field Name="CustomsPermitDate_CompanyInformation">
+          <DataField>CustomsPermitDate_CompanyInformation</DataField>
+        </Field>
+        <Field Name="CustomsPermitNo_CompanyInformation">
+          <DataField>CustomsPermitNo_CompanyInformation</DataField>
+        </Field>
+        <Field Name="DemoCompany_CompanyInformation">
+          <DataField>DemoCompany_CompanyInformation</DataField>
+        </Field>
+        <Field Name="EMail_CompanyInformation">
+          <DataField>EMail_CompanyInformation</DataField>
+        </Field>
+        <Field Name="EORINumber_CompanyInformation">
+          <DataField>EORINumber_CompanyInformation</DataField>
+        </Field>
+        <Field Name="FaxNo_CompanyInformation">
+          <DataField>FaxNo_CompanyInformation</DataField>
+        </Field>
+        <Field Name="GiroNo_CompanyInformation">
+          <DataField>GiroNo_CompanyInformation</DataField>
+        </Field>
+        <Field Name="GLN_CompanyInformation">
+          <DataField>GLN_CompanyInformation</DataField>
+        </Field>
+        <Field Name="IBAN_CompanyInformation">
+          <DataField>IBAN_CompanyInformation</DataField>
+        </Field>
+        <Field Name="IndustrialClassification_CompanyInformation">
+          <DataField>IndustrialClassification_CompanyInformation</DataField>
+        </Field>
+        <Field Name="LastModifiedDateTime_CompanyInformation">
+          <DataField>LastModifiedDateTime_CompanyInformation</DataField>
+        </Field>
+        <Field Name="LocationCode_CompanyInformation">
+          <DataField>LocationCode_CompanyInformation</DataField>
+        </Field>
+        <Field Name="Name_CompanyInformation">
+          <DataField>Name_CompanyInformation</DataField>
+        </Field>
+        <Field Name="Name2_CompanyInformation">
+          <DataField>Name2_CompanyInformation</DataField>
+        </Field>
+        <Field Name="PaymentRoutingNo_CompanyInformation">
+          <DataField>PaymentRoutingNo_CompanyInformation</DataField>
+        </Field>
+        <Field Name="PhoneNo_CompanyInformation">
+          <DataField>PhoneNo_CompanyInformation</DataField>
+        </Field>
+        <Field Name="PhoneNo2_CompanyInformation">
+          <DataField>PhoneNo2_CompanyInformation</DataField>
+        </Field>
+        <Field Name="Picture_CompanyInformation">
+          <DataField>Picture_CompanyInformation</DataField>
+        </Field>
+        <Field Name="PictureLastModDateTime_CompanyInformation">
+          <DataField>PictureLastModDateTime_CompanyInformation</DataField>
+        </Field>
+        <Field Name="PostCode_CompanyInformation">
+          <DataField>PostCode_CompanyInformation</DataField>
+        </Field>
+        <Field Name="PrimaryKey_CompanyInformation">
+          <DataField>PrimaryKey_CompanyInformation</DataField>
+        </Field>
+        <Field Name="RegistrationNo_CompanyInformation">
+          <DataField>RegistrationNo_CompanyInformation</DataField>
+        </Field>
+        <Field Name="ResponsibilityCenter_CompanyInformation">
+          <DataField>ResponsibilityCenter_CompanyInformation</DataField>
+        </Field>
+        <Field Name="ShiptoAddress2_CompanyInformation">
+          <DataField>ShiptoAddress2_CompanyInformation</DataField>
+        </Field>
+        <Field Name="ShiptoCity_CompanyInformation">
+          <DataField>ShiptoCity_CompanyInformation</DataField>
+        </Field>
+        <Field Name="ShiptoContact_CompanyInformation">
+          <DataField>ShiptoContact_CompanyInformation</DataField>
+        </Field>
+        <Field Name="ShiptoCountryRegionCode_CompanyInformation">
+          <DataField>ShiptoCountryRegionCode_CompanyInformation</DataField>
+        </Field>
+        <Field Name="ShiptoCounty_CompanyInformation">
+          <DataField>ShiptoCounty_CompanyInformation</DataField>
+        </Field>
+        <Field Name="ShiptoName_CompanyInformation">
+          <DataField>ShiptoName_CompanyInformation</DataField>
+        </Field>
+        <Field Name="ShiptoName2_CompanyInformation">
+          <DataField>ShiptoName2_CompanyInformation</DataField>
+        </Field>
+        <Field Name="ShiptoPhoneNo_CompanyInformation">
+          <DataField>ShiptoPhoneNo_CompanyInformation</DataField>
+        </Field>
+        <Field Name="ShiptoPostCode_CompanyInformation">
+          <DataField>ShiptoPostCode_CompanyInformation</DataField>
+        </Field>
+        <Field Name="SWIFTCode_CompanyInformation">
+          <DataField>SWIFTCode_CompanyInformation</DataField>
+        </Field>
+        <Field Name="SystemIndicator_CompanyInformation">
+          <DataField>SystemIndicator_CompanyInformation</DataField>
+        </Field>
+        <Field Name="SystemIndicatorStyle_CompanyInformation">
+          <DataField>SystemIndicatorStyle_CompanyInformation</DataField>
+        </Field>
+        <Field Name="SystemCreatedAt_CompanyInformation">
+          <DataField>SystemCreatedAt_CompanyInformation</DataField>
+        </Field>
+        <Field Name="SystemCreatedBy_CompanyInformation">
+          <DataField>SystemCreatedBy_CompanyInformation</DataField>
+        </Field>
+        <Field Name="SystemId_CompanyInformation">
+          <DataField>SystemId_CompanyInformation</DataField>
+        </Field>
+        <Field Name="SystemModifiedAt_CompanyInformation">
+          <DataField>SystemModifiedAt_CompanyInformation</DataField>
+        </Field>
+        <Field Name="SystemModifiedBy_CompanyInformation">
+          <DataField>SystemModifiedBy_CompanyInformation</DataField>
+        </Field>
+        <Field Name="TelexAnswerBack_CompanyInformation">
+          <DataField>TelexAnswerBack_CompanyInformation</DataField>
+        </Field>
+        <Field Name="TelexNo_CompanyInformation">
+          <DataField>TelexNo_CompanyInformation</DataField>
+        </Field>
+        <Field Name="UseGLNinElectronicDocument_CompanyInformation">
+          <DataField>UseGLNinElectronicDocument_CompanyInformation</DataField>
+        </Field>
+        <Field Name="VATRegistrationNo_CompanyInformation">
+          <DataField>VATRegistrationNo_CompanyInformation</DataField>
+        </Field>
+        <Field Name="CompCountryName">
+          <DataField>CompCountryName</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

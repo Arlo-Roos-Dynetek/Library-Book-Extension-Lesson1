@@ -24,8 +24,10 @@ report 50301 CronusReport
 {
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
-    DefaultLayout = Word;
-    WordLayout = './Reports/Report Layouts/LayoutName.docx';
+    //DefaultLayout = Word;
+    DefaultLayout = RDLC;
+    // WordLayout = './Reports/Report Layouts/LayoutName.docx';
+    RDLCLayout = './Reports/Report Layouts/LayoutName.rdl';
 
 
 

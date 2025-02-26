@@ -6,23 +6,36 @@ pageextension 50330 "Library Inventory Page" extends "Business Manager Role Cent
         {
             part("Library Inventory Page"; "Library Inventory Page")
             {
-
+                ApplicationArea = all;
             }
         }
+
     }
 
     actions
     {
-        addfirst(processing)
+        addfirst(creation)
         {
             action("Go to Dashboard")
             {
+                ApplicationArea = all;
                 Caption = 'Go to Dashboard';
                 RunObject = Page "Dashboard Page";
                 RunPageMode = View;
+
+            }
+            action("Open Library List")
+            {
+                ApplicationArea = all;
+                Caption = 'Open Library List';
+                RunObject = Page "List Of Books";
+                RunPageMode = View;
+
             }
         }
+
     }
+
 
     var
         myInt: Integer;
