@@ -86,7 +86,7 @@ table 50330 "Library Dashboard"
 
             Editable = false;
         }
-        field(60; "Author Filter"; Text[50])
+        field(60; "Author Filter"; Text[200])
         {
             Caption = 'Author';
             ToolTip = 'Filter by Author.';
@@ -119,33 +119,5 @@ table 50330 "Library Dashboard"
             Clustered = true;
         }
     }
-
-    fieldgroups
-    {
-        // Add changes to field groups here
-    }
-
-    var
-        myInt: Integer;
-
-    trigger OnInsert()
-    begin
-
-    end;
-
-    trigger OnModify()
-    begin
-
-    end;
-
-    trigger OnDelete()
-    begin
-
-    end;
-
-    trigger OnRename()
-    begin
-
-    end;
 
 }

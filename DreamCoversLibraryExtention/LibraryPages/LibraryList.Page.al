@@ -42,6 +42,11 @@ page 50120 "List Of Books"
                     ApplicationArea = All;
 
                 }
+                field("Date Added";Rec."Date Added")
+                {
+                    ApplicationArea = All;
+
+                }
                 field("Date Rented"; Rec."Date Rented")
                 {
                     ApplicationArea = All;

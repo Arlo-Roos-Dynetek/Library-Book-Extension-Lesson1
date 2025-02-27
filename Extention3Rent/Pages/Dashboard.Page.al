@@ -33,6 +33,7 @@ page 50330 "Dashboard Page"
                     trigger OnValidate()
                     begin
                         Rec.SetFilter("Publishing Date", PublishingDate);
+                        PublishingDate := Rec.GetFilter("Publishing Date");
                         CurrPage.Update();
                     end;
 
@@ -43,20 +44,25 @@ page 50330 "Dashboard Page"
                     trigger OnValidate()
                     begin
                         Rec.SetFilter("Added Date", AddedDate);
+                        AddedDate := Rec.GetFilter("Added Date");
                         CurrPage.Update();
                     end;
                 }
             }
-            group("Details")
+            group("Total Books")
             {
                 field("Total Books Avaliable"; Rec."Total Books Avaliable")
                 {
                     DrillDownPageId = "List Of Books";
                 }
-                field("Total Rented"; Rec."Total Rented")
+                field("Total books Rented"; Rec."Total Rented")
                 {
                     DrillDownPageId = "List Of Books";
                 }
+            }
+            group("Overdue Level Details")
+            {
+
                 field("Total Mild"; Rec."Total Mild")
                 {
                     DrillDownPageId = "List Of Books";

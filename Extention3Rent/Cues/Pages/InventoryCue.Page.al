@@ -4,14 +4,14 @@ page 50331 "Library Inventory Page"
     ApplicationArea = All;
     UsageCategory = Administration;
     SourceTable = "Library Inventory Cue";
-    
+
     layout
     {
         area(Content)
         {
             cuegroup("Library Inventory")
             {
-                field("Books recently added";Rec."Books recently added")
+                field("Books recently added"; Rec."Books added in past Month")
                 {
                     DrillDownPageId = "List Of Books";
                 }
@@ -25,7 +25,7 @@ page 50331 "Library Inventory Page"
             Rec.Init();
             Rec.Insert();
         end;
-        Rec.CalcFields("Books recently added");
+        Rec.CalcFields("Books added in past Month");
     end;
-    
+
 }
