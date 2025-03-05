@@ -30,6 +30,12 @@ tableextension 50305 LibraryEXT extends Library
             ToolTip = 'This field shows the monthly rank of the book.';
 
         }
+        field(90; "Description"; Text[2000])
+        {
+            Caption = 'Description';
+            ToolTip = 'This field shows the description of the book.';
+
+        }
 
 
 

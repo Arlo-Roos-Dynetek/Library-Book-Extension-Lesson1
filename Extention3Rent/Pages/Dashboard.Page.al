@@ -16,15 +16,19 @@ page 50330 "Dashboard Page"
 
                     trigger OnValidate()
                     begin
-                        Rec.SetFilter("Author Filter", '@*' + AuthorFilter + '*');
-                        CurrPage.Update();
+                        if AuthorFilter <> '' then begin
+                            Rec.SetFilter("Author Filter", '@*' + AuthorFilter + '*');
+                            CurrPage.Update();
+                        end;
+
                     end;
                 }
                 field("Genre Filter"; GenreFilter)
                 {
                     trigger OnValidate()
                     begin
-                        Rec.SetFilter("Genre Filter", '%1', GenreFilter);
+                        if GenreFilter <> Enum::"Genre List"::" " then
+                            Rec.SetFilter("Genre Filter", '%1', GenreFilter);
                         CurrPage.Update();
                     end;
                 }
@@ -32,9 +36,12 @@ page 50330 "Dashboard Page"
                 {
                     trigger OnValidate()
                     begin
-                        Rec.SetFilter("Publishing Date", PublishingDate);
-                        PublishingDate := Rec.GetFilter("Publishing Date");
-                        CurrPage.Update();
+                        if PublishingDate <> '' then begin
+                            Rec.SetFilter("Publishing Date", PublishingDate);
+                            PublishingDate := Rec.GetFilter("Publishing Date");
+                            CurrPage.Update();
+                        end;
+
                     end;
 
                 }
@@ -43,9 +50,12 @@ page 50330 "Dashboard Page"
 
                     trigger OnValidate()
                     begin
-                        Rec.SetFilter("Added Date", AddedDate);
-                        AddedDate := Rec.GetFilter("Added Date");
-                        CurrPage.Update();
+                        if AddedDate <> '' then begin
+                            Rec.SetFilter("Added Date", AddedDate);
+                            AddedDate := Rec.GetFilter("Added Date");
+                            CurrPage.Update();
+                        end;
+
                     end;
                 }
             }

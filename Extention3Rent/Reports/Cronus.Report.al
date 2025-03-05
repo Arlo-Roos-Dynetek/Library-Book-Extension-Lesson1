@@ -120,18 +120,10 @@ report 50301 CronusReport
             column(VATRegistrationNo_Lbl; VATRegistrationNo_Lbl)
             {
             }
-            column(ARcdNotInvExVATLCY_DataItemName; "A. Rcd. Not Inv. Ex. VAT (LCY)")
-            {
-            }
-            column(Amount_DataItemName; Amount)
-            {
-            }
             column(AmountIncludingVAT_DataItemName; "Amount Including VAT")
             {
             }
-            column(AmtRcdNotInvoicedLCY_DataItemName; "Amt. Rcd. Not Invoiced (LCY)")
-            {
-            }
+
 
             column(BuyfromAddress_DataItemName; "Buy-from Address")
             {
@@ -145,9 +137,7 @@ report 50301 CronusReport
             column(BuyfromContact_DataItemName; "Buy-from Contact")
             {
             }
-            column(BuyfromContactNo_DataItemName; "Buy-from Contact No.")
-            {
-            }
+
             column(BuyfromCountryRegionCode_DataItemName; "Buy-from Country/Region Code")
             {
             }
@@ -169,9 +159,7 @@ report 50301 CronusReport
             column(BuyfromVendorNo_DataItemName; "Buy-from Vendor No.")
             {
             }
-            column(CampaignNo_DataItemName; "Campaign No.")
-            {
-            }
+
             column(DocumentDate_DataItemName; Format("Document Date", 0, 4))
             {
 
@@ -192,15 +180,11 @@ report 50301 CronusReport
             column(OrderAddressCode_DataItemName; "Order Address Code")
             {
             }
-            column(OrderClass_DataItemName; "Order Class")
-            {
-            }
+
             column(OrderDate_DataItemName; "Order Date")
             {
             }
-            column(PartiallyInvoiced_DataItemName; "Partially Invoiced")
-            {
-            }
+
             column(PaytoAddress_DataItemName; "Pay-to Address")
             {
             }
@@ -222,15 +206,9 @@ report 50301 CronusReport
             column(PaytoCounty_DataItemName; "Pay-to County")
             {
             }
-            column(PaytoICPartnerCode_DataItemName; "Pay-to IC Partner Code")
-            {
-            }
-            column(PaytoName_DataItemName; "Pay-to Name")
-            {
-            }
-            column(PaytoName2_DataItemName; "Pay-to Name 2")
-            {
-            }
+
+
+
             column(PaytoPostCode_DataItemName; "Pay-to Post Code")
             {
             }
@@ -250,66 +228,30 @@ report 50301 CronusReport
             {
             }
 
-            column(PendingApprovals_DataItemName; "Pending Approvals")
-            {
-            }
-            column(PmtDiscountDate_DataItemName; "Pmt. Discount Date")
-            {
-            }
+
+
             column(PostingDate_DataItemName; "Posting Date")
             {
             }
             column(PostingDescription_DataItemName; "Posting Description")
             {
             }
-            column(PostingfromWhseRef_DataItemName; "Posting from Whse. Ref.")
-            {
-            }
+
             column(PostingNo_DataItemName; "Posting No.")
             {
             }
-            column(PostingNoSeries_DataItemName; "Posting No. Series")
-            {
-            }
+
             column(Prepayment_DataItemName; "Prepayment %")
             {
             }
-            column(PrepaymentDueDate_DataItemName; "Prepayment Due Date")
-            {
-            }
-            column(PrepaymentNo_DataItemName; "Prepayment No.")
-            {
-            }
-            column(PrepaymentNoSeries_DataItemName; "Prepayment No. Series")
-            {
-            }
-            column(PrepmtCrMemoNo_DataItemName; "Prepmt. Cr. Memo No.")
-            {
-            }
-            column(PrepmtCrMemoNoSeries_DataItemName; "Prepmt. Cr. Memo No. Series")
-            {
-            }
-            column(PrepmtPaymentDiscount_DataItemName; "Prepmt. Payment Discount %")
-            {
-            }
-            column(PrepmtPaymentTermsCode_DataItemName; "Prepmt. Payment Terms Code")
-            {
-            }
-            column(PrepmtPmtDiscountDate_DataItemName; "Prepmt. Pmt. Discount Date")
-            {
-            }
-            column(PrepmtPostingDescription_DataItemName; "Prepmt. Posting Description")
-            {
-            }
+
             column(PriceCalculationMethod_DataItemName; "Price Calculation Method")
             {
             }
             column(PricesIncludingVAT_DataItemName; "Prices Including VAT")
             {
             }
-            column(PrintPostedDocuments_DataItemName; "Print Posted Documents")
-            {
-            }
+
             column(PromisedReceiptDate_DataItemName; "Promised Receipt Date")
             {
             }
@@ -322,9 +264,7 @@ report 50301 CronusReport
             column(ReasonCode_DataItemName; "Reason Code")
             {
             }
-            column(RecalculateInvoiceDisc_DataItemName; "Recalculate Invoice Disc.")
-            {
-            }
+
             column(Receive_DataItemName; Receive)
             {
             }
@@ -337,25 +277,14 @@ report 50301 CronusReport
             column(ReceivingNoSeries_DataItemName; "Receiving No. Series")
             {
             }
-            column(RemittoCode_DataItemName; "Remit-to Code")
-            {
-            }
+
             column(RequestedReceiptDate_DataItemName; "Requested Receipt Date")
-            {
-            }
-            column(ResponsibilityCenter_DataItemName; "Responsibility Center")
             {
             }
             column(ReturnShipmentNo_DataItemName; "Return Shipment No.")
             {
             }
             column(ReturnShipmentNoSeries_DataItemName; "Return Shipment No. Series")
-            {
-            }
-            column(SelltoCustomerNo_DataItemName; "Sell-to Customer No.")
-            {
-            }
-            column(SendICDocument_DataItemName; "Send IC Document")
             {
             }
             column(Ship_DataItemName; Ship)
@@ -398,83 +327,21 @@ report 50301 CronusReport
             {
             }
 
-            column(ShortcutDimension1Code_DataItemName; "Shortcut Dimension 1 Code")
-            {
-            }
-            column(ShortcutDimension2Code_DataItemName; "Shortcut Dimension 2 Code")
-            {
-            }
             column(Status_DataItemName; Status)
             {
             }
-            column(SystemCreatedAt_DataItemName; SystemCreatedAt)
-            {
-            }
-            column(SystemCreatedBy_DataItemName; SystemCreatedBy)
-            {
-            }
-            column(SystemId_DataItemName; SystemId)
-            {
-            }
-            column(SystemModifiedAt_DataItemName; SystemModifiedAt)
-            {
-            }
-            column(SystemModifiedBy_DataItemName; SystemModifiedBy)
-            {
-            }
-            column(TaxAreaCode_DataItemName; "Tax Area Code")
-            {
-            }
-            column(TaxLiable_DataItemName; "Tax Liable")
-            {
-            }
-            column(TransactionSpecification_DataItemName; "Transaction Specification")
-            {
-            }
-            column(TransactionType_DataItemName; "Transaction Type")
-            {
-            }
-            column(TransportMethod_DataItemName; "Transport Method")
-            {
-            }
-            column(VATBaseDiscount_DataItemName; "VAT Base Discount %")
-            {
-            }
-            column(VATBusPostingGroup_DataItemName; "VAT Bus. Posting Group")
-            {
-            }
-            column(VATCountryRegionCode_DataItemName; "VAT Country/Region Code")
-            {
-            }
+
             column(VATRegistrationNo_DataItemName; "VAT Registration No.")
             {
             }
-            column(VATReportingDate_DataItemName; "VAT Reporting Date")
-            {
-            }
-            column(VendorAuthorizationNo_DataItemName; "Vendor Authorization No.")
-            {
-            }
-            column(VendorCrMemoNo_DataItemName; "Vendor Cr. Memo No.")
-            {
-            }
+
             column(VendorInvoiceNo_DataItemName; "Vendor Invoice No.")
             {
             }
             column(VendorOrderNo_DataItemName; "Vendor Order No.")
             {
             }
-            column(VendorPostingGroup_DataItemName; "Vendor Posting Group")
-            {
-            }
-            column(VendorShipmentNo_DataItemName; "Vendor Shipment No.")
-            {
-            }
-            column(YourReference_DataItemName; "Your Reference")
-            {
 
-
-            }
             column(TotalExcVAT; TotalExcVAT)
             {
 
@@ -634,40 +501,9 @@ report 50301 CronusReport
                 {
 
                 }
-                column(AllowBlankPaymentInfo_CompanyInformation; "Allow Blank Payment Info.")
-                {
-                }
-                column(AlternativeLanguageCode_CompanyInformation; "Alternative Language Code")
-                {
-                }
-                column(BankAccountNo_CompanyInformation; "Bank Account No.")
-                {
-                }
-                column(BankBranchNo_CompanyInformation; "Bank Branch No.")
-                {
-                }
-                column(BankName_CompanyInformation; "Bank Name")
-                {
-                }
-                column(BrandColorValue_CompanyInformation; "Brand Color Value")
-                {
-                }
-                column(CalConvergenceTimeFrame_CompanyInformation; "Cal. Convergence Time Frame")
-                {
-                }
-                column(CheckAvailPeriodCalc_CompanyInformation; "Check-Avail. Period Calc.")
-                {
-                }
-                column(CheckAvailTimeBucket_CompanyInformation; "Check-Avail. Time Bucket")
-                {
-                }
+
+
                 column(City_CompanyInformation; City)
-                {
-                }
-                column(ContactPerson_CompanyInformation; "Contact Person")
-                {
-                }
-                column(CountryRegionCode_CompanyInformation; "Country/Region Code")
                 {
                 }
                 column(County_CompanyInformation; County)
@@ -676,39 +512,16 @@ report 50301 CronusReport
                 column(CreatedDateTime_CompanyInformation; "Created DateTime")
                 {
                 }
-                column(CustomSystemIndicatorText_CompanyInformation; "Custom System Indicator Text")
-                {
-                }
-                column(CustomsPermitDate_CompanyInformation; "Customs Permit Date")
-                {
-                }
-                column(CustomsPermitNo_CompanyInformation; "Customs Permit No.")
-                {
-                }
-                column(DemoCompany_CompanyInformation; "Demo Company")
-                {
-                }
+
                 column(EMail_CompanyInformation; "E-Mail")
                 {
                 }
-                column(EORINumber_CompanyInformation; "EORI Number")
-                {
-                }
-                column(FaxNo_CompanyInformation; "Fax No.")
-                {
-                }
+
                 column(GiroNo_CompanyInformation; "Giro No.")
                 {
                 }
-                column(GLN_CompanyInformation; GLN)
-                {
-                }
-                column(IBAN_CompanyInformation; IBAN)
-                {
-                }
-                column(IndustrialClassification_CompanyInformation; "Industrial Classification")
-                {
-                }
+
+
                 column(LastModifiedDateTime_CompanyInformation; "Last Modified Date Time")
                 {
                 }
@@ -721,27 +534,10 @@ report 50301 CronusReport
                 column(Name2_CompanyInformation; "Name 2")
                 {
                 }
-                column(PaymentRoutingNo_CompanyInformation; "Payment Routing No.")
-                {
-                }
-                column(PhoneNo_CompanyInformation; "Phone No.")
-                {
-                }
-                column(PhoneNo2_CompanyInformation; "Phone No. 2")
-                {
-                }
                 column(Picture_CompanyInformation; Picture)
                 {
                 }
-                column(PictureLastModDateTime_CompanyInformation; "Picture - Last Mod. Date Time")
-                {
-                }
-                column(PostCode_CompanyInformation; "Post Code")
-                {
-                }
-                column(PrimaryKey_CompanyInformation; "Primary Key")
-                {
-                }
+
                 column(RegistrationNo_CompanyInformation; "Registration No.")
                 {
                 }
@@ -775,39 +571,7 @@ report 50301 CronusReport
                 column(ShiptoPostCode_CompanyInformation; "Ship-to Post Code")
                 {
                 }
-                column(SWIFTCode_CompanyInformation; "SWIFT Code")
-                {
-                }
-                column(SystemIndicator_CompanyInformation; "System Indicator")
-                {
-                }
-                column(SystemIndicatorStyle_CompanyInformation; "System Indicator Style")
-                {
-                }
-                column(SystemCreatedAt_CompanyInformation; SystemCreatedAt)
-                {
-                }
-                column(SystemCreatedBy_CompanyInformation; SystemCreatedBy)
-                {
-                }
-                column(SystemId_CompanyInformation; SystemId)
-                {
-                }
-                column(SystemModifiedAt_CompanyInformation; SystemModifiedAt)
-                {
-                }
-                column(SystemModifiedBy_CompanyInformation; SystemModifiedBy)
-                {
-                }
-                column(TelexAnswerBack_CompanyInformation; "Telex Answer Back")
-                {
-                }
-                column(TelexNo_CompanyInformation; "Telex No.")
-                {
-                }
-                column(UseGLNinElectronicDocument_CompanyInformation; "Use GLN in Electronic Document")
-                {
-                }
+
                 column(VATRegistrationNo_CompanyInformation; "VAT Registration No.")
                 {
                 }
