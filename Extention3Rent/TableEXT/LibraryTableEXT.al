@@ -1,6 +1,6 @@
 tableextension 50305 LibraryEXT extends Library
 {
-    
+
     fields
     {
         field(40; Status; Enum "Status Levels")
@@ -34,6 +34,24 @@ tableextension 50305 LibraryEXT extends Library
         {
             Caption = 'Description';
             ToolTip = 'This field shows the description of the book.';
+
+        }
+        field(100; "Date Created"; Date)
+        {
+            Caption = 'Date Created';
+            ToolTip = 'This field shows the date the book was created.';
+
+        }
+        field(110; "Open Library ID"; Code[100])
+        {
+            Caption = 'Open Library ID';
+            ToolTip = 'This field shows the Open Library ID of the book';
+
+        }
+        field(120; "Author ID"; Code[1000])
+        {
+            Caption = 'Author ID';
+            ToolTip = 'This field shows the Author ID of the book';
 
         }
 

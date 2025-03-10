@@ -5,15 +5,17 @@ codeunit 50301 "Save Temp File"
     var
         Library: Record Library;
         ListOfBooks: Page "List Of Books";
+        SearchBookAPI: Codeunit "Search Book Api";
     begin
         Library.Init();
         Library.Validate(Title, LibTemp.Title);
-        library.Validate("Book ID", LibTemp."Book ID");
+        library.Validate("Open Library ID", LibTemp."Open Library ID");
         Library.Validate(Description, LibTemp.Description);
-        Library.Validate("Publication Date", LibTemp."Publication Date");
-       // Library.Validate(Author, LibTemp.Author);
-        Library.Validate("Date Added",Today);
-
+        Library.Validate("Date Created", LibTemp."Date Created");
+        // Library.Validate(Author, LibTemp.Author);
+        Library.Validate("Date Added", Today);
+        Library.Validate("Author ID", LibTemp."Author ID");
+        SearchBookAPI.InsertAuthors(LibTemp."Author ID",LibTemp."Open Library ID");
         Library.Insert(true);
         ListOfBooks.Update();
     end;

@@ -2,7 +2,7 @@ page 50300 "Book Search API"
 {
     PageType = list;
     ApplicationArea = All;
-    UsageCategory = Administration;
+    UsageCategory = Lists;
     SourceTable = "Library";
     SourceTableTemporary = true;
 
@@ -35,11 +35,15 @@ page 50300 "Book Search API"
                 {
 
                 }
+                field("Open Library ID"; Rec."Open Library ID")
+                {
+
+                }
                 field(Title; Rec.Title)
                 {
-                    // DataClassification = ToBeClassified;
+                    
                 }
-                field("Publication Date"; Rec."Publication Date")
+                field("Date Created"; Rec."Date Created")
                 {
 
                 }
@@ -69,6 +73,16 @@ page 50300 "Book Search API"
                             SaveTempFile.SaveBook(Rec);
                         until Rec.Next() = 0;
                     Rec.Reset();
+                end;
+            }
+            action("View Author Table")
+            {
+
+                trigger OnAction()
+                var
+                    AuthorPage: Page "Author Page";
+                begin
+                    AuthorPage.Run();
                 end;
             }
         }
