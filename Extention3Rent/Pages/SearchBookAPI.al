@@ -35,15 +35,7 @@ page 50300 "Book Search API"
                 {
 
                 }
-                field("Open Library ID"; Rec."Open Library ID")
-                {
-
-                }
                 field(Title; Rec.Title)
-                {
-                    
-                }
-                field("Date Created"; Rec."Date Created")
                 {
 
                 }
@@ -51,6 +43,15 @@ page 50300 "Book Search API"
                 {
 
                 }
+                field("Open Library ID"; Rec."Open Library ID")
+                {
+
+                }
+                field("Date Created"; Rec."Date Created")
+                {
+
+                }
+
             }
         }
 
@@ -75,7 +76,7 @@ page 50300 "Book Search API"
                     Rec.Reset();
                 end;
             }
-            action("View Author Table")
+            action("View Authors")
             {
 
                 trigger OnAction()

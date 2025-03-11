@@ -98,9 +98,20 @@ pageextension 50304 "List Page extention " extends "List Of Books"
                 ApplicationArea = All;
                 trigger OnAction()
                 var
-                  "DashboardPage": Page "Dashboard Page" ;
+                    "DashboardPage": Page "Dashboard Page";
                 begin
                     DashboardPage.Run();
+                end;
+            }
+            action("Search New Book")
+            {
+                Image = Find;
+                ApplicationArea = All;
+                trigger OnAction()
+                var
+                    BookSearchAPI: Page "Book Search API";
+                begin
+                    BookSearchAPI.Run();
                 end;
             }
         }

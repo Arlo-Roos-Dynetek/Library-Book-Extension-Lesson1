@@ -4,7 +4,7 @@ page 50302 "Author Page"
     ApplicationArea = All;
     UsageCategory = Administration;
     SourceTable = Author;
-    
+    // Editable= false;
     layout
     {
         area(Content)
