@@ -7,17 +7,17 @@ codeunit 50301 "Save Temp File"
         ListOfBooks: Page "List Of Books";
         SearchBookAPI: Codeunit "Search Book Api";
         BookExist: Label 'Book already exists.';
-        Author: Record Author;
+
     begin
-       
+
         // Library.SetCurrentKey(Title);
-       
+
         // if Library.Get(LibTemp.Title) then begin
         //     Message('3');
         //     Message(BookExist);
         //     exit;
         // end;
-       
+
         Library.Init();
         Library.Validate(Title, LibTemp.Title);
         library.Validate("Open Library ID", LibTemp."Open Library ID");
@@ -26,11 +26,13 @@ codeunit 50301 "Save Temp File"
         Library.Validate("Date Added", Today);
         Library.Validate("Author ID", LibTemp."Author ID");
         SearchBookAPI.InsertAuthors(LibTemp."Author ID", LibTemp."Open Library ID");
-        Library.Validate(Author,LibTemp.Author);
+        Library.Validate(Author, LibTemp.Author);
 
         Library.Insert(true);
         ListOfBooks.Update();
     end;
+
+
 
     var
         myInt: Integer;

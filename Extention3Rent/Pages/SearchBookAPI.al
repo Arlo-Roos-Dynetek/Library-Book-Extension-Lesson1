@@ -33,9 +33,13 @@ page 50300 "Book Search API"
                 Editable = false;
                 field("Book ID"; Rec."Book ID")
                 {
-
+                    Visible = false;
                 }
                 field(Title; Rec.Title)
+                {
+
+                }
+                field(Author;Rec.Author)
                 {
 
                 }

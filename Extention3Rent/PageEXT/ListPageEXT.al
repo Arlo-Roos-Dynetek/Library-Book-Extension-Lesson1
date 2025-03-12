@@ -6,6 +6,7 @@ pageextension 50304 "List Page extention " extends "List Of Books"
 
     layout
     {
+    
         addbefore(Genre)
         {
             field(Status; Rec.Status)
@@ -46,7 +47,6 @@ pageextension 50304 "List Page extention " extends "List Of Books"
 
             action("Overdue Books")
             {
-                // Caption = 'haha';
                 Image = Filter;
                 ApplicationArea = all;
                 trigger OnAction()
@@ -56,7 +56,7 @@ pageextension 50304 "List Page extention " extends "List Of Books"
                     "Rent Functionality".ShowAllOverdueBooks(Rec);
                 end;
             }
-            action("Change Fine Amount")
+            action("Change Fixed Data")
             {
                 Image = Change;
                 ApplicationArea = All;

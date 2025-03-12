@@ -21,6 +21,11 @@ table 50301 "Library table Setup"
             Caption = 'Extreme Status Fines';
             ToolTip = 'This field shows the what the fine for having an Book that is overdue on Extreme Status level.';
         }
+        field(30; "API No."; Code[10])
+        {
+            Caption= 'API No.';
+            ToolTip = 'This field represents the API that will be used.';
+        }
 
     }
 

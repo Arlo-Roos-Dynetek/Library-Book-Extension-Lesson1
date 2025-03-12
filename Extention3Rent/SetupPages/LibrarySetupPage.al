@@ -41,6 +41,16 @@ page 50301 "Library Page Setup"
                         Rec.Modify(true);
                     end;
                 }
+                field("API No.";Rec."API No.")
+                {
+                  
+                //   trigger OnValidate()
+                //     var
+
+                //     begin
+                //         Rec.Modify(true);
+                //     end;
+                }
             }
         }
     }
