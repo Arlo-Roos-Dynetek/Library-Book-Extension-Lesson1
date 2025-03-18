@@ -4,15 +4,15 @@ page 50302 "Author Page"
     ApplicationArea = All;
     UsageCategory = Administration;
     SourceTable = Author;
-    CardPageId="Author Card Page";
-    Editable= false;
+    CardPageId = "Author Card Page";
+    Editable = false;
     layout
     {
         area(Content)
         {
             repeater(Details)
             {
-              
+
                 field("Author ID"; Rec."Author ID")
                 {
                     ToolTip = 'Specifies the value of the Author ID field.', Comment = '%';
@@ -52,22 +52,4 @@ page 50302 "Author Page"
             }
         }
     }
-    
-    actions
-    {
-        area(Processing)
-        {
-            action(ActionName)
-            {
-                
-                trigger OnAction()
-                begin
-                    
-                end;
-            }
-        }
-    }
-    
-    var
-        myInt: Integer;
 }

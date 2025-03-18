@@ -60,36 +60,29 @@ table 50300 Author
             DataClassification = ToBeClassified;
             ToolTip = 'This is his best work.';
         }
+        field(80; "Image ID"; Text[100])
+        {
+            Caption = 'ID for Authors image';
+            DataClassification = ToBeClassified;
+            ToolTip = 'This is the ID for the Authors image';
+        }
+        field(90; "Image"; Media)
+        {
+            Caption = 'Authors image';
+            DataClassification = ToBeClassified;
+            ToolTip = 'This is the Authors image';
+        }
     }
+
+
 
 
 
     fieldgroups
     {
-        // Add changes to field groups here
+        fieldgroup(Brick; "Author ID", Name, "Birth Date", Image)
+        {
+
+        }
     }
-
-    var
-        myInt: Integer;
-
-    trigger OnInsert()
-    begin
-
-    end;
-
-    trigger OnModify()
-    begin
-
-    end;
-
-    trigger OnDelete()
-    begin
-
-    end;
-
-    trigger OnRename()
-    begin
-
-    end;
-
 }

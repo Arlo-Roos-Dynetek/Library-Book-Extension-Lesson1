@@ -39,7 +39,7 @@ page 50300 "Book Search API"
                 {
 
                 }
-                field(Author;Rec.Author)
+                field(Author; Rec.Author)
                 {
 
                 }
@@ -55,6 +55,10 @@ page 50300 "Book Search API"
                 {
 
                 }
+                field("Book Cover"; Rec."Book Cover")
+                {
+
+                }
 
             }
         }
@@ -67,7 +71,7 @@ page 50300 "Book Search API"
         {
             action("Save book")
             {
-
+                Image = Save;
                 trigger OnAction()
                 var
                     SaveTempFile: Codeunit "Save Temp File";
@@ -82,7 +86,7 @@ page 50300 "Book Search API"
             }
             action("View Authors")
             {
-
+                Image=View;
                 trigger OnAction()
                 var
                     AuthorPage: Page "Author Page";
@@ -95,5 +99,4 @@ page 50300 "Book Search API"
 
     var
         SearchBook: Text[200];
-    // Description: Text[1000];
 }

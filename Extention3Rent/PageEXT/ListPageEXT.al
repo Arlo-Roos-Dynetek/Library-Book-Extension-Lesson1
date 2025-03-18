@@ -24,6 +24,7 @@ pageextension 50304 "List Page extention " extends "List Of Books"
             }
             field("Weeks Overdue"; Rec."Weeks Overdue")
             {
+                
                 Caption = 'Weeks Overdue';
                 ToolTip = 'This is the current Weeks overdue for the book.';
                 ApplicationArea = All;
@@ -34,6 +35,7 @@ pageextension 50304 "List Page extention " extends "List Of Books"
                 ToolTip = '';
                 ApplicationArea = All;
             }
+         
 
 
 
@@ -74,10 +76,8 @@ pageextension 50304 "List Page extention " extends "List Of Books"
                 trigger OnAction()
                 var
                     "BookRentingLog": Page "Book Renting Log";
-                //  RentFunctionality: Codeunit "Rent Functionality";
                 begin
                     BookRentingLog.Run();
-                    //    RentFunctionality.ShowLogPage(Rec);
                 end;
             }
             action("Update Book Rank")

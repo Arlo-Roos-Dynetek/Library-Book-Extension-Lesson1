@@ -54,22 +54,25 @@ tableextension 50305 LibraryEXT extends Library
             ToolTip = 'This field shows the Author ID of the book';
 
         }
+        field(130; "Cover ID"; Code[50])
+        {
+            Caption = 'Cover ID';
+            ToolTip = 'This field shows the Cover ID of the book';
+
+        }
+        field(140; "Book Cover"; Media)
+        {
+            Caption = 'Book Cover';
+            ToolTip = 'This field shows the Cover of the book';
+
+        }
 
 
 
-    }
-
-    keys
-    {
-        // Add changes to keys here
     }
 
     fieldgroups
     {
-        // Add changes to field groups here
+        addlast(Brick; Author, Title, "Book Cover", Rented, "Customer Name") { }
     }
-
-
-    var
-        myInt: Integer;
 }
