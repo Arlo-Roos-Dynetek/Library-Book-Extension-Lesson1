@@ -6,7 +6,7 @@ pageextension 50304 "List Page extention " extends "List Of Books"
 
     layout
     {
-    
+
         addbefore(Genre)
         {
             field(Status; Rec.Status)
@@ -24,7 +24,7 @@ pageextension 50304 "List Page extention " extends "List Of Books"
             }
             field("Weeks Overdue"; Rec."Weeks Overdue")
             {
-                
+
                 Caption = 'Weeks Overdue';
                 ToolTip = 'This is the current Weeks overdue for the book.';
                 ApplicationArea = All;
@@ -32,15 +32,17 @@ pageextension 50304 "List Page extention " extends "List Of Books"
             field("Monthly Rank"; Rec."Monthly Rank")
             {
                 Caption = 'Monthly Rank';
-                ToolTip = '';
+                ToolTip = 'This field shows the rank the book has been placed at based on the amount of times that has been rented in a months time.';
                 ApplicationArea = All;
             }
-         
+
 
 
 
         }
+
     }
+
 
     actions
     {
@@ -114,6 +116,7 @@ pageextension 50304 "List Page extention " extends "List Of Books"
                     BookSearchAPI.Run();
                 end;
             }
+
         }
 
 

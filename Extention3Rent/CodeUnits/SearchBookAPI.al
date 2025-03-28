@@ -13,13 +13,11 @@ codeunit 50300 "Search Book Api"
         DataObject: JsonObject;
         DataArray: array[10] of Text;
         LibrarytableSetup: Record "Library table Setup";
-
-
         SearchBookCover: Text[1000];
         InStream: Instream;
     begin
         LibrarytableSetup.Get();
-        SearchQueryForBookSearch := '/search.json?title=' + SearchBook.Replace(' ', '+') + '&page=1&limit=10';
+        SearchQueryForBookSearch := '/search.json?title=' + SearchBook.Replace(' ', '+') + '&page=1&limit=50';
 
         SendGetRequest(AATJSONHelper, ResponseObject, SearchQueryForBookSearch, LibrarytableSetup."API No.", 'Search Book');
 
@@ -31,11 +29,14 @@ codeunit 50300 "Search Book Api"
                 DataObject := LinesToken.AsObject();
 
                 TempLibrary.Init();
+                // TempLibrary.Validate(Title, AATJSONHelper.SelectJsonValueAsText('$.title',false));
+                // TempLibrary.Validate("Open Library ID", AATJSONHelper.SelectJsonValueAsText('$.key', false));
                 TempLibrary.Validate(Title, AATJSONHelper.GetJsonTokenAsValue(DataObject, 'title').AsText());
                 TempLibrary.Validate("Open Library ID", AATJSONHelper.GetJsonTokenAsValue(DataObject, 'key').AsCode());
 
                 if DataObject.Get('cover_edition_key', JsonToken) then
                     TempLibrary.Validate("Cover ID", AATJSONHelper.GetJsonTokenAsValue(DataObject, 'cover_edition_key').AsText());
+                // TempLibrary.Validate("Cover ID", AATJSONHelper.SelectJsonValueAsText('$.cover_edition_key', false));
 
                 if AATJSONHelper.GetJsonArray(DataObject, 'author_key', ExtractedArray) then begin
                     ExtractFromArray(blankString, ExtractedArray);
@@ -48,32 +49,42 @@ codeunit 50300 "Search Book Api"
                 end;
                 TempLibrary.Validate(Author, blankString);
 
-
-                GetDescription(TempLibrary, LibrarytableSetup, JsonToken);
-
                 TempLibrary.Insert(true);
             end
     end;
 
-    procedure InsertAuthors(BlankString: Text; OpenLibraryID: Code[1000])
+    procedure InsertAuthors(BlankString: Text; OpenLibraryID: Code[1000]; BookID: Code[20]; var LinkTable: Record "Link Table"; var LibTemp: Record Library)
     var
         Author: Record Author;
         CodeArray: List of [Text];
         Item: Text;
-        SuccessMessage: Label 'Successfully saved Book and Author.';
-        FailedMessage: Label 'Failed to save Book Author.';
+
     begin
         CodeArray := BlankString.Split(',');
         foreach Item in CodeArray do begin
             if not Author.Get(Item) then begin
                 Author.Init();
+                LinkTable.Init();
                 Author.Validate("Author ID", Item);
+                LinkTable.Validate(AuthorID, Item);
+                LinkTable.Validate(BookID, BookID);
+
+
                 GetAuthorDetails(Item, OpenLibraryID, Author);
                 GetAuthorImage(Author);
+                LinkTable.Insert(true);
                 Author.Insert(true);
+
 
             end
             else begin
+
+                LinkTable.Init();
+                Author.Validate("Author ID", Item);
+                LinkTable.Validate(AuthorID, Item);
+                LinkTable.Validate(BookID, BookID);
+                LinkTable.Insert(true);
+                GetAuthorDetails(Item, OpenLibraryID, Author);
                 Message(FailedMessage);
                 exit;
             end;
@@ -81,6 +92,12 @@ codeunit 50300 "Search Book Api"
 
         end;
         Message(SuccessMessage);
+
+        // Library.Validate(Author, LibTemp.Author);
+        // Library.Validate("Cover ID", LibTemp."Cover ID");
+        // SearchBookAPI.GetDescription(Library);
+        // if Library."Cover ID" <> '' then
+        //     SearchBookAPI.GetBookCover(Library);
     end;
 
     internal procedure SendGetRequest(var AATJSONHelper: Codeunit "AAT JSON Helper"; var ResponseObject: JsonObject; var SearchQuery: Text; ApiNo: Text; TypeOfSearch: Text)
@@ -115,6 +132,7 @@ codeunit 50300 "Search Book Api"
         LinesArray: JsonArray;
         AuthorExist: Label 'Author already exists';
         LibrarytableSetup: Record "Library table Setup";
+        OutStream: OutStream;
 
     begin
         LibrarytableSetup.Get();
@@ -134,15 +152,19 @@ codeunit 50300 "Search Book Api"
         // Author.Validate(Name, AATJSONHelper.GetJsonTokenAsValue(DataObject, 'name').AsText());
 
 
-
-        if ResponseObject.Get('bio', JsonToken) then
+        Author.Bio.CreateOutStream(OutStream);
+        if DataObject.Get('bio', JsonToken) then
             if JsonToken.IsObject then begin
-                AATJSONHelper.GetJsonObject(ResponseObject, 'bio', DataObject);
-                DataObject := JsonToken.AsObject();
+                // AATJSONHelper.GetJsonObject(ResponseObject, 'bio', DataObject);
+                // DataObject := JsonToken.AsObject();
                 // Author.Validate(Bio, AATJSONHelper.GetJsonTokenAsValue(DataObject, 'value').AsText());
+                Outstream.WriteText(AATJSONHelper.SelectJsonValueAsText('$.bio.value', false));
+
             end
             else
-                Author.Validate(Bio, AATJSONHelper.GetJsonTokenAsValue(ResponseObject, 'bio').AsText());
+                Outstream.WriteText(AATJSONHelper.SelectJsonValueAsText('$.bio', false));
+        // Author.Validate(Bio, AATJSONHelper.SelectJsonValueAsText('$.bio', false));
+        // Author.Validate(Bio, AATJSONHelper.GetJsonTokenAsValue(ResponseObject, 'bio').AsText());
 
         SearchQuery := '/search/authors.json?q=' + Author.Name.Replace(' ', '+');
         SendGetRequest(AATJSONHelper, ResponseObject, SearchQuery, LibrarytableSetup."API No.", 'Author Extra Details');
@@ -159,15 +181,15 @@ codeunit 50300 "Search Book Api"
                     // Author.Validate("Birth Date", AATJSONHelper.GetJsonTokenAsValue(DataObject, 'birth_date').AsText());
                     Author.Validate("Birth Date", AATJSONHelper.SelectJsonValueAsText('$.birth_date', false));
 
-                    // if DataObject.Get('death_date', JsonToken) then
-                    //     Author.Validate("Death Date", AATJSONHelper.GetJsonTokenAsValue(DataObject, 'death_date').AsText());
-                    Author.Validate("Death Date", AATJSONHelper.SelectJsonValueAsText('$.death_date', false));
-                    // if DataObject.Get('top_work', JsonToken) then
-                    //     Author.Validate("Top Work", AATJSONHelper.GetJsonTokenAsValue(DataObject, 'top_work').AsText());
-                    Author.Validate("Top Work", AATJSONHelper.SelectJsonValueAsText('$.top_work', false));
-                    // if DataObject.Get('work_count', JsonToken) then
-                    //     Author.Validate("Work Count", AATJSONHelper.GetJsonTokenAsValue(DataObject, 'work_count').AsText());
-                    Author.Validate("Work Count", AATJSONHelper.SelectJsonValueAsText('$.work_count', false));
+                    if DataObject.Get('death_date', JsonToken) then
+                        Author.Validate("Death Date", AATJSONHelper.GetJsonTokenAsValue(DataObject, 'death_date').AsText());
+                    // Author.Validate("Death Date", AATJSONHelper.SelectJsonValueAsText('$.death_date', false));
+                    if DataObject.Get('top_work', JsonToken) then
+                        Author.Validate("Top Work", AATJSONHelper.GetJsonTokenAsValue(DataObject, 'top_work').AsText());
+                    // Author.Validate("Top Work", AATJSONHelper.SelectJsonValueAsText('$.top_work', false));
+                    if DataObject.Get('work_count', JsonToken) then
+                        Author.Validate("Work Count", AATJSONHelper.GetJsonTokenAsValue(DataObject, 'work_count').AsText());
+                    // Author.Validate("Work Count", AATJSONHelper.SelectJsonValueAsText('$.work_count', false));
                 end;
             end;
         end;
@@ -228,30 +250,42 @@ codeunit 50300 "Search Book Api"
         Author.Image.ImportStream(InStream, '');
     end;
 
-    local procedure GetDescription(var TempLibrary: Record Library; var LibrarytableSetup: Record "Library table Setup"; var JsonToken: JsonToken)
+    procedure GetDescription(var Library: Record Library)
     var
         AATJSONHelper: Codeunit "AAT JSON Helper";
         SearchQueryForBookDescriptionSearch: Text;
         ResponseObject2: JsonObject;
         DataObject2: JsonObject;
-    begin
-        SearchQueryForBookDescriptionSearch := TempLibrary."Open Library ID" + '.json';
-        SendGetRequest(AATJSONHelper, ResponseObject2, SearchQueryForBookDescriptionSearch, LibrarytableSetup."API No.", 'Search Book Description');
+        JsonToken: JsonToken;
+        LibrarytableSetup: Record "Library table Setup";
+        Outstream: OutStream;
 
+    begin
+        LibrarytableSetup.Get();
+        SearchQueryForBookDescriptionSearch := Library."Open Library ID" + '.json';
+        SendGetRequest(AATJSONHelper, ResponseObject2, SearchQueryForBookDescriptionSearch, LibrarytableSetup."API No.", 'Search Book Description');
+        Library.Description.CreateOutStream(Outstream);
         if ResponseObject2.Get('description', JsonToken) then
             if JsonToken.IsObject then begin
-                // AATJSONHelper.GetJsonObject(ResponseObject2, 'description', DataObject2);
+                // //AATJSONHelper.GetJsonObject(ResponseObject2, 'description', DataObject2);
                 DataObject2 := JsonToken.AsObject();
-                // TempLibrary.Validate(Description, AATJSONHelper.GetJsonTokenAsValue(DataObject2, 'value').AsText());
-                TempLibrary.Validate(Description, AATJSONHelper.SelectJsonValueAsText('$.value', false));
+                // //TempLibrary.Validate(Description, AATJSONHelper.GetJsonTokenAsValue(DataObject2, 'value').AsText());
+                // Library.Validate(Description, AATJSONHelper.SelectJsonValueAsText('$.value', false));
+                Outstream.WriteText(AATJSONHelper.SelectJsonValueAsText('$.value', false));
             end else
-                TempLibrary.Validate(Description, AATJSONHelper.SelectJsonValueAsText('$.description', false));
-        // TempLibrary.Validate(Description, AATJSONHelper.GetJsonTokenAsValue(ResponseObject2, 'description').AsText());
+                Outstream.WriteText(AATJSONHelper.SelectJsonValueAsText('$.description', false));
+        // Library.Validate(Description, AATJSONHelper.SelectJsonValueAsText('$.description', false));
+        // //TempLibrary.Validate(Description, AATJSONHelper.GetJsonTokenAsValue(ResponseObject2, 'description').AsText());
 
 
         // AATJSONHelper.GetJsonObject(ResponseObject2, 'created', DataObject2);
         // TempLibrary.Validate("Date Created", DT2Date(AATJSONHelper.GetJsonTokenAsValue(DataObject2, 'value').AsDateTime()));
-        TempLibrary.Validate("Date Created", DT2Date(AATJSONHelper.SelectJsonValueAsDateTime('$.created.value', false)));
+        Library.Validate("Date Created", DT2Date(AATJSONHelper.SelectJsonValueAsDateTime('$.created.value', false)));
+
     end;
+
+    var
+        SuccessMessage: Label 'Successfully saved Book and Author.';
+        FailedMessage: Label 'Failed to save Book Author.';
 
 }

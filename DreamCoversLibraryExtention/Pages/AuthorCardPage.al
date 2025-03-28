@@ -1,10 +1,10 @@
-page 50303 "Author Card Page"
+page 50100 "Author Card Page"
 {
     PageType = Card;
     ApplicationArea = All;
     UsageCategory = Administration;
     SourceTable = Author;
-    
+
     layout
     {
         area(Content)
@@ -27,7 +27,6 @@ page 50303 "Author Card Page"
                 {
                     ToolTip = 'Specifies the value of the Personal Name field.', Comment = '%';
                 }
-                
             }
             group(Dates)
             {
@@ -48,13 +47,52 @@ page 50303 "Author Card Page"
                 }
                 field("Work Count"; Rec."Work Count")
                 {
+                    Caption = 'Work Count';
                     ToolTip = 'Specifies the value of the Work Count field.', Comment = '%';
                 }
-                 field(Bio; Rec.Bio)
+                field(Bio; BioData)
                 {
                     ToolTip = 'Specifies the value of the Biography field.', Comment = '%';
+                    MultiLine = true;
                 }
+                
+            }
+            
+            part("Book Details"; "Book Part")
+            {
+              //  SubPageLink = "Book ID" = field("Book Filter");
+              SubPageLink = "Book ID" = field("Book Filter");
             }
         }
     }
+    trigger OnAfterGetRecord()
+    var
+        InStream: InStream;
+        LinkTable: Record "Link Table";
+        FilterText: Text;
+    begin
+        Rec.CalcFields(Bio);
+        if rec.Bio.HasValue then begin
+            Rec.Bio.CreateInStream(InStream);
+            InStream.ReadText(BioData)
+        end;
+
+
+        FilterText := '';
+        LinkTable.SetFilter(AuthorID, Rec."Author ID");
+
+        if LinkTable.FindSet() then begin
+            FilterText += LinkTable.BookID;
+            LinkTable.Next();
+            repeat
+                FilterText += '|' + LinkTable.BookID;
+            until LinkTable.Next() = 0;
+
+            if FilterText <> Rec."Book Filter" then
+                Rec.SetFilter("Book Filter", filterText);
+        end;
+    end;
+     
+    var
+        BioData: Text;
 }

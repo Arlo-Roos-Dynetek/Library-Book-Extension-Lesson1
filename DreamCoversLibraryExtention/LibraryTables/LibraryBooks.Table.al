@@ -24,7 +24,7 @@ table 50120 Library
             ToolTip = 'This is the Title of the Book.';
         }
 
-        field(2; Author; Text[200])
+        field(2; Author; Text[2048])
         {
             Caption = 'Author';
             DataClassification = CustomerContent;
@@ -139,6 +139,11 @@ table 50120 Library
             Caption = 'Date Added';
             DataClassification = CustomerContent;
             ToolTip = 'This is the Date the book was added to the Library.';
+        }
+        field(19; "Author Filter"; Text[2048])
+        {
+            Caption = 'Author Filter';
+            FieldClass = FlowFilter;
         }
     }
 

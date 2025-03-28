@@ -8,24 +8,32 @@ codeunit 50301 "Save Temp File"
         SearchBookAPI: Codeunit "Search Book Api";
         BookExist: Label 'Book already exists.';
         LibrarytableSetup: Record "Library table Setup";
+        LinkTable: Record "Link Table";
 
     begin
-        LibrarytableSetup.Get();
+
         Library.Init();
+
         Library.Validate(Title, LibTemp.Title);
         library.Validate("Open Library ID", LibTemp."Open Library ID");
         Library.Validate(Description, LibTemp.Description);
         Library.Validate("Date Created", LibTemp."Date Created");
         Library.Validate("Date Added", Today);
         Library.Validate("Author ID", LibTemp."Author ID");
-        SearchBookAPI.InsertAuthors(LibTemp."Author ID", LibTemp."Open Library ID");
+        Library.Insert(true);
+        // Library.Get(LibTemp."Open Library ID");
+        SearchBookAPI.InsertAuthors(LibTemp."Author ID", LibTemp."Open Library ID", Library."Book ID", LinkTable, LibTemp);
+        SaveAuthorDetailsToBook(LibTemp, Library, SearchBookAPI);
+        Library.Modify(true);
+        ListOfBooks.Update();
+    end;
+
+    procedure SaveAuthorDetailsToBook(var LibTemp: Record Library; var Library: Record Library; var SearchBookAPI: Codeunit "Search Book Api")
+    begin
         Library.Validate(Author, LibTemp.Author);
         Library.Validate("Cover ID", LibTemp."Cover ID");
-
+        SearchBookAPI.GetDescription(Library);
         if Library."Cover ID" <> '' then
             SearchBookAPI.GetBookCover(Library);
-
-        Library.Insert(true);
-        ListOfBooks.Update();
     end;
 }

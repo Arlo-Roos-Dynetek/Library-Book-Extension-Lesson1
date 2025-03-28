@@ -1,4 +1,4 @@
-table 50300 Author
+table 50100 Author
 {
     DataClassification = CustomerContent;
 
@@ -30,7 +30,7 @@ table 50300 Author
             DataClassification = ToBeClassified;
             ToolTip = 'This is the date the author died.';
         }
-        field(30; "Bio"; Text[2048])
+        field(30; "Bio"; Blob)
         {
             Caption = 'Biography';
             DataClassification = ToBeClassified;
@@ -71,6 +71,13 @@ table 50300 Author
             Caption = 'Authors image';
             DataClassification = ToBeClassified;
             ToolTip = 'This is the Authors image';
+        }
+        field(100; "Book Filter"; Text[2048])
+        {
+            Caption = 'Book Filter';
+            FieldClass = FlowFilter;
+            // DataClassification = ToBeClassified;
+            // ToolTip = 'This is the Authors image';
         }
     }
 

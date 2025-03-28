@@ -16,6 +16,7 @@ page 50300 "Book Search API"
                 field(SearchBook; SearchBook)
                 {
                     Caption = 'Search book: ';
+                    ToolTip = 'This textbox is used to type in the title ot part of the title of the book.';
                     trigger OnValidate()
                     var
                         SearchBookApi: Codeunit "Search Book Api";
@@ -40,18 +41,6 @@ page 50300 "Book Search API"
 
                 }
                 field(Author; Rec.Author)
-                {
-
-                }
-                field(Description; Rec.Description)
-                {
-
-                }
-                field("Open Library ID"; Rec."Open Library ID")
-                {
-
-                }
-                field("Date Created"; Rec."Date Created")
                 {
 
                 }
