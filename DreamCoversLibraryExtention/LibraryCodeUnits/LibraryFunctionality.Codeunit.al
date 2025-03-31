@@ -52,7 +52,7 @@ codeunit 50140 "Library Functionality"
     end;
 
 
-    
+
 
 
 
@@ -64,11 +64,21 @@ codeunit 50140 "Library Functionality"
     /// <param name="Book">Temporary Record Library.</param>
     procedure save(Book: Record Library temporary)
     var
-        Lib: Record Library;
+        Library: Record Library;
+        LinkTable: Record "Link Table";
+        Author: Record Author;
     begin
-        Lib.Init();
-        Lib := Book;
-        Lib."Date Added" := Today;
-        Lib.Insert(true);
+        Library.Init();
+        LinkTable.Init();
+        Author.Init();
+
+        Library := Book;
+
+        Author.Validate(Name, Library.Author);
+        Author.Insert();
+        LinkTable.Validate(AuthorID, Author."Author ID");
+        Library."Date Added" := Today;
+        Library.Insert(true);
+        LinkTable.Validate(BookID, Library."Book ID");
     end;
 }

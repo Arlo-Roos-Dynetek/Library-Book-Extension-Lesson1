@@ -145,6 +145,18 @@ table 50120 Library
             Caption = 'Author Filter';
             FieldClass = FlowFilter;
         }
+        field(130; "Cover ID"; Code[50])
+        {
+            Caption = 'Cover ID';
+            ToolTip = 'This field shows the Cover ID of the book';
+
+        }
+        field(140; "Book Cover"; Media)
+        {
+            Caption = 'Book Cover';
+            ToolTip = 'This field shows the Cover of the book';
+
+        }
     }
 
     keys

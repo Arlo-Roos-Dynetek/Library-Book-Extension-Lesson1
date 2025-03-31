@@ -82,7 +82,7 @@ page 50125 "Add Books"
                 {
                     ApplicationArea = All;
                 }
-                
+
             }
 
         }
@@ -108,10 +108,28 @@ page 50125 "Add Books"
 
 
             }
+
+            action("Upload Image")
+
+            {
+
+                ApplicationArea = All;
+                Promoted = true;
+                Image = Import;
+                Caption = 'Import';
+                trigger OnAction()
+                var
+                    ImageInStream: InStream;
+                    FilePath: Text;
+                begin
+                    if not UploadIntoStream('Upload Image', '', '', FilePath, ImageInStream) then
+                        exit;
+
+                    Rec."Book Cover".ImportStream(ImageInStream, '');
+
+                end;
+
+            }
         }
     }
-   
-
-    var
-    //"Genre List": Enum "Genre List";
 }

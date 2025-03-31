@@ -53,7 +53,7 @@ codeunit 50300 "Search Book Api"
             end
     end;
 
-    procedure InsertAuthors(BlankString: Text; OpenLibraryID: Code[1000]; BookID: Code[20]; var LinkTable: Record "Link Table"; var LibTemp: Record Library)
+    procedure InsertAuthors(BlankString: Text; OpenLibraryID: Code[1000]; BookID: Code[20]; var LinkTable: Record "Link Table"; var LibTemp: Record Library; var Display: Boolean)
     var
         Author: Record Author;
         CodeArray: List of [Text];
@@ -74,6 +74,8 @@ codeunit 50300 "Search Book Api"
                 GetAuthorImage(Author);
                 LinkTable.Insert(true);
                 Author.Insert(true);
+                Display:= true
+
 
 
             end
@@ -86,18 +88,20 @@ codeunit 50300 "Search Book Api"
                 LinkTable.Insert(true);
                 GetAuthorDetails(Item, OpenLibraryID, Author);
                 Message(FailedMessage);
+                Display := false;
                 exit;
             end;
 
 
         end;
-        Message(SuccessMessage);
+        
 
         // Library.Validate(Author, LibTemp.Author);
         // Library.Validate("Cover ID", LibTemp."Cover ID");
         // SearchBookAPI.GetDescription(Library);
         // if Library."Cover ID" <> '' then
         //     SearchBookAPI.GetBookCover(Library);
+      
     end;
 
     internal procedure SendGetRequest(var AATJSONHelper: Codeunit "AAT JSON Helper"; var ResponseObject: JsonObject; var SearchQuery: Text; ApiNo: Text; TypeOfSearch: Text)
@@ -285,7 +289,7 @@ codeunit 50300 "Search Book Api"
     end;
 
     var
-        SuccessMessage: Label 'Successfully saved Book and Author.';
+       
         FailedMessage: Label 'Failed to save Book Author.';
 
 }

@@ -83,8 +83,40 @@ page 50121 "Book Info"
                 SubPageLink = "Author ID" = field("Author Filter");
             }
         }
+        area(FactBoxes)
+        {
+            part("Book Info Card Part"; "Book Info Card Part")
+            {
+                SubPageLink = "Book ID" = field("Book ID");
+            }
+        }
 
     }
+    actions
+    {
+        area(Processing)
+        {
+            action(Download)
+            {
+                trigger OnAction()
+                var
+                    Instream: InStream;
+                    OutStream: OutStream;
+                    TempBlob: Codeunit "Temp Blob";
+                    FileName: Text;
+                begin
+                    FileName := Rec.Title + '.png';
+                    TempBlob.CreateOutStream(OutStream, TextEncoding::Windows);
+                    Rec."Book Cover".ExportStream(OutStream);
+
+                    TempBlob.CreateInStream(Instream, TextEncoding::Windows);
+                    DownloadFromStream(Instream, '', '', '', FileName);
+                    Message('Download Successful');
+                end;
+            }
+        }
+    }
+
     trigger OnAfterGetRecord()
     var
         LinkTable: Record "Link Table";

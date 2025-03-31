@@ -64,18 +64,26 @@ page 50300 "Book Search API"
                 trigger OnAction()
                 var
                     SaveTempFile: Codeunit "Save Temp File";
+                    Display: Boolean;
                 begin
                     CurrPage.SetSelectionFilter(Rec);
                     if Rec.FindSet() then
                         repeat
-                            SaveTempFile.SaveBook(Rec);
+                            Display := SaveTempFile.SaveBook(Rec,Display);
+                            if Display = false then
+                            begin
+                               Message(FailedMessage); 
+                            end;
+                            
                         until Rec.Next() = 0;
                     Rec.Reset();
+                   if Display = true then
+                    Message(SuccessMessage);
                 end;
             }
             action("View Authors")
             {
-                Image=View;
+                Image = View;
                 trigger OnAction()
                 var
                     AuthorPage: Page "Author Page";
@@ -88,4 +96,6 @@ page 50300 "Book Search API"
 
     var
         SearchBook: Text[200];
+        SuccessMessage: Label 'Successfully saved Book and Author.';
+        FailedMessage: Label 'Failed to save Book and Author.';
 }
