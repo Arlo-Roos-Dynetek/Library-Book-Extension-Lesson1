@@ -163,6 +163,8 @@ codeunit 50200 "Filter Procedures"
     /// <param name="Genre List">Enum "Genre List".</param>
     /// <param name="Library">VAR Record Library.</param>
     /// This procedure is used to filter the table by "Genre".
+    
+    [TryFunction]
     procedure FilterByGenre("Genre List": Enum "Genre List"; var Library: Record Library)
     var
 

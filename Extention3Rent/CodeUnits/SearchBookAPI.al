@@ -1,7 +1,7 @@
 codeunit 50300 "Search Book Api"
 {
 
-
+    // [TryFunction]
     procedure SearchBooks(SearchBook: Text; var TempLibrary: Record Library)
     var
         AATJSONHelper: Codeunit "AAT JSON Helper";
@@ -15,11 +15,14 @@ codeunit 50300 "Search Book Api"
         LibrarytableSetup: Record "Library table Setup";
         SearchBookCover: Text[1000];
         InStream: Instream;
+        IDcounter: Integer;
     begin
+        IDcounter:= 1;
         LibrarytableSetup.Get();
         SearchQueryForBookSearch := '/search.json?title=' + SearchBook.Replace(' ', '+') + '&page=1&limit=50';
 
-        SendGetRequest(AATJSONHelper, ResponseObject, SearchQueryForBookSearch, LibrarytableSetup."API No.", 'Search Book');
+      SendGetRequest(AATJSONHelper, ResponseObject, SearchQueryForBookSearch, LibrarytableSetup."API No.", 'Search Book') ;
+    //   Error('Send request failed');
 
 
         TempLibrary.DeleteAll();
@@ -29,6 +32,8 @@ codeunit 50300 "Search Book Api"
                 DataObject := LinesToken.AsObject();
 
                 TempLibrary.Init();
+                TempLibrary.Validate("Book ID",Format(IDcounter));
+                IDcounter+= 1;
                 // TempLibrary.Validate(Title, AATJSONHelper.SelectJsonValueAsText('$.title',false));
                 // TempLibrary.Validate("Open Library ID", AATJSONHelper.SelectJsonValueAsText('$.key', false));
                 TempLibrary.Validate(Title, AATJSONHelper.GetJsonTokenAsValue(DataObject, 'title').AsText());
@@ -49,10 +54,11 @@ codeunit 50300 "Search Book Api"
                 end;
                 TempLibrary.Validate(Author, blankString);
 
-                TempLibrary.Insert(true);
+
+                TempLibrary.Insert(false);
             end
     end;
-
+    // [TryFunction]
     procedure InsertAuthors(BlankString: Text; OpenLibraryID: Code[1000]; BookID: Code[20]; var LinkTable: Record "Link Table"; var LibTemp: Record Library; var Display: Boolean)
     var
         Author: Record Author;
@@ -74,7 +80,7 @@ codeunit 50300 "Search Book Api"
                 GetAuthorImage(Author);
                 LinkTable.Insert(true);
                 Author.Insert(true);
-                Display:= true
+                Display := true
 
 
 
@@ -94,16 +100,17 @@ codeunit 50300 "Search Book Api"
 
 
         end;
-        
+
 
         // Library.Validate(Author, LibTemp.Author);
         // Library.Validate("Cover ID", LibTemp."Cover ID");
         // SearchBookAPI.GetDescription(Library);
         // if Library."Cover ID" <> '' then
         //     SearchBookAPI.GetBookCover(Library);
-      
+
     end;
 
+    // [TryFunction]
     internal procedure SendGetRequest(var AATJSONHelper: Codeunit "AAT JSON Helper"; var ResponseObject: JsonObject; var SearchQuery: Text; ApiNo: Text; TypeOfSearch: Text)
     var
         AATRestHelper: Codeunit "AAT REST Helper";
@@ -289,7 +296,7 @@ codeunit 50300 "Search Book Api"
     end;
 
     var
-       
+
         FailedMessage: Label 'Failed to save Book Author.';
 
 }

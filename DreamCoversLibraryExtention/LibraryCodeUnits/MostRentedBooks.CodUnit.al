@@ -7,6 +7,7 @@ codeunit 50121 "Most Rented"
     // it then orders it according to descending order.
     // then it goes to the first record.
     // now it runs through the first three records to find the top three most rented records.
+    [TryFunction]
     local procedure FindTop3RentedBooks()
     var
         Library: Record Library;
@@ -31,7 +32,8 @@ codeunit 50121 "Most Rented"
     // book: Record Library;
     // counter, maxRented, medRented, minRented, AmountOfRecords : Integer;
     begin
-        FindTop3RentedBooks();
+       if not FindTop3RentedBooks() then
+       Error('Top 3 books could not be found');
 
         // counter := 0;//TODO sit init in n procedure
         // maxRented := 0;

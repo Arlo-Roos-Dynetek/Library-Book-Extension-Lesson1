@@ -97,7 +97,9 @@ page 50201 "Grouped Book Info"
                     var
                         GenreText: Text;
                     begin
-                        "Filter Procedures".FilterByGenre("Genre List", Rec);
+
+                       if not "Filter Procedures".FilterByGenre("Genre List", Rec) then
+                       Error('Could not be filtered by genre');
                         CurrPage.Update();
                     end;
 

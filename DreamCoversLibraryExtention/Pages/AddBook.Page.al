@@ -103,7 +103,8 @@ page 50125 "Add Books"
                     Save: Codeunit "Library Functionality";
                 begin
 
-                    Save.save(Rec);
+                  Save.save(Rec) ;
+                //   Error('Book could not be Saved');
                 end;
 
 

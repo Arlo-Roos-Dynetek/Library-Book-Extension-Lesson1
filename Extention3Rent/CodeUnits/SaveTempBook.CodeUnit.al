@@ -22,7 +22,8 @@ codeunit 50301 "Save Temp File"
         Library.Validate("Author ID", LibTemp."Author ID");
         Library.Insert(true);
         // Library.Get(LibTemp."Open Library ID");
-        SearchBookAPI.InsertAuthors(LibTemp."Author ID", LibTemp."Open Library ID", Library."Book ID", LinkTable, LibTemp, Display);
+        SearchBookAPI.InsertAuthors(LibTemp."Author ID", LibTemp."Open Library ID", Library."Book ID", LinkTable, LibTemp, Display) ;
+    //    Error('Authors not inserted');
         SaveAuthorDetailsToBook(LibTemp, Library, SearchBookAPI);
         Library.Modify(true);
         ListOfBooks.Update();

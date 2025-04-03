@@ -19,8 +19,9 @@ codeunit 50125 "Add books code"
 
 
         if Page.RunModal(Page::"Add Books", TempRec) = Action::LookupOK then begin
-            
-            SaveUnit.save(TempRec);
+
+            SaveUnit.save(TempRec) ;
+                // Error('Book could be saved.');
         end;
 
     end;

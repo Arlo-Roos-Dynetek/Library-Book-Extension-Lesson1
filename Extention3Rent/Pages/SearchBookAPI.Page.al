@@ -22,7 +22,10 @@ page 50300 "Book Search API"
                         SearchBookApi: Codeunit "Search Book Api";
                     begin
                         if SearchBook <> '' then
+                        begin
                             SearchBookApi.SearchBooks(SearchBook, Rec)
+                        //    Error('The Book Search was not Sucessfull.')
+                        end
                         else
                             Rec.DeleteAll();
                     end;
