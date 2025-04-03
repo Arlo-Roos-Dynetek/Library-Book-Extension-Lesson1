@@ -1,7 +1,7 @@
 codeunit 50301 "Save Temp File"
 {
 
-    procedure SaveBook(LibTemp: Record Library;var Display: Boolean): Boolean
+    procedure SaveBook(LibTemp: Record Library; var Display: Boolean): Boolean
     var
         Library: Record Library;
         ListOfBooks: Page "List Of Books";
@@ -10,10 +10,11 @@ codeunit 50301 "Save Temp File"
         LibrarytableSetup: Record "Library table Setup";
         LinkTable: Record "Link Table";
 
+        Window: Dialog;
     begin
 
         Library.Init();
-
+        Window.Open('Book being added to the library: #1'+LibTemp.Title);
         Library.Validate(Title, LibTemp.Title);
         library.Validate("Open Library ID", LibTemp."Open Library ID");
         Library.Validate(Description, LibTemp.Description);
@@ -22,11 +23,12 @@ codeunit 50301 "Save Temp File"
         Library.Validate("Author ID", LibTemp."Author ID");
         Library.Insert(true);
         // Library.Get(LibTemp."Open Library ID");
-        SearchBookAPI.InsertAuthors(LibTemp."Author ID", LibTemp."Open Library ID", Library."Book ID", LinkTable, LibTemp, Display) ;
-    //    Error('Authors not inserted');
+        SearchBookAPI.InsertAuthors(LibTemp."Author ID", LibTemp."Open Library ID", Library."Book ID", LinkTable, LibTemp, Display);
+        //    Error('Authors not inserted');
         SaveAuthorDetailsToBook(LibTemp, Library, SearchBookAPI);
         Library.Modify(true);
         ListOfBooks.Update();
+        Window.Close();
         exit(Display);
     end;
 

@@ -27,6 +27,8 @@ codeunit 50312 "Rank books"
         Library: Record Library;
         BookLogTable: Record "Book Log Table";
     begin
+        Library.SetLoadFields(Library.Title,Library."Amount Rented month");
+        BookLogTable.SetLoadFields(BookLogTable."Book Title",BookLogTable."Date Rented");
         if Library.FindSet() then
             repeat begin
                 BookLogTable.SetFilter("Book Title", Library.Title);

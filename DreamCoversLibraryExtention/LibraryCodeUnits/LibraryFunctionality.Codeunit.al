@@ -25,8 +25,12 @@ codeunit 50140 "Library Functionality"
 
         //tempRec.Prequel := savedRec.Title;
         //tempRec.Series := savedRec.Series;
+
         tempRec.Insert(true);
+
+        tempRec.SetLoadFields(tempRec.Title);
         if Page.RunModal(Page::"Sequel", tempRec) = Action::LookupOK then begin
+            savedRec.SetLoadFields(savedRec.Sequel);
             savedRec.Validate(Sequel, tempRec.Title);
             savedRec.Modify(true);
             save(TempRec);

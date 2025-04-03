@@ -261,7 +261,9 @@ codeunit 50303 "Rent Functionality"
         Library: Record Library;
         Customer: Record Customer;
     begin
+        // Library.SetLoadFields()
         Library.SetFilter(Rented, 'true');
+        Library.SetLoadFields("Customer ID", Status);
         if Library.FindSet() then
             repeat
                 Customer.Get(Library."Customer ID");
