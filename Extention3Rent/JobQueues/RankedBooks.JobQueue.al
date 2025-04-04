@@ -29,6 +29,7 @@ codeunit 50312 "Rank books"
     begin
         Library.SetLoadFields(Library.Title,Library."Amount Rented month");
         BookLogTable.SetLoadFields(BookLogTable."Book Title",BookLogTable."Date Rented");
+        if BookLogTable."Book Title".Contains('(') or BookLogTable."Book Title".Contains(')') then
         if Library.FindSet() then
             repeat begin
                 BookLogTable.SetFilter("Book Title", Library.Title);
