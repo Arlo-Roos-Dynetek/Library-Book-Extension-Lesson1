@@ -103,8 +103,8 @@ page 50125 "Add Books"
                     Save: Codeunit "Library Functionality";
                 begin
 
-                  Save.save(Rec) ;
-                //   Error('Book could not be Saved');
+                    Save.save(Rec);
+                    //   Error('Book could not be Saved');
                 end;
 
 
@@ -117,7 +117,7 @@ page 50125 "Add Books"
                 ApplicationArea = All;
                 Promoted = true;
                 Image = Import;
-                Caption = 'Import';
+                Caption = 'Upload Image';
                 trigger OnAction()
                 var
                     ImageInStream: InStream;

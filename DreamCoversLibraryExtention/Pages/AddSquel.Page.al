@@ -2,7 +2,7 @@ page 50128 Sequel
 {
     // this page is used to display the fields that the user will use to enter the data of the book they want to add.
     // this page is also used to call the relevant procedures.
-    
+
     PageType = Card;
     ApplicationArea = All;
     UsageCategory = Documents;
@@ -67,8 +67,36 @@ page 50128 Sequel
                     ApplicationArea = All;
                 }
             }
+
         }
     }
 
+    actions
+    {
+        area(processing)
+        {
+            action("Upload Image")
+
+            {
+
+                ApplicationArea = All;
+                Promoted = true;
+                Image = Import;
+                Caption = 'Upload Image';
+                trigger OnAction()
+                var
+                    ImageInStream: InStream;
+                    FilePath: Text;
+                begin
+                    if not UploadIntoStream('Upload Image', '', '', FilePath, ImageInStream) then
+                        exit;
+
+                    Rec."Book Cover".ImportStream(ImageInStream, '');
+
+                end;
+
+            }
+        }
+    }
 
 }
